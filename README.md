@@ -1,5 +1,5 @@
 # Albus - Work in Progress
-Expendable and customizable admin panel.
+Extendable and customizable admin panel.
 
 ```html
 <extends:albus:layout title="[[Albus]]"/>
