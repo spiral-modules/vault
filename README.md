@@ -1,6 +1,5 @@
 # Albus
-Expendable and customizable admin panel
-
+Expendable and customizable admin panel layout and routing.
 
 ```html
 <extends:albus:layout title="[[Albus]]"/>
