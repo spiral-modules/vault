@@ -55,7 +55,7 @@
     </block:navigation>
 
     <block:main>
-        <main class="main-part">
+        <main class="main-part ${class}">
             <div class="container">
                 <div class="head-part">
                     <div class="row">
@@ -64,7 +64,9 @@
                                 <h1 align="left">
                                     <block:content-title>${title}</block:content-title>
                                 </h1>
-                                <yield:actions/>
+                                <div class="link-block right">
+                                    <yield:actions/>
+                                </div>
                             </block:content-header>
                         </div>
                     </div>
