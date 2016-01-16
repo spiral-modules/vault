@@ -21,20 +21,55 @@
     <asset:javascript href="resources/scripts/spiral/albus.js"/>
 </block:resources>
 
-
+<!--Primary page content-->
 <block:body>
-    <albus.partials:header/>
+    <div class="navbar-fixed">
+        <nav class="nav-header">
+            <div class="nav-wrapper">
+                <div class="logo-block">
+                    <block:brand>
+                        <a href="/" class="brand-logo">
+                            <img src="@{basePath}resources/images/spiral.svg" alt="Spiral">
+                        </a>
+                    </block:brand>
+                </div>
+                <div class="top-panel">
+                    <div class="hide-on-large-only">
+                        <a href="#" data-activates="nav-mobile" class="menu-link button-collapse">
+                            <b class="line-1"></b>
+                            <b class="line-2"></b>
+                            <b class="line-3"></b>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-block">
+                <block:user-block/>
+            </div>
+        </nav>
+    </div>
+
     <albus.partials:navigation/>
 
     <block:main>
         <main class="main-part">
             <div class="container">
-                <albus.partials:content.header content-title="${content-title}"/>
+                <div class="head-part">
+                    <div class="row">
+                        <div class="col s12">
+                            <block:content-header>
+                                <h1 align="left">
+                                    <block:content-title>${title}</block:content-title>
+                                </h1>
+                                <yield:actions/>
+                            </block:content-header>
+                        </div>
+                    </div>
+                </div>
+
                 <yield:content/>
             </div>
         </main>
     </block:main>
 </block:body>
-
-<!--Default value for content title is page title-->
-<block:content-title>${title}</block:content-title>
