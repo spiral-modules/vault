@@ -1,2 +1,43 @@
 # Albus
 Expendable and customizable admin panel
+
+
+```html
+<extends:albus:layout title="[[Albus]]"/>
+
+<block:content>
+    <tab:wrapper>
+
+        <!--Primary information about user account-->
+        <tab:item title="User Information" icon="user" id="info">
+            <div class="row">
+                <div class="col s6">
+                    <albus:block>
+                        <spiral:form>
+                            <form:input label="abc"/>
+                        </spiral:form>
+                    </albus:block>
+                </div>
+
+                <div class="col s6">
+                    <albus:card color="blue-grey darken-2" text="white">
+                        <p>There is an issue with something.</p>
+                    </albus:card>
+                </div>
+            </div>
+
+        </tab:item>
+
+        <!--Additional information about user account-->
+        <tab:item title="Extra Information" id="extra">
+            extra user information
+        </tab:item>
+
+        <!--Test user content-->
+        <tab:item title="test" id="test">
+            test
+        </tab:item>
+
+    </tab:wrapper>
+</block:content>
+```
