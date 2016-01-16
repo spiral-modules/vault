@@ -24,7 +24,6 @@ Expendable and customizable admin panel layout and routing.
                     </albus:card>
                 </div>
             </div>
-
         </tab:item>
 
         <!--Additional information about user account-->
