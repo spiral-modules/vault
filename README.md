@@ -40,4 +40,4 @@ Expendable and customizable admin panel layout and routing.
 </block:content>
 ```
 
-![Screenshot](http://prntscr.com/9qvfa8)
+![Screenshot](http://i.imgur.com/5R8j5lZ.png)
