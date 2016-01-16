@@ -1,7 +1,7 @@
 $color-text: #3a3a3a;
 
-@import "components/_color.scss";
-@import "components/_variables.scss";
+@import "components/_color";
+@import "components/_variables";
 
 *, *:before, *:after {
   box-sizing: border-box;

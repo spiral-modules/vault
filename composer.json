@@ -9,6 +9,7 @@
   ],
   "require": {
     "spiral/framework": "*",
+    "spiral/toolkit": "*",
     "spiral/security": "*"
   },
   "autoload": {

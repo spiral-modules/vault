@@ -1,4 +1,4 @@
-<dark:use path="albus:elements" namespace="elements"/>
+<dark:use path="albus:elements/*" namespace="albus"/>
 
 <!--Few simple aliases-->
 <dark:use path="albus:elements/card" as="albus:container"/>
