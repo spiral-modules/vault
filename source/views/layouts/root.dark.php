@@ -50,7 +50,9 @@
         </nav>
     </div>
 
-    <albus.partials:navigation/>
+    <block:navigation>
+        <albus.partials:navigation/>
+    </block:navigation>
 
     <block:main>
         <main class="main-part">
