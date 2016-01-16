@@ -39,3 +39,5 @@ Expendable and customizable admin panel layout and routing.
     </tab:wrapper>
 </block:content>
 ```
+
+![Screenshot](http://prntscr.com/9qvfa8)
