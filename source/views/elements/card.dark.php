@@ -1,7 +1,8 @@
-<?php #compile
-$this->evaluatorVariable('__title__', '${title}');
-if (!empty($__title__)) { ?><p class="card-panel-title">${title}</p><?php } #compile ?>
-
-<div class="card-panel z-depth-1" node:attributes>
-    ${context}
+<div class="card spiral ${color|white}" node:attributes>
+    <div class="card-content ${text|black}-text">
+        <?php #compile
+        ob_start(); ?>${title}<?php #compile
+        if (!empty(ob_get_clean())) { ?><span class="card-title">${title}</span><?php } #compile ?>
+        ${context}
+    </div>
 </div>
