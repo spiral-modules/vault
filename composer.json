@@ -1,0 +1,19 @@
+{
+  "name": "spiral/albus",
+  "description": "Extendable, materialize design based, administration panel ",
+  "authors": [
+    {
+      "name": "Anton Titov / Wolfy-J",
+      "email": "wolfy.jd@gmail.com"
+    }
+  ],
+  "require": {
+    "spiral/framework": "*",
+    "spiral/security": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Spiral\\": "source/"
+    }
+  }
+}
