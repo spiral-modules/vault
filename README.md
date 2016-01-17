@@ -40,7 +40,7 @@ Extendable and customizable admin panel.
 </block:content>
 ```
 
-Following code will be compiled into Materialize design HTML:
+Following code will be compiled into Materialize based HTML:
 
 ![Screenshot](http://i.imgur.com/5R8j5lZ.png)
 ![Animation](https://raw.githubusercontent.com/spiral/guide/master/resources/albus.gif)
