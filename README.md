@@ -1,4 +1,4 @@
-# Albus - Work in Progress
+# Albus - Work in Progress (only visual layer has been built at this moment)
 Extendable and customizable admin panel.
 
 ```html
