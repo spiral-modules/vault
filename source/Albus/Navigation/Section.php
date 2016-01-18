@@ -92,7 +92,10 @@ class Section
     public function hasController($controller)
     {
         foreach ($this->items as $item) {
-            if (strpos($item->getTarget(), $controller) === 0) {
+            if (
+                $item->getTarget() == $controller
+                || strpos($item->getTarget(), $controller . ':') === 0
+            ) {
                 return true;
             }
         }
