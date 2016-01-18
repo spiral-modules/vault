@@ -25,15 +25,15 @@ class AlbusConfig extends InjectableConfig
      */
     protected $config = [
         //Default albus controller
-        'defaultController' => '',
-        'controllers'       => [],
-        'navigation'        => [],
+        'controllers' => [],
+        'navigation'  => [],
 
         //Example: albus/users/addresses/1/remove/123
-        'route'             => [
+        'route'       => [
             'middlewares' => [],
             'pattern'     => 'albus[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
-            'matchHost'  => false,
+            'defaults'    => [],
+            'matchHost'   => false,
         ]
     ];
 
@@ -46,7 +46,7 @@ class AlbusConfig extends InjectableConfig
      *
      * @return array
      */
-    public function getControllers()
+    public function controllers()
     {
         return $this->config['controllers'];
     }
@@ -60,8 +60,7 @@ class AlbusConfig extends InjectableConfig
         $route = new AlbusRoute(
             $name,
             $this->config['route']['pattern'],
-            $this->config['controllers'],
-            ['controller' => $this->config['defaultController']]
+            $this->config['route']['defaults']
         );
 
         if ($this->config['route']['matchHost']) {

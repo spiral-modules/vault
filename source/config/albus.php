@@ -9,11 +9,6 @@ use Spiral\Albus;
 
 return [
     /*
-     * Controller associated with albus dashboard (homepage). Use controller alias, not class name.
-     */
-    'defaultController' => 'dashboard',
-
-    /*
      * List of controller classes associated with their alias to be available for albus. No other
      * controllers can be called.
      *
@@ -22,7 +17,7 @@ return [
      *
      * @see AlbusCore
      */
-    'controllers'       => [
+    'controllers' => [
         'dashboard' => Albus\Controllers\DashboardController::class,
 
         /*{{controllers}}*/
@@ -33,7 +28,7 @@ return [
      * and permissions needed to view link. Link labels will be translated using i18n domain
      * "albus".
      */
-    'navigation'        => [
+    'navigation'  => [
         /*
          * Project overview and activity.
          */
@@ -55,7 +50,7 @@ return [
     /*
      * Configuration for AlbusRoute.
      */
-    'route'             => [
+    'route'       => [
         /*
         * Set of middleware classes to be applied for AlbusRoute. Make sure to include AuthMiddleware
         * here!
@@ -68,12 +63,19 @@ return [
          * Simple replace albus with desired keyword (for example "admin") to specify albus url
          * namespace.
          */
-        'pattern'     => 'albus[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
+        'pattern'     => 'albus[/<controller:[a-zA-Z\.\-]+>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
+
+        /*
+         * Default route values.
+         */
+        'defaults'    => [
+            'controller' => 'dashboard'
+        ],
 
         /*
          * Set this value to true in cases when route based on sub domain patten, for example:
          * albus.website.com/[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]
          */
-        'matchHost'  => false
+        'matchHost'   => false
     ]
 ];

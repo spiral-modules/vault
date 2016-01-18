@@ -93,17 +93,17 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
      */
     public function callAction($controller, $action = '', array $parameters = [])
     {
+        if (!isset($this->config->controllers()[$controller])) {
+            throw new ControllerException(
+                "Undefined albus controller '{$controller}'",
+                ControllerException::NOT_FOUND
+            );
+        }
+
         if (!$this->guard()->allows('albus', compact('controller', 'action'))) {
             throw new ControllerException(
                 "Unreachable albus controller '{$controller}'",
                 ControllerException::FORBIDDEN
-            );
-        }
-
-        if (!in_array($controller, $this->config->getControllers())) {
-            throw new ControllerException(
-                "Undefined albus controller '{$controller}'",
-                ControllerException::NOT_FOUND
             );
         }
 
@@ -112,16 +112,18 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
 
         try {
             //Initiating controller with all required dependencies
-            $controller = $this->container->make($controller);
+            $object = $this->container->make(
+                $this->config->controllers()[$controller]
+            );
 
-            if (!$controller instanceof ControllerInterface) {
+            if (!$object instanceof ControllerInterface) {
                 throw new ControllerException(
-                    "No such controller '{$controller}' found.",
+                    "Invalid '{$controller}', ControllerInterface not implemented.",
                     ControllerException::NOT_FOUND
                 );
             }
 
-            return $controller->callAction($action, $parameters);
+            return $object->callAction($action, $parameters);
         } finally {
             $this->benchmark($benchmark);
             $this->container->restore($scope);
@@ -154,7 +156,7 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
             }
         }
 
-        if (!isset($this->config->getControllers()[$controller])) {
+        if (!isset($this->config->controllers()[$controller])) {
             throw new AlbusException(
                 "Unable to generate uri, undefined controller '{$controller}'."
             );

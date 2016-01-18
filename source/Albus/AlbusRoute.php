@@ -8,18 +8,10 @@
 namespace Spiral\Albus;
 
 use Spiral\Core\ContainerInterface;
-use Spiral\Http\Exceptions\ClientExceptions\ForbiddenException;
 use Spiral\Http\Routing\AbstractRoute;
 
 class AlbusRoute extends AbstractRoute
 {
-    /**
-     * Direct controller mapping.
-     *
-     * @var array
-     */
-    private $controllers = [];
-
     /**
      * @var AlbusCore
      */
@@ -28,14 +20,12 @@ class AlbusRoute extends AbstractRoute
     /**
      * @param string $name
      * @param string $pattern
-     * @param array  $controllers
      * @param array  $defaults
      */
-    public function __construct($name, $pattern, array $controllers, array $defaults)
+    public function __construct($name, $pattern, array $defaults)
     {
         $this->name = $name;
         $this->pattern = $pattern;
-        $this->controllers = $controllers;
 
         $this->defaults = $defaults;
     }
@@ -60,23 +50,9 @@ class AlbusRoute extends AbstractRoute
         $route = $this;
 
         return function () use ($container, $route) {
-            $controller = $route->matches['controller'];
-
-            //Due we are expecting part of class name we can remove some garbage (see to-do below)
-            $controller = strtolower(preg_replace('/[^a-z_0-9]+/i', '', $controller));
-
-            if (isset($route->controllers[$controller])) {
-                //Aliased
-                $controller = $route->controllers[$controller];
-            } else {
-                //Unable to find requested controller
-                //todo: notify albus core
-                throw new ForbiddenException();
-            }
-
             return $route->callAction(
                 $container,
-                $controller,
+                $route->matches['controller'],
                 $route->matches['action'],
                 $route->matches
             );
