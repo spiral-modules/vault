@@ -1,5 +1,5 @@
-# Albus - Work in Progress
-Expendable and customizable admin panel layout and routing.
+# Albus - Work in Progress (only visual layer has been built at this moment)
+Extendable and customizable admin panel.
 
 ```html
 <extends:albus:layout title="[[Albus]]"/>
@@ -40,4 +40,14 @@ Expendable and customizable admin panel layout and routing.
 </block:content>
 ```
 
+Following code will be compiled into Materialize based HTML:
+
 ![Screenshot](http://i.imgur.com/5R8j5lZ.png)
+![Animation](https://raw.githubusercontent.com/spiral/guide/master/resources/albus.gif)
+
+# Installation
+
+```
+composer require spiral/albus
+spiral register spiral/albus
+```
