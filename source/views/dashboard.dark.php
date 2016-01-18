@@ -43,8 +43,8 @@
                     <dt>actions</dt>
                     <dd>Page specific actions/buttons (at the same line as content title)</dd>
 
-                    <dt>logotype</dt>
-                    <dd>Page/layout specific logotype</dd>
+                    <dt>brand</dt>
+                    <dd>Page/layout specific brand information (logotype and link)</dd>
 
                     <dt>resources</dt>
                     <dd>Page/layout specific resources</dd>
