@@ -16,7 +16,7 @@
 
             <albus:card title="Links and Routing:">
                 Following technique can be used to create
-                <albus:uri href="dashboard" icon="label">in-Albus</albus:uri>
+                <albus:uri href="dashboard">in-Albus</albus:uri>
                 links:
                 <br/>
                 <code>
