@@ -8,7 +8,6 @@
 namespace Spiral\Albus\Controllers;
 
 use Spiral\Core\Controller;
-use Spiral\Views\ViewsInterface;
 
 /**
  * No guard check in this sample controller.
@@ -16,11 +15,10 @@ use Spiral\Views\ViewsInterface;
 class DashboardController extends Controller
 {
     /**
-     * @param ViewsInterface $views
      * @return string
      */
-    public function indexAction(ViewsInterface $views)
+    public function indexAction()
     {
-        return $views->render('albus:controllers/dashboard');
+        $this->views->render('albus:controllers/dashboard');
     }
 }
