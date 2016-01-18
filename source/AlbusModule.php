@@ -33,6 +33,12 @@ class AlbusModule implements ModuleInterface
      */
     public function publish(PublisherInterface $publisher, DirectoriesInterface $directories)
     {
+        $publisher->publish(
+            __DIR__ . '/config/albus.php',
+            $directories->directory('config') . 'modules/albus.php',
+            PublisherInterface::FOLLOW
+        );
+
         /**
          * Publishing all module visual resources. We are going to overwrite existed files.
          */
