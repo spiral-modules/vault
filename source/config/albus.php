@@ -9,14 +9,6 @@ use Spiral\Albus;
 
 return [
     /*
-     * Set of middleware classes to be applied for AlbusRoute. Make sure to include AuthMiddleware
-     * here!
-     */
-    'middlewares'       => [
-        /*{{middlewares}}*/
-    ],
-
-    /*
      * Controller associated with albus dashboard (homepage). Use controller alias, not class name.
      */
     'defaultController' => 'dashboard',
@@ -61,13 +53,27 @@ return [
     ],
 
     /*
-     * Route pattern albus has to respond for.
+     * Configuration for AlbusRoute.
      */
-    'route'             => 'albus[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
+    'route'             => [
+        /*
+        * Set of middleware classes to be applied for AlbusRoute. Make sure to include AuthMiddleware
+        * here!
+        */
+        'middlewares' => [
+            /*{{middlewares}}*/
+        ],
 
-    /*
-     * Set this value to true in cases when route based on sub domain patten, for example:
-     * albus.website.com/[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]
-     */
-    'domainRoute'       => false
+        /*
+         * Simple replace albus with desired keyword (for example "admin") to specify albus url
+         * namespace.
+         */
+        'pattern'     => 'keeper[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
+
+        /*
+         * Set this value to true in cases when route based on sub domain patten, for example:
+         * albus.website.com/[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]
+         */
+        'matchHost'  => false
+    ]
 ];
