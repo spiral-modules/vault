@@ -11,7 +11,7 @@ return [
     /*
      * Controller associated with albus dashboard (homepage). Use controller alias, not class name.
      */
-    'defaultController' => '',
+    'defaultController' => 'dashboard',
 
     /*
      * List of controller classes associated with their alias to be available for albus. No other
@@ -23,7 +23,8 @@ return [
      * @see AlbusCore
      */
     'controllers'       => [
-        'system' => Albus\Controllers\SystemController::class,
+        'dashboard' => Albus\Controllers\DashboardController::class,
+        'system'    => Albus\Controllers\SystemController::class,
 
         /*{{controllers}}*/
     ],
@@ -34,6 +35,20 @@ return [
      * "albus".
      */
     'navigation'        => [
+        /*
+         * Project overview and activity.
+         */
+        'activity'  => [
+            'label'    => 'Overview and Activity',
+            'icon'     => 'activity',
+            'segments' => [
+                'dashboard::index' => [
+                    'title' => 'Dashboard Logs'
+                ],
+                /*{{navigation.activity}}*/
+            ]
+        ],
+
         /*
          * Spiral framework related controllers.
          */
