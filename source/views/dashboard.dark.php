@@ -27,7 +27,7 @@
 
         <div class="col s6">
             <albus:card title="Views and layouts">
-                You can make your controller work with albus layout by simply extending "albus:layout"
+                You can make your controller work in albus layout by simply extending "albus:layout"
                 parent in your view file. Following blocks and definitions available for you:
 
                 <dl>
