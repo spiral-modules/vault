@@ -6,7 +6,9 @@
 </block:resources>
 
 <!--You can replace this block to render project specific actor-->
-<block:user-block-disabled>
-    <strong>Username</strong> | <a href="#">Logout</a>
-    <span class="email">user@email.com</span>
-</block:user-block-disabled>
+<block:user-block>
+    <a href="#" class="user-link">
+        <?= get_class(spiral(\Spiral\Security\ActorInterface::class)) ?>
+    </a>
+    <a href="#" class="user-logout hide">[[Log Out]]</a>
+</block:user-block>

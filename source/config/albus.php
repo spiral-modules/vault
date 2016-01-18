@@ -5,7 +5,6 @@
  *
  * @see SecurityConfig
  */
-use Spiral\Albus;
 
 return [
     /*
@@ -18,7 +17,7 @@ return [
      * @see AlbusCore
      */
     'controllers' => [
-        'dashboard' => Albus\Controllers\DashboardController::class,
+        'dashboard' => \Spiral\Albus\Controllers\DashboardController::class,
 
         /*{{controllers}}*/
     ],
