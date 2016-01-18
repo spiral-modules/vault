@@ -33,8 +33,9 @@ return [
      * "albus".
      */
     'navigation'        => [
-
-        //Spiral Framework related controllers
+        /*
+         * Spiral framework related controllers.
+         */
         'framework' => [
             'label'    => 'Engine Control',
             'icon'     => 'plug',
