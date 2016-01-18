@@ -51,3 +51,5 @@ Following code will be compiled into Materialize based HTML:
 composer require spiral/albus
 spiral register spiral/albus
 ```
+
+Do not forget to mount `AlbusBootloader` (bootloader has to be initated after `SecutiryBootloader`).
