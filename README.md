@@ -1,5 +1,11 @@
-# Albus - Work in Progress (only visual layer has been built at this moment)
-Extendable and customizable admin panel.
+# Albus 
+Albus administration panel provides ability to create custom "administration" controllers with pre-created view layout based on set of Materialize styles.
+
+Elements included
+-----------------
+* In-Albus uri tag
+* cards and blocs
+* tabulation
 
 ```html
 <extends:albus:layout title="[[Albus]]"/>
@@ -28,7 +34,7 @@ Extendable and customizable admin panel.
 
         <!--Additional information about user account-->
         <tab:item title="Extra Information" id="extra">
-            extra user information
+            extra user information <albus:uri taget="controller:action">link</albus:uri>
         </tab:item>
 
         <!--Test user content-->
