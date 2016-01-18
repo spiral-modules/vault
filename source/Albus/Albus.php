@@ -118,7 +118,7 @@ class Albus extends Component implements CoreInterface, SingletonInterface
             );
         }
 
-        if (!$this->guard()->allows('albus', compact('controller', 'action'))) {
+        if (!$this->guard()->allows("albus.{$controller}", compact('action'))) {
             throw new ControllerException(
                 "Unreachable albus controller '{$controller}'",
                 ControllerException::FORBIDDEN
