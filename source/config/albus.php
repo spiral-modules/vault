@@ -22,7 +22,8 @@ return [
      * @see AlbusCore
      */
     'controllers'       => [
-        'system' => Albus\Controllers\SystemController::class
+        'system' => Albus\Controllers\SystemController::class,
+
         /*{{controllers}}*/
     ],
 
