@@ -55,6 +55,8 @@
                     (under "albus") and redefining "albus:layout" file with custom colors, logotypes
                     and resources.
                 </i>
+                <br/>
+                Add class="wide-content" to parent layout to remove page width constrain.
             </albus:card>
         </div>
     </div>
