@@ -7,9 +7,11 @@
  */
 namespace Spiral\Albus;
 
+use Psr\Http\Message\UriInterface;
 use Spiral\Albus\Configs\AlbusConfig;
 use Spiral\Core\Exceptions\ControllerException;
 use Spiral\Core\HMVC\CoreInterface;
+use Spiral\Http\Uri;
 use Spiral\Security\GuardInterface;
 
 /**
@@ -51,5 +53,18 @@ class AlbusCore implements CoreInterface
                 ControllerException::NOT_FOUND
             );
         }
+    }
+
+    /**
+     * Get albus specific uri.
+     *
+     * @param string      $target Target controller and action in a form of "controller::action" or
+     *                            "controller:action" or "controller".
+     * @param array|mixed $parameters
+     * @return UriInterface
+     */
+    public function uri($target, $parameters = [])
+    {
+        return new Uri($target);
     }
 }

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<yield:functions/>
 <html>
 <head>
     <block:head>

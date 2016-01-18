@@ -7,6 +7,21 @@
 <!--Albus layout partials-->
 <dark:use path="albus:partials/*" namespace="albus.partials"/>
 
+<!--Albus specific view functions-->
+<block:functions>
+    <?php
+    if (!function_exists('albus')) {
+        /**
+         * @return \Spiral\Albus\AlbusCore
+         */
+        function albus()
+        {
+            return spiral(\Spiral\Albus\AlbusCore::class);
+        }
+    }
+    ?>
+</block:functions>
+
 <!--You can redefine following resources by redefining albus:albus layout-->
 <block:resources>
     <asset:css href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
