@@ -60,7 +60,10 @@
             </div>
 
             <div class="user-block">
-                <block:user-block/>
+                <block:user-block>
+                    <span>Anton Titov</span>
+                    <a href="#">[[Log Out]]</a>
+                </block:user-block>
             </div>
         </nav>
     </div>

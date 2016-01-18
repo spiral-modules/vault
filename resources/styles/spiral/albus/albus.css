@@ -10564,6 +10564,9 @@ dl {
 table tbody td {
   border: none; }
 
+.material-icons {
+  vertical-align: sub; }
+
 /*form*/
 .input-field label {
   font-size: 1.2rem;
