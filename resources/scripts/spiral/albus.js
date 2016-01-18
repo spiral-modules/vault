@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     $('ul.tabs').tabs();
 
-    $('select').material_select();
+    $('.item-select').material_select();
 
     $('.button-collapse').sideNav({
             menuWidth: 300,
