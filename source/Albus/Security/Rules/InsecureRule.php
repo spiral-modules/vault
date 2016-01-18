@@ -32,7 +32,7 @@ class InsecureRule extends Component implements RuleInterface
     {
         $this->logger()->log(
             static::LEVEL,
-            "Actor `{actor}` granted access to permission '{permission}' (insecure!).", [
+            "Actor `{actor}` has been granted insecure access to '{permission}'.", [
                 'actor'      => get_class($actor),
                 'permission' => $permission
             ]
