@@ -1,5 +1,5 @@
 # Albus 
-Albus administration panel provides ability to create custom "administration" controllers with pre-created view layout based on set of Materialize styles.
+Albus administration panel provides ability to create custom "administration" controllers with pre-created view layout and navigation manager based on set of Materialize styles.
 
 Elements included
 -----------------
