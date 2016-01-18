@@ -1,5 +1,11 @@
-# Albus - Work in Progress (only visual layer has been built at this moment)
-Extendable and customizable admin panel.
+# Albus 
+Albus administration panel provides ability to create custom "administration" controllers with pre-created view layout based on set of Materialize styles.
+
+Elements included
+-----------------
+* In-Albus uri tag
+* cards and blocs
+* tabulation
 
 ```html
 <extends:albus:layout title="[[Albus]]"/>
@@ -28,7 +34,7 @@ Extendable and customizable admin panel.
 
         <!--Additional information about user account-->
         <tab:item title="Extra Information" id="extra">
-            extra user information
+            extra user information <albus:uri taget="controller:action">link</albus:uri>
         </tab:item>
 
         <!--Test user content-->
@@ -55,3 +61,5 @@ spiral register spiral/albus
 Do not forget to mount `AlbusBootloader` (bootloader has to be initated after `SecutiryBootloader`).
 
 > You can tweak Albus behaviour (route, middlewares), create new navigation sections or register your own controllers using `app/config/modules/albus.php` configuration file.
+
+If you wish to play with albus without configuring security simply mount `Spiral\Albus\Bootloaders\InsecureAlbusBootloader` bootloader, attention this bootloader will open Albus access to guest accounts.
