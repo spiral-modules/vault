@@ -55,3 +55,5 @@ spiral register spiral/albus
 Do not forget to mount `AlbusBootloader` (bootloader has to be initated after `SecutiryBootloader`).
 
 > You can tweak Albus behaviour (route, middlewares), create new navigation sections or register your own controllers using `app/config/modules/albus.php` configuration file.
+
+If you wish to play with albus without configuring security simply mount `Spiral\Albus\Bootloaders\InsecureAlbusBootloader` bootloader, attention this bootloader will open Albus access to guest accounts.
