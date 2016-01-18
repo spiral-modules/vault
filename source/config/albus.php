@@ -50,7 +50,8 @@ return [
             'icon'     => 'activity',
             'segments' => [
                 'dashboard::index' => [
-                    'title'      => 'Dashboard'
+                    'title'      => 'Dashboard',
+                    'permission' => 'albus.dashboard'
                 ],
                 /*{{navigation.activity}}*/
             ]
