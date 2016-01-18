@@ -1,4 +1,4 @@
-<dark:extends path="albus:albus" title="Dashboard"/>
+<dark:extends path="albus:layout" title="Dashboard"/>
 
 <block:content>
     Welcome to Albus administration panel. This view file located in
