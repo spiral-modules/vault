@@ -197,10 +197,10 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
             );
         }
 
-        return $this->route->uri(
-            compact('controller', 'action') + $parameters,
-            $this->httpConfig->basePath()
-        );
+        $parameters['controller'] = $controller;
+        $parameters['action'] = $action;
+
+        return $this->route->uri($parameters, $this->httpConfig->basePath());
     }
 
     /**
