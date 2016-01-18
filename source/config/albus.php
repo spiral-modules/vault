@@ -12,6 +12,7 @@ return [
      * Controller associated with albus dashboard (homepage). Use controller alias, not class name.
      */
     'defaultController' => '',
+
     /*
      * List of controller classes associated with their alias to be available for albus. No other
      * controllers can be called.
