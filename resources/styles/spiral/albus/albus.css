@@ -10437,8 +10437,8 @@ body {
 
 .user-block {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 15px;
+  top: 15px;
   height: 80px; }
   .user-block a {
     color: #3a3a3a;
@@ -10446,25 +10446,14 @@ body {
     text-transform: none;
     font-weight: normal;
     text-align: right;
-    height: 80px;
-    line-height: 40px;
-    padding: 10px 40px 0 20px;
-    display: block; }
-    .user-block a i {
-      position: absolute;
-      top: 0;
-      margin-top: 15px;
-      right: 10px; }
-    .user-block a .email {
-      display: block;
-      font-size: 12px;
-      position: absolute;
-      bottom: 7px;
-      right: 40px; }
-  .user-block .dropdown-content {
-    margin: 10px 0 0 -10px; }
-    .user-block .dropdown-content a {
-      height: auto; }
+    display: block;
+    line-height: 20px;
+    color: #3a3a3a;
+    margin-bottom: 10px; }
+    .user-block a.user-link {
+      font-size: 17px; }
+    .user-block a.user-logout {
+      font-size: 13px; }
 
 .navigation {
   width: 300px;
@@ -10498,7 +10487,7 @@ main {
   padding: 55px 0 100px 345px; }
   main .container {
     margin: 0 auto; }
-  @media only screen and (min-width: 601px) {
+  @media only screen and (min-width: 993px) {
     main.wide-content .container {
       width: auto;
       max-width: 100%;
@@ -10563,6 +10552,9 @@ dl {
 
 table tbody td {
   border: none; }
+
+.material-icons {
+  vertical-align: sub; }
 
 /*form*/
 .input-field label {
