@@ -41,12 +41,12 @@ return [
             'icon'     => 'plug',
             'segments' => [
                 'system::logs'      => [
-                    'title'      => 'System Logs',
-                    'permission' => 'albus.system.logs'
+                    'title' => 'System Logs',
+                    'allow' => 'albus.system.logs'
                 ],
                 'system::snapshots' => [
-                    'title'      => 'System Snapshots',
-                    'permission' => 'albus.system.snapshots'
+                    'title' => 'System Snapshots',
+                    'allow' => 'albus.system.snapshots'
                 ],
                 /*{{navigation.framework}}*/
             ]
