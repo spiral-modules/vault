@@ -10,26 +10,38 @@ namespace Spiral\Albus;
 use Psr\Http\Message\UriInterface;
 use Spiral\Albus\Configs\AlbusConfig;
 use Spiral\Core\Component;
+use Spiral\Core\Container\SingletonInterface;
 use Spiral\Core\ContainerInterface;
 use Spiral\Core\Exceptions\ControllerException;
 use Spiral\Core\HMVC\ControllerInterface;
 use Spiral\Core\HMVC\CoreInterface;
 use Spiral\Debug\Traits\BenchmarkTrait;
+use Spiral\Http\Routing\AbstractRoute;
+use Spiral\Http\Routing\RouteInterface;
 use Spiral\Http\Uri;
 use Spiral\Security\Traits\GuardedTrait;
 
 /**
  * Albus core aggregates
  */
-class AlbusCore extends Component implements CoreInterface
+class AlbusCore extends Component implements CoreInterface, SingletonInterface
 {
     use BenchmarkTrait, GuardedTrait;
+
+    /**
+     * Declaring to IoC to treat Albus as sinleton.
+     */
+    const SINGLETON = self::class;
 
     /**
      * @var AlbusConfig
      */
     private $config = null;
 
+    /**
+     * @var RouteInterface
+     */
+    private $route = null;
 
     /**
      * @var ContainerInterface
@@ -40,12 +52,20 @@ class AlbusCore extends Component implements CoreInterface
      * @param AlbusConfig        $config
      * @param ContainerInterface $container
      */
-    public function __construct(
-        AlbusConfig $config,
-        ContainerInterface $container
-    ) {
+    public function __construct(AlbusConfig $config, ContainerInterface $container)
+    {
         $this->config = $config;
         $this->container = $container;
+
+        $this->route = $this->config->createRoute('albus')->setAlbus($this);
+    }
+
+    /**
+     * @return RouteInterface
+     */
+    public function route()
+    {
+        return $this->route;
     }
 
     /**
@@ -67,9 +87,9 @@ class AlbusCore extends Component implements CoreInterface
             );
         }
 
+        $benchmark = $this->benchmark('callAction', $controller . '::' . ($action ?: '~default~'));
         $scope = $this->container->replace(CoreInterface::class, $this);
 
-        $benchmark = $this->benchmark('callAction', $controller . '::' . ($action ?: '~default~'));
         try {
             //Initiating controller with all required dependencies
             $controller = $this->container->make($controller);

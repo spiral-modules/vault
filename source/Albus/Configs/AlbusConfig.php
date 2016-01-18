@@ -7,7 +7,10 @@
  */
 namespace Spiral\Albus\Configs;
 
+use Spiral\Albus\AlbusRoute;
 use Spiral\Core\InjectableConfig;
+use Spiral\Http\Routing\AbstractRoute;
+use Spiral\Http\Routing\RouteInterface;
 
 /**
  * Configuration for Albus administration panel.
@@ -23,12 +26,14 @@ class AlbusConfig extends InjectableConfig
      * @var array
      */
     protected $config = [
-        //Example: albus/users/addresses/1/remove/123
-        'route'             => 'albus[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
         //Default albus controller
         'defaultController' => '',
         'controllers'       => [],
-        'navigation'        => []
+        'navigation'        => [],
+
+        //Example: albus/users/addresses/1/remove/123
+        'route'             => 'albus[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
+        'domainRoute'       => false
     ];
 
     /**
@@ -43,5 +48,19 @@ class AlbusConfig extends InjectableConfig
     public function getControllers()
     {
         return $this->config['controllers'];
+    }
+
+    /**
+     * @param string $name
+     * @return AlbusRoute
+     */
+    public function createRoute($name)
+    {
+        return new AlbusRoute(
+            $name,
+            $this->config['route'],
+            $this->config['controllers'],
+            ['controller' => $this->config['defaultController']]
+        );
     }
 }

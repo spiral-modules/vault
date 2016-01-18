@@ -7,18 +7,18 @@
  */
 namespace Spiral\Albus\Controllers;
 
-use Spiral\Core\Controller;
+use Spiral\Albus\AlbusController;
 
 /**
  * No guard check in this sample controller.
  */
-class DashboardController extends Controller
+class DashboardController extends AlbusController
 {
     /**
      * @return string
      */
     public function indexAction()
     {
-        $this->views->render('albus:controllers/dashboard');
+        return $this->views->render('albus:controllers/dashboard');
     }
 }

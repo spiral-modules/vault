@@ -29,17 +29,11 @@ class AlbusBootloader extends Bootloader
     ];
 
     /**
-     * @var array
-     */
-    protected $singletons = [
-
-    ];
-
-    /**
      * @param HttpDispatcher $http
+     * @param AlbusCore      $core
      */
-    public function boot(HttpDispatcher $http)
+    public function boot(HttpDispatcher $http, AlbusCore $core)
     {
-
+        $http->addRoute($core->route());
     }
 }
