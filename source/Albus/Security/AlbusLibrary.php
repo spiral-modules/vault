@@ -18,6 +18,7 @@ class AlbusLibrary extends Library
      * @var array
      */
     protected $permissions = [
-        'albus'
+        'albus',
+        'albus.dashboard'
     ];
 }
