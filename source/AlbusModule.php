@@ -26,7 +26,7 @@ class AlbusModule implements ModuleInterface
             "]"
         ]);
 
-        $registrator->configure('translator', 'namespaces', 'spiral/albus', [
+        $registrator->configure('translator', 'domains', 'spiral/albus', [
             "'albus' => [",
             "   'spiral-albus-*',",
             "   'view-albus-*',",
