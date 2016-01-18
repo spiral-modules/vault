@@ -9,30 +9,43 @@ namespace Spiral\Albus;
 
 use Psr\Http\Message\UriInterface;
 use Spiral\Albus\Configs\AlbusConfig;
+use Spiral\Core\Component;
+use Spiral\Core\ContainerInterface;
 use Spiral\Core\Exceptions\ControllerException;
+use Spiral\Core\HMVC\ControllerInterface;
 use Spiral\Core\HMVC\CoreInterface;
+use Spiral\Debug\Traits\BenchmarkTrait;
 use Spiral\Http\Uri;
-use Spiral\Security\GuardInterface;
+use Spiral\Security\Traits\GuardedTrait;
 
 /**
  * Albus core aggregates
  */
-class AlbusCore implements CoreInterface
+class AlbusCore extends Component implements CoreInterface
 {
+    use BenchmarkTrait, GuardedTrait;
+
     /**
      * @var AlbusConfig
      */
     private $config = null;
 
-    /**
-     * @var GuardInterface
-     */
-    private $guard = null;
 
-    public function __construct(AlbusConfig $config, GuardInterface $guard)
-    {
+    /**
+     * @var ContainerInterface
+     */
+    protected $container = null;
+
+    /**
+     * @param AlbusConfig        $config
+     * @param ContainerInterface $container
+     */
+    public function __construct(
+        AlbusConfig $config,
+        ContainerInterface $container
+    ) {
         $this->config = $config;
-        $this->guard = $guard;
+        $this->container = $container;
     }
 
     /**
@@ -40,7 +53,7 @@ class AlbusCore implements CoreInterface
      */
     public function callAction($controller, $action = '', array $parameters = [])
     {
-        if (!$this->guard->allows('albus', compact('controller', 'action'))) {
+        if (!$this->guard()->allows('albus', compact('controller', 'action'))) {
             throw new ControllerException(
                 "Unreachable albus controller '{$controller}'",
                 ControllerException::FORBIDDEN
@@ -52,6 +65,26 @@ class AlbusCore implements CoreInterface
                 "Undefined albus controller '{$controller}'",
                 ControllerException::NOT_FOUND
             );
+        }
+
+        $scope = $this->container->replace(CoreInterface::class, $this);
+
+        $benchmark = $this->benchmark('callAction', $controller . '::' . ($action ?: '~default~'));
+        try {
+            //Initiating controller with all required dependencies
+            $controller = $this->container->make($controller);
+
+            if (!$controller instanceof ControllerInterface) {
+                throw new ControllerException(
+                    "No such controller '{$controller}' found.",
+                    ControllerException::NOT_FOUND
+                );
+            }
+
+            return $controller->callAction($action, $parameters);
+        } finally {
+            $this->benchmark($benchmark);
+            $this->container->restore($scope);
         }
     }
 
