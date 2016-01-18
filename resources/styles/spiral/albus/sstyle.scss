@@ -1,7 +1,7 @@
 $color-text: #3a3a3a;
 
-@import "components/_color";
-@import "components/_variables";
+@import "components/_color.scss";
+@import "components/_variables.scss";
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -64,163 +64,13 @@ body {
       margin-right: 10px;
     }
   }
-
-
-
-
-
-//
-//  .top-panel {
-//    .clearfix();
-//
-//    margin-left: 335px;
-//    padding-top: 30px;
-//
-//    .navigation-block {
-//      .clearfix();
-//
-//      float: left;
-//
-//      a {
-//        .font-size(13);
-//
-//        display: block;
-//        float: left;
-//        text-transform: uppercase;
-//        text-decoration: none;
-//        font-weight: bold;
-//        color: @color-text-dark;
-//        margin-right: 40px;
-//        background: @brand-logo-bg;
-//
-//        &:hover,
-//        &.active {
-//          color: @brand-active-element;
-//        }
-//
-//        .icon {
-//          .font-size(16);
-//
-//          margin-right: 8px;
-//        }
-//      }
-//    }
-//
-//    .user-block {
-//      position: absolute;
-//      right: 0;
-//      top: 0px;
-//      padding: 25px;
-//      text-align: right;
-//
-//      .user-link {
-//        .font-size(16);
-//        .line-height(16);
-//
-//        display: block;
-//        position: relative;
-//        padding-right: 20px;
-//        color: @color-text-dark;
-//        margin-bottom: 7px;
-//        z-index: 5;
-//        text-decoration: none;
-//
-//        &:hover {
-//          color: @brand-active-element;
-//        }
-//
-//        &:after {
-//          transition: all .2s ease-out 0s;
-//
-//          font-size: 3px;
-//          font-family: "spiral-icon";
-//          content: '\e800';
-//          position: absolute;
-//          right: 0;
-//          top: -1px;
-//          -webkit-transform: rotate(180deg);
-//          transform: rotate(180deg);
-//        }
-//
-//
-//        &.active:after {
-//          transition: all .2s ease-out 0s;
-//
-//          -webkit-transform: rotate(0deg);
-//          transform: rotate(0deg);
-//        }
-//      }
-//
-//      .user-mail {
-//        .font-size(12);
-//        .line-height(12);
-//
-//        transition: all .2s ease-out 0s;
-//        padding-right: 20px;
-//        position: relative;
-//        z-index: 5;
-//      }
-//
-//      .user-menu {
-//        .size(0px, 0px);
-//
-//        position: absolute;
-//        top: 8px;
-//        right: 8px;
-//        z-index: 4;
-//        overflow: hidden;
-//        border-radius: 2px;
-//        background: @color-white;
-//        box-shadow: 0 0 20px rgba(0,0,0,.2);
-//
-//        .hide-links {
-//          .size(180px, 160px);
-//
-//          padding: 77px 15px 0;
-//        }
-//
-//        a {
-//          .font-size(16);
-//          .line-height(16);
-//
-//          display: block;
-//          color: @color-text-dark;
-//          text-decoration: none;
-//          margin-bottom: 25px;
-//
-//          &:hover {
-//            color: @brand-active-element;
-//          }
-//        }
-//
-//        &.active {
-//          .size(180px, 160px);
-//
-//          transition: all .2s ease-out 0s;
-//        }
-//
-//      }
-//    }
-//  }
-//
-//  @media @small {
-//  .logo-block {
-//    width: 100px;
-//
-//    a img {
-//      max-width: 100%;
-//    }
-//  }
-//
-//  .top-panel {
-//    margin-left: 105px;
-//  }
-//}
 }
+
+
 .user-block {
   position: absolute;
-  right: 0;
-  top:0;
+  right: 15px;
+  top: 15px;
   height: $navbar-height;
 
   a {
@@ -229,32 +79,17 @@ body {
     text-transform: none;
     font-weight: normal;
     text-align: right;
-    height: $navbar-height;
-    line-height: $navbar-height/2;
-    padding: 10px 40px 0 20px;
     display: block;
+    line-height: 20px;
+    color: $color-text;
+    margin-bottom: 10px;
 
-    i {
-      position: absolute;
-      top: 0;
-      margin-top: 15px;
-      right: 10px;
+    &.user-link {
+      font-size: 17px;
     }
 
-    .email {
-      display: block;
-      font-size: 12px;
-      position: absolute;
-      bottom: 7px;
-      right: 40px;
-    }
-  }
-
-  .dropdown-content {
-    margin: 10px 0 0 -10px;
-
-    a {
-      height: auto;
+    &.user-logout {
+      font-size: 13px;
     }
   }
 }
@@ -304,7 +139,7 @@ main {
     margin: 0 auto;
   }
 
-  @media #{$medium-and-up} {
+  @media #{$large-and-up} {
     &.wide-content {
       .container {
         width: auto;
@@ -498,9 +333,9 @@ a.button-collapse.top-nav {
         width: 70px;
       }
 
-       .icon {
-         margin: 0;
-       }
+      .icon {
+        margin: 0;
+      }
     }
   }
   table tbody td {
