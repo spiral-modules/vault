@@ -4,8 +4,8 @@ Albus administration panel provides ability to create custom "administration" co
 Elements included
 -----------------
 * In-Albus uri tag
-* cards and blocs
-* tabulation
+* Cards and blocks
+* Tabs
 
 ```html
 <extends:albus:layout title="[[Albus]]"/>
