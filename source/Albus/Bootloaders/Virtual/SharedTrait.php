@@ -20,7 +20,7 @@ use Spiral\Core\Exceptions\SugarException;
  * @see AlbusBootloader
  * @see SpiralBindings
  *
- * @property-read \Spiral\Albus\AlbusCore   $albus See AlbusBindings
+ * @property-read \Spiral\Albus\Albus       $albus See AlbusBindings
  * @property-read \Spiral\Views\ViewManager $views See SpiralBindings
  */
 trait SharedTrait

@@ -13,7 +13,7 @@ use Spiral\Http\Routing\AbstractRoute;
 class AlbusRoute extends AbstractRoute
 {
     /**
-     * @var AlbusCore
+     * @var Albus
      */
     protected $albus = null;
 
@@ -31,10 +31,10 @@ class AlbusRoute extends AbstractRoute
     }
 
     /**
-     * @param AlbusCore $albus
+     * @param Albus $albus
      * @return $this
      */
-    public function setAlbus(AlbusCore $albus)
+    public function setAlbus(Albus $albus)
     {
         $this->core = $albus;
         $this->albus = $albus;

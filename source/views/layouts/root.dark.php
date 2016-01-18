@@ -12,11 +12,11 @@
     <?php
     if (!function_exists('albus')) {
         /**
-         * @return \Spiral\Albus\AlbusCore
+         * @return \Spiral\Albus\Albus
          */
         function albus()
         {
-            return spiral(\Spiral\Albus\AlbusCore::class);
+            return spiral(\Spiral\Albus\Albus::class);
         }
     }
     ?>

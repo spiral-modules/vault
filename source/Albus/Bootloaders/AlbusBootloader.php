@@ -7,7 +7,7 @@
  */
 namespace Spiral\Albus\Bootloaders;
 
-use Spiral\Albus\AlbusCore;
+use Spiral\Albus\Albus;
 use Spiral\Albus\Navigation;
 use Spiral\Core\Bootloaders\Bootloader;
 use Spiral\Http\HttpDispatcher;
@@ -27,15 +27,15 @@ class AlbusBootloader extends Bootloader
      * @var array
      */
     protected $bindings = [
-        'albus'           => AlbusCore::class,
-        Navigation::class => [AlbusCore::class, 'navigation']
+        'albus'           => Albus::class,
+        Navigation::class => [Albus::class, 'navigation']
     ];
 
     /**
      * @param HttpDispatcher $http
-     * @param AlbusCore      $core
+     * @param Albus          $core
      */
-    public function boot(HttpDispatcher $http, AlbusCore $core)
+    public function boot(HttpDispatcher $http, Albus $core)
     {
         $http->addRoute($core->route());
     }

@@ -25,7 +25,7 @@ use Spiral\Translator\Traits\TranslatorTrait;
 /**
  * Albus core aggregates
  */
-class AlbusCore extends Component implements CoreInterface, SingletonInterface
+class Albus extends Component implements CoreInterface, SingletonInterface
 {
     use BenchmarkTrait, GuardedTrait, TranslatorTrait;
 
