@@ -7,6 +7,7 @@
  */
 namespace Spiral\Albus\Bootloaders;
 
+use Spiral\Albus\AlbusCore;
 use Spiral\Core\Bootloaders\Bootloader;
 use Spiral\Http\HttpDispatcher;
 
@@ -24,7 +25,7 @@ class AlbusBootloader extends Bootloader
      * @var array
      */
     protected $bindings = [
-
+        'albus' => AlbusCore::class
     ];
 
     /**
@@ -39,7 +40,6 @@ class AlbusBootloader extends Bootloader
      */
     public function boot(HttpDispatcher $http)
     {
+
     }
-
-
 }
