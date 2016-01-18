@@ -16,7 +16,6 @@ use Spiral\Core\Exceptions\ControllerException;
 use Spiral\Core\HMVC\ControllerInterface;
 use Spiral\Core\HMVC\CoreInterface;
 use Spiral\Debug\Traits\BenchmarkTrait;
-use Spiral\Http\Routing\AbstractRoute;
 use Spiral\Http\Routing\RouteInterface;
 use Spiral\Http\Uri;
 use Spiral\Security\Traits\GuardedTrait;
@@ -57,7 +56,7 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
         $this->config = $config;
         $this->container = $container;
 
-        $this->route = $this->config->createRoute('albus')->setAlbus($this);
+        $this->route = $this->createRoute();
     }
 
     /**
@@ -66,6 +65,14 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
     public function route()
     {
         return $this->route;
+    }
+
+    /**
+     * Albus navigation instance.
+     */
+    public function navigation()
+    {
+
     }
 
     /**
@@ -118,6 +125,14 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
      */
     public function uri($target, $parameters = [])
     {
-        return new Uri($target);
+        return new Uri('/');
+    }
+
+    /**
+     * @return AlbusRoute
+     */
+    protected function createRoute()
+    {
+        return $this->config->createRoute('albus')->setAlbus($this);
     }
 }

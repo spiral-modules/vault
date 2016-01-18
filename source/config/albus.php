@@ -9,6 +9,14 @@ use Spiral\Albus;
 
 return [
     /*
+     * Set of middleware classes to be applied for AlbusRoute. Make sure to include AuthMiddleware
+     * here!
+     */
+    'middlewares'       => [
+        /*{{middlewares}}*/
+    ],
+
+    /*
      * Controller associated with albus dashboard (homepage). Use controller alias, not class name.
      */
     'defaultController' => 'dashboard',
@@ -24,7 +32,6 @@ return [
      */
     'controllers'       => [
         'dashboard' => Albus\Controllers\DashboardController::class,
-        'system'    => Albus\Controllers\SystemController::class,
 
         /*{{controllers}}*/
     ],
@@ -38,33 +45,14 @@ return [
         /*
          * Project overview and activity.
          */
-        'activity'  => [
+        'activity' => [
             'label'    => 'Overview and Activity',
             'icon'     => 'activity',
             'segments' => [
                 'dashboard::index' => [
-                    'title' => 'Dashboard Logs'
+                    'title'      => 'Dashboard'
                 ],
                 /*{{navigation.activity}}*/
-            ]
-        ],
-
-        /*
-         * Spiral framework related controllers.
-         */
-        'framework' => [
-            'label'    => 'Engine Control',
-            'icon'     => 'plug',
-            'segments' => [
-                'system::logs'      => [
-                    'title' => 'System Logs',
-                    'allow' => 'albus.system.logs'
-                ],
-                'system::snapshots' => [
-                    'title' => 'System Snapshots',
-                    'allow' => 'albus.system.snapshots'
-                ],
-                /*{{navigation.framework}}*/
             ]
         ],
 

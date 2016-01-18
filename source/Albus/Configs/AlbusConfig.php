@@ -9,8 +9,6 @@ namespace Spiral\Albus\Configs;
 
 use Spiral\Albus\AlbusRoute;
 use Spiral\Core\InjectableConfig;
-use Spiral\Http\Routing\AbstractRoute;
-use Spiral\Http\Routing\RouteInterface;
 
 /**
  * Configuration for Albus administration panel.
@@ -26,6 +24,8 @@ class AlbusConfig extends InjectableConfig
      * @var array
      */
     protected $config = [
+        'middlewares'       => [],
+
         //Default albus controller
         'defaultController' => '',
         'controllers'       => [],
@@ -56,11 +56,13 @@ class AlbusConfig extends InjectableConfig
      */
     public function createRoute($name)
     {
-        return new AlbusRoute(
+        $route = new AlbusRoute(
             $name,
             $this->config['route'],
             $this->config['controllers'],
             ['controller' => $this->config['defaultController']]
         );
+
+        return $route->middleware($this->config['middlewares']);
     }
 }

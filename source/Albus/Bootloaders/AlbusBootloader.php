@@ -8,11 +8,13 @@
 namespace Spiral\Albus\Bootloaders;
 
 use Spiral\Albus\AlbusCore;
+use Spiral\Albus\Navigation;
 use Spiral\Core\Bootloaders\Bootloader;
 use Spiral\Http\HttpDispatcher;
 
 /**
- * Boots albus administration panel bindings and routes.
+ * Boots albus administration panel bindings and routes. You can always extend this bootloader and
+ * disable booting to register route manually.
  */
 class AlbusBootloader extends Bootloader
 {
@@ -25,7 +27,8 @@ class AlbusBootloader extends Bootloader
      * @var array
      */
     protected $bindings = [
-        'albus' => AlbusCore::class
+        'albus'           => AlbusCore::class,
+        Navigation::class => [AlbusCore::class, 'navigation']
     ];
 
     /**

@@ -19,6 +19,6 @@ class DashboardController extends AlbusController
      */
     public function indexAction()
     {
-        return $this->views->render('albus:controllers/dashboard');
+        return $this->views->render('albus:dashboard');
     }
 }
