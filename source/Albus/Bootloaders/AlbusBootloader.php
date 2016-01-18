@@ -33,10 +33,10 @@ class AlbusBootloader extends Bootloader
 
     /**
      * @param HttpDispatcher $http
-     * @param Albus          $core
+     * @param Albus          $albus
      */
-    public function boot(HttpDispatcher $http, Albus $core)
+    public function boot(HttpDispatcher $http, Albus $albus)
     {
-        $http->addRoute($core->route());
+        $http->addRoute($albus->route());
     }
 }

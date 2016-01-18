@@ -34,7 +34,7 @@ return [
          */
         'activity' => [
             'title' => 'Overview and Activity',
-            'icon'  => 'activity',
+            'icon'  => 'tab',
             'items' => [
                 'dashboard' => [
                     //Navigation label
@@ -77,7 +77,7 @@ return [
 
         /*
          * Set this value to true in cases when route based on sub domain patten, for example:
-         * albus.website.com/[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]
+         * albus.website.com[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]
          */
         'matchHost'   => false
     ]
