@@ -68,7 +68,7 @@ return [
          * Simple replace albus with desired keyword (for example "admin") to specify albus url
          * namespace.
          */
-        'pattern'     => 'keeper[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
+        'pattern'     => 'albus[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
 
         /*
          * Set this value to true in cases when route based on sub domain patten, for example:
