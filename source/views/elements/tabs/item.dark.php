@@ -7,7 +7,7 @@ ob_start();
     <a href="#${id}">
         <?php #compile
         ob_start(); ?>${icon}<?php #compile
-        if (!empty(ob_get_clean())) { ?><i class="icon icon-${icon}"></i><?php } #compile ?>
+        if (!empty(ob_get_clean())) { ?><i class="material-icons">${icon}</i><?php } #compile ?>
         ${title}
     </a>
 </li>

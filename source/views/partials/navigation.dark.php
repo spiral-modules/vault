@@ -13,7 +13,7 @@
             ?>
             <li class="panel">
                 <div class="panel-heading collapsible-header <?= $active ? 'active' : '' ?> waves-effect waves-spiral">
-                    <i class="icon icon-<?= $section->getIcon() ?>"></i><?= $albus->translate($section->getTitle()) ?>
+                    <i class="material-icons"><?= $section->getIcon() ?></i><?= $albus->translate($section->getTitle()) ?>
                 </div>
                 <div class="panel-collapse collapsible-body">
                     <div class="panel-body">
