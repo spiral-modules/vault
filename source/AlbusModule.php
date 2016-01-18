@@ -33,6 +33,11 @@ class AlbusModule implements ModuleInterface
             "   /*{{domain.albus}}*/",
             "]"
         ]);
+
+        //Shared albus permissions and rules
+        $registrator->configure('modules/security', 'libraries', 'spiral/albus', [
+            '\Spiral\Albus\Security\AlbusLibrary::class'
+        ]);
     }
 
     /**
