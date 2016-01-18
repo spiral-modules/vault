@@ -30,12 +30,12 @@ class Navigation
      * Navigation constructor.
      *
      * @param GuardInterface $guard
-     * @param array          $section
+     * @param array          $sections
      */
-    public function __construct(GuardInterface $guard, array $section)
+    public function __construct(GuardInterface $guard, array $sections)
     {
         $this->guard = $guard;
-        $this->sections = $section;
+        $this->sections = $sections;
     }
 
     /**
