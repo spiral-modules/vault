@@ -13,26 +13,41 @@ use Spiral\Security\GuardInterface;
 class Navigation
 {
     /**
-     * @var array
+     * Guard is needed to show only allowed navigation sections and items.
+     *
+     * @var GuardInterface
      */
-    private $navigation = [];
+    private $guard = null;
 
     /**
-     * @param GuardInterface $guard
-     * @param array          $navigation
+     * Navigation sections list.
+     *
+     * @var array
      */
-    public function __construct(GuardInterface $guard, array $navigation)
-    {
+    private $sections = [];
 
+    /**
+     * Navigation constructor.
+     *
+     * @param GuardInterface $guard
+     * @param array          $section
+     */
+    public function __construct(GuardInterface $guard, array $section)
+    {
+        $this->guard = $guard;
+        $this->sections = $section;
     }
 
     /**
-     * Get all navigation sections.
+     * Get all navigation sections. This is generator.
      *
+     * @generator
      * @return Section[]
      */
     public function getSections()
     {
-        return [];
+        foreach ($this->sections as $section) {
+            yield new Section($this->guard, $section);
+        }
     }
 }

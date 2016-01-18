@@ -52,6 +52,16 @@ class AlbusConfig extends InjectableConfig
     }
 
     /**
+     * Albus navigation structure including sections, permissions, titles and etc.
+     *
+     * @return array
+     */
+    public function navigationSections()
+    {
+        return $this->config['navigation'];
+    }
+
+    /**
      * @param string $name
      * @return AlbusRoute
      */

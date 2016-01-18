@@ -20,13 +20,14 @@ use Spiral\Debug\Traits\BenchmarkTrait;
 use Spiral\Http\Configs\HttpConfig;
 use Spiral\Http\Routing\RouteInterface;
 use Spiral\Security\Traits\GuardedTrait;
+use Spiral\Translator\Traits\TranslatorTrait;
 
 /**
  * Albus core aggregates
  */
 class AlbusCore extends Component implements CoreInterface, SingletonInterface
 {
-    use BenchmarkTrait, GuardedTrait;
+    use BenchmarkTrait, GuardedTrait, TranslatorTrait;
 
     /**
      * Declaring to IoC to treat Albus as sinleton.
@@ -47,6 +48,13 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
      * @var RouteInterface
      */
     private $route = null;
+
+    /**
+     * Currently active controller (needed to highlight navigation).
+     *
+     * @var string
+     */
+    private $controller = '';
 
     /**
      * @var ContainerInterface
@@ -85,7 +93,17 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
      */
     public function navigation()
     {
+        return new Navigation($this->guard(), $this->config->navigationSections());
+    }
 
+    /**
+     * Currently active controller id.
+     *
+     * @return string
+     */
+    public function activeController()
+    {
+        return $this->controller;
     }
 
     /**
@@ -110,6 +128,9 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
         $benchmark = $this->benchmark('callAction', $controller . '::' . ($action ?: '~default~'));
         $scope = $this->container->replace(CoreInterface::class, $this);
 
+        //To let navigation know current controller
+        $this->controller = $controller;
+
         try {
             //Initiating controller with all required dependencies
             $object = $this->container->make(
@@ -127,7 +148,21 @@ class AlbusCore extends Component implements CoreInterface, SingletonInterface
         } finally {
             $this->benchmark($benchmark);
             $this->container->restore($scope);
+
+            $this->controller = '';
         }
+    }
+
+    /**
+     * Perform albus specific string translation.
+     *
+     * @param string $string
+     * @param array  $options
+     * @return string
+     */
+    public function translate($string, array $options = [])
+    {
+        return $this->say($string, $options);
     }
 
     /**

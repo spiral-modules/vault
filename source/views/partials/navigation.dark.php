@@ -1,29 +1,36 @@
 <div id="nav-mobile" class="side-nav fixed navigation">
+    <block:navigation-head/>
     <ul class="collapsible panel-group" data-collapsible="accordion">
-        <li class="panel">
-            <div class="panel-heading collapsible-header active waves-effect waves-spiral">
-                <i class="icon icon-activity"></i>[[Activity]]
-            </div>
-            <div class="panel-collapse collapsible-body">
-                <div class="panel-body">
-                    <div class="menu-list">
-                        <a href="/albus">[[Home]]</a>
-                    </div>
-                </div>
-            </div>
-        </li>
+        <?php
+        $albus = albus();
+        foreach ($albus->navigation()->getSections() as $section) {
+            if (!$section->isAvailable()) {
+                //Section does not contain any available link
+                continue;
+            }
 
-        <li class="panel">
-            <div class="panel-heading collapsible-header waves-effect waves-spiral">
-                <i class="icon icon-plug"></i>[[Spiral Framework]]
-            </div>
-            <div class="panel-collapse collapsible-body">
-                <div class="panel-body">
-                    <div class="menu-list">
-                        <a href="#">[[Transaction]]</a>
+            $active = $section->hasController($albus->activeController());
+            ?>
+            <li class="panel">
+                <div class="panel-heading collapsible-header <?= $active ? 'active' : '' ?> waves-effect waves-spiral">
+                    <i class="icon icon-<?= $section->getIcon() ?>"></i><?= $albus->translate($section->getTitle()) ?>
+                </div>
+                <div class="panel-collapse collapsible-body">
+                    <div class="panel-body">
+                        <div class="menu-list">
+                            <?php
+                            foreach ($section->getItems() as $item) {
+                                $uri = $albus->uri($item->getTarget());
+                                $title = $albus->translate($item->getTitle());
+                                echo "<a href=\"{$uri}\">{$title}</a>";
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
+            </li>
+            <?php
+        }
+        ?>
     </ul>
 </div>

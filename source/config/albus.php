@@ -33,12 +33,15 @@ return [
          * Project overview and activity.
          */
         'activity' => [
-            'label'    => 'Overview and Activity',
-            'icon'     => 'activity',
-            'segments' => [
-                'dashboard::index' => [
-                    'title'      => 'Dashboard',
-                    'permission' => 'albus.dashboard'
+            'title' => 'Overview and Activity',
+            'icon'  => 'activity',
+            'items' => [
+                'dashboard' => [
+                    //Navigation label
+                    'title'    => 'Dashboard',
+
+                    //Permission needed to show this navigation section
+                    'requires' => 'albus.dashboard'
                 ],
                 /*{{navigation.activity}}*/
             ]

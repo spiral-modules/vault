@@ -66,7 +66,7 @@
     </div>
 
     <block:navigation>
-        <albus.partials:navigation/>
+        <albus.partials:navigation navigation-head="${navigation-head}"/>
     </block:navigation>
 
     <block:main>

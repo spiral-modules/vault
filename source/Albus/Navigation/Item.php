@@ -7,20 +7,66 @@
  */
 namespace Spiral\Albus\Navigation;
 
+use Spiral\Security\GuardInterface;
+
 /**
- * @todo get badge
+ * @todo get badge class (dynamic value)
  */
 class Item
 {
+    /**
+     * @var string
+     */
+    private $target = '';
 
+    /**
+     * @var array
+     */
+    private $item = [
+        'title'    => '',
+        'badge'    => '',
+        'requires' => '',
+    ];
 
-    public function getTitle()
+    /**
+     * @param string $target
+     * @param array  $options
+     */
+    public function __construct($target, array $options)
     {
-
+        $this->target = $target;
+        $this->item = $options;
     }
 
-    public function getUri()
+    /**
+     * @return string
+     */
+    public function getTarget()
     {
+        return $this->target;
+    }
 
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->item['title'];
+    }
+
+    /**
+     * Check if item is allowed to be displayed.
+     *
+     * @param GuardInterface $guard
+     * @return bool
+     */
+    public function isAllowed(GuardInterface $guard)
+    {
+        if (!isset($this->item['requires'])) {
+            //No display protection
+            return true;
+        }
+
+        return $guard->allows($this->item['requires']);
     }
 }
