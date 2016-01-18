@@ -31,7 +31,6 @@ class InsecureAlbusBootloader extends Bootloader
         }
 
         //Following rule will raise log message to notify that insecure setting were used
-        $permissions->associate(static::ROLE, 'albus', InsecureRule::class);
         $permissions->associate(static::ROLE, 'albus.*', InsecureRule::class);
 
         //Controller specific permissions
