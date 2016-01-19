@@ -7,12 +7,12 @@
  */
 namespace Spiral\Albus\Controllers;
 
-use Spiral\Albus\AlbusController;
+use Spiral\Core\Controller;
 
 /**
  * No guard check in this sample controller.
  */
-class DashboardController extends AlbusController
+class DashboardController extends Controller
 {
     /**
      * @return string

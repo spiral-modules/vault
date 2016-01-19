@@ -8,6 +8,12 @@
 
 return [
     /*
+     * Every controller access will be checked under following permissions namespace. For example
+     * access to TestController mounted under name "test" will be checked as "albus.test".
+     */
+    'guardNamespace' => 'albus',
+
+    /*
      * List of controller classes associated with their alias to be available for albus. No other
      * controllers can be called.
      *

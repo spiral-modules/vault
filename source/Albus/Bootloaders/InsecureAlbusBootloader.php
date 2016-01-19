@@ -7,6 +7,7 @@
  */
 namespace Spiral\Albus\Bootloaders;
 
+use Spiral\Albus\Configs\AlbusConfig;
 use Spiral\Albus\Security\Rules\InsecureRule;
 use Spiral\Core\Bootloaders\Bootloader;
 use Spiral\Security\Entities\Actors\Guest;
@@ -23,17 +24,26 @@ class InsecureAlbusBootloader extends Bootloader
 
     /**
      * @param PermissionsInterface $permissions
+     * @param AlbusConfig          $config
      */
-    public function boot(PermissionsInterface $permissions)
+    public function boot(PermissionsInterface $permissions, AlbusConfig $config)
     {
         if (!$permissions->hasRole(static::ROLE)) {
             $permissions->addRole(static::ROLE);
         }
 
         //Following rule will raise log message to notify that insecure setting were used
-        $permissions->associate(static::ROLE, 'albus.*', InsecureRule::class);
+        $permissions->associate(
+            static::ROLE,
+            $config->securityNamespace() . '.*',
+            InsecureRule::class
+        );
 
         //Controller specific permissions
-        $permissions->associate(static::ROLE, 'albus.*.*', InsecureRule::class);
+        $permissions->associate(
+            static::ROLE,
+            $config->securityNamespace() . '.*',
+            InsecureRule::class
+        );
     }
 }

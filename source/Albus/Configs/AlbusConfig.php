@@ -21,21 +21,37 @@ class AlbusConfig extends InjectableConfig
     const CONFIG = 'modules/albus';
 
     /**
+     * Default permissions namespace.
+     */
+    const GUARD_NAMESPACE = 'albus';
+
+    /**
      * @var array
      */
     protected $config = [
+        'guardNamespace' => 'albus',
+
         //Default albus controller
-        'controllers' => [],
-        'navigation'  => [],
+        'controllers'    => [],
+        'navigation'     => [],
 
         //Example: albus/users/addresses/1/remove/123
-        'route'       => [
+        'route'          => [
             'middlewares' => [],
             'pattern'     => 'albus[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
             'defaults'    => [],
             'matchHost'   => false,
         ]
     ];
+
+    public function securityNamespace()
+    {
+        if (empty($this->config['guardNamespace'])) {
+            return self::GUARD_NAMESPACE;
+        }
+
+        return $this->config['guardNamespace'];
+    }
 
     /**
      * List of allowed albus controllers in a form alias => class.

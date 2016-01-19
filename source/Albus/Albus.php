@@ -30,7 +30,7 @@ class Albus extends Component implements CoreInterface, SingletonInterface
     use BenchmarkTrait, GuardedTrait, TranslatorTrait;
 
     /**
-     * Declaring to IoC to treat Albus as sinleton.
+     * Declaring to IoC to treat Albus as singleton.
      */
     const SINGLETON = self::class;
 
@@ -118,39 +118,16 @@ class Albus extends Component implements CoreInterface, SingletonInterface
             );
         }
 
-        if (!$this->guard()->allows("albus.{$controller}", compact('action'))) {
+        $permission = "{$this->config->securityNamespace()}.{$controller}";
+
+        if (!$this->guard()->allows($permission, compact('action'))) {
             throw new ControllerException(
                 "Unreachable albus controller '{$controller}'",
                 ControllerException::FORBIDDEN
             );
         }
 
-        $benchmark = $this->benchmark('callAction', $controller . '::' . ($action ?: '~default~'));
-        $scope = $this->container->replace(CoreInterface::class, $this);
-
-        //To let navigation know current controller
-        $this->controller = $controller;
-
-        try {
-            //Initiating controller with all required dependencies
-            $object = $this->container->make(
-                $this->config->controllers()[$controller]
-            );
-
-            if (!$object instanceof ControllerInterface) {
-                throw new ControllerException(
-                    "Invalid '{$controller}', ControllerInterface not implemented.",
-                    ControllerException::NOT_FOUND
-                );
-            }
-
-            return $object->callAction($action, $parameters);
-        } finally {
-            $this->benchmark($benchmark);
-            $this->container->restore($scope);
-
-            $this->controller = '';
-        }
+        return $this->executeController($controller, $action, $parameters);
     }
 
     /**
@@ -209,5 +186,42 @@ class Albus extends Component implements CoreInterface, SingletonInterface
     protected function createRoute()
     {
         return $this->config->createRoute('albus')->setAlbus($this);
+    }
+
+    /**
+     * @param string $controller
+     * @param string $action
+     * @param array  $parameters
+     * @return mixed
+     * @throws ControllerException
+     */
+    protected function executeController($controller, $action, array $parameters)
+    {
+        $benchmark = $this->benchmark('callAction', $controller . '::' . ($action ?: '~default~'));
+        $scope = $this->container->replace(CoreInterface::class, $this);
+
+        //To let navigation know current controller
+        $this->controller = $controller;
+
+        try {
+            //Initiating controller with all required dependencies
+            $object = $this->container->make(
+                $this->config->controllers()[$controller]
+            );
+
+            if (!$object instanceof ControllerInterface) {
+                throw new ControllerException(
+                    "Invalid '{$controller}', ControllerInterface not implemented.",
+                    ControllerException::NOT_FOUND
+                );
+            }
+
+            return $object->callAction($action, $parameters);
+        } finally {
+            $this->benchmark($benchmark);
+            $this->container->restore($scope);
+
+            $this->controller = '';
+        }
     }
 }
