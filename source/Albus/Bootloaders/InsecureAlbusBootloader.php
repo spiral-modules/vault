@@ -32,18 +32,12 @@ class InsecureAlbusBootloader extends Bootloader
             $permissions->addRole(static::ROLE);
         }
 
-        //Following rule will raise log message to notify that insecure setting were used
-        $permissions->associate(
-            static::ROLE,
-            $config->securityNamespace() . '.*',
-            InsecureRule::class
-        );
+        $namespace = $config->securityNamespace();
 
-        //Controller specific permissions
-        $permissions->associate(
-            static::ROLE,
-            $config->securityNamespace() . '.*.*',
-            InsecureRule::class
-        );
+        //Following rule will raise log message to notify that insecure setting were used
+        $permissions->associate(static::ROLE, "{$namespace}.*", InsecureRule::class);
+        $permissions->associate(static::ROLE, "{$namespace}.*.*", InsecureRule::class);
+        $permissions->associate(static::ROLE, "{$namespace}.*.*.*", InsecureRule::class);
+        $permissions->associate(static::ROLE, "{$namespace}.*.*.*.*", InsecureRule::class);
     }
 }
