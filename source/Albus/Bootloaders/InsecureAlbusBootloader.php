@@ -42,7 +42,7 @@ class InsecureAlbusBootloader extends Bootloader
         //Controller specific permissions
         $permissions->associate(
             static::ROLE,
-            $config->securityNamespace() . '.*',
+            $config->securityNamespace() . '.*.*',
             InsecureRule::class
         );
     }
