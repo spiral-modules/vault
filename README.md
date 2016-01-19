@@ -1,14 +1,16 @@
-# Albus 
-Albus administration panel provides ability to create custom "administration" controllers with pre-created view layout and navigation manager based on set of Materialize styles.
+# Vault 
+Vault administration panel provides ability to create custom "administration" controllers with pre-created view layout and navigation manager based on set of Materialize styles.
+
+> To be renamed from Albus to Vault.
 
 Elements included
 -----------------
-* In-Albus uri tag
+* In-Vault uri tag
 * Cards and blocks
 * Tabs
 
 ```html
-<extends:albus:layout title="[[Albus]]"/>
+<extends:albus:layout title="[[Vault]]"/>
 
 <block:content>
     <tab:wrapper>
