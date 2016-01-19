@@ -10488,11 +10488,13 @@ main {
   main .container {
     margin: 0 auto; }
   @media only screen and (min-width: 993px) {
-    main.wide-content .container {
-      width: auto;
-      max-width: 100%;
-      padding-right: 15px;
-      margin: 0; }
+    main.wide-content {
+      padding: 55px 30px 100px 345px; }
+      main.wide-content .container {
+        width: auto;
+        max-width: 100%;
+        padding-right: 15px;
+        margin: 0; }
     main .container {
       max-width: 1024px;
       margin: 0; } }
@@ -10776,11 +10778,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
     .alert.form-msg.success .btn-close {
       color: #009788; }
 
-.item-form.error {
+label.item-form.error {
   color: #df2a00; }
-  .item-form.error .item-input {
+  label.item-form.error .item-input,
+  label.item-form.error .item-select,
+  label.item-form.error textarea {
     border-color: #df2a00; }
-  .item-form.error .msg {
+  label.item-form.error .form-msg {
     color: #df2a00; }
 
 .alert.form-msg.success, .alert.form-msg.error, .alert.form-msg.warning, .alert.form-msg.info {

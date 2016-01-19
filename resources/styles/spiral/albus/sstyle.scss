@@ -141,6 +141,8 @@ main {
 
   @media #{$large-and-up} {
     &.wide-content {
+      padding: 55px 30px 100px 345px;
+
       .container {
         width: auto;
         max-width: 100%;
@@ -566,16 +568,18 @@ textarea.materialize-textarea:focus:not([readonly]) {
   }
 }
 
-.item-form {
+label.item-form {
 
   &.error {
     color: #df2a00;
 
-    .item-input {
+    .item-input,
+    .item-select,
+    textarea {
       border-color: #df2a00;
     }
 
-    .msg {
+    .form-msg {
       color: #df2a00;
     }
   }
