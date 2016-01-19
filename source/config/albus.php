@@ -71,7 +71,7 @@ return [
          * Simple replace albus with desired keyword (for example "admin") to specify albus url
          * namespace.
          */
-        'pattern'     => 'albus[/<controller:[a-zA-Z\.\-]+>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
+        'pattern'     => 'albus[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
 
         /*
          * Default route values.
