@@ -22,7 +22,7 @@
     ?>
 </block:functions>
 
-<!--You can redefine following resources by redefining albus:albus layout-->
+<!--You can change following resources by redefining albus:albus layout-->
 <block:resources>
     <asset:css href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 

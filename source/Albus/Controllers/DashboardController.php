@@ -19,9 +19,6 @@ class DashboardController extends AlbusController
      */
     public function indexAction()
     {
-        //No need to include albus prefix (see GUARD_NAMESPACE)
-        $this->authorize('dashboard');
-
         return $this->views->render('albus:dashboard');
     }
 }
