@@ -10776,17 +10776,12 @@ textarea.materialize-textarea:focus:not([readonly]) {
     .alert.form-msg.success .btn-close {
       color: #009788; }
 
-.item-form .msg {
-  background: transparent;
-  font-size: 14px;
-  padding: 0;
-  margin-top: -10px; }
-  .item-form .msg .btn-close {
-    display: none; }
-
 .item-form.error {
   color: #df2a00; }
   .item-form.error .item-input {
     border-color: #df2a00; }
   .item-form.error .msg {
     color: #df2a00; }
+
+.alert.form-msg.success, .alert.form-msg.error, .alert.form-msg.warning, .alert.form-msg.info {
+  background: transparent; }

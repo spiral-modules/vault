@@ -567,16 +567,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 .item-form {
-  .msg {
-    background: transparent;
-    font-size: 14px;
-    padding: 0;
-    margin-top: -10px;
-
-    .btn-close {
-      display: none;
-    }
-  }
 
   &.error {
     color: #df2a00;
@@ -590,4 +580,15 @@ textarea.materialize-textarea:focus:not([readonly]) {
     }
   }
 
+}
+
+.alert {
+  &.form-msg {
+    &.success,
+    &.error,
+    &.warning,
+    &.info {
+      background: transparent;
+    }
+  }
 }
