@@ -50,7 +50,6 @@ Elements included
 
 Following code will be compiled into Materialize based HTML:
 
-![Screenshot](http://i.imgur.com/5R8j5lZ.png)
 ![Animation](https://raw.githubusercontent.com/spiral/guide/master/resources/albus.gif)
 
 # Installation
