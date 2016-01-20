@@ -16,7 +16,7 @@ Elements included
     <tab:wrapper>
 
         <!--Primary information about user account-->
-        <tab:item title="User Information" icon="user" id="info">
+        <tab:item id="info" title="User Information" icon="user">
             <div class="row">
                 <div class="col s6">
                     <vault:block>
@@ -35,13 +35,8 @@ Elements included
         </tab:item>
 
         <!--Additional information about user account-->
-        <tab:item title="Extra Information" id="extra">
+        <tab:item id="extra" title="Extra Information">
             extra user information <vault:uri taget="controller:action">link</vault:uri>
-        </tab:item>
-
-        <!--Test user content-->
-        <tab:item title="test" id="test">
-            test
         </tab:item>
 
     </tab:wrapper>
