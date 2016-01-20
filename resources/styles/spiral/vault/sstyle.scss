@@ -141,8 +141,6 @@ main {
 
   @media #{$large-and-up} {
     &.wide-content {
-      padding: 55px 30px 100px 345px;
-
       .container {
         width: auto;
         max-width: 100%;
@@ -534,9 +532,14 @@ textarea.materialize-textarea:focus:not([readonly]) {
   padding-bottom: 0;
 }
 
-input.item-input {
-  margin-bottom: 0;
+
+/*alert styles*/
+/*009788*/
+
+.alert {
+
 }
+
 
 .alert.form-msg {
   background: transparent;
@@ -561,106 +564,19 @@ input.item-input {
       color: #009788;
     }
   }
-
-  &.error {
-    color: #fc6c6c;
-    border-bottom-color: #fc6c6c;
-
-
-    .btn-close {
-      color: #fc6c6c;
-    }
-  }
-
-  &.warning {
-    color: #FFD54F;
-    border-bottom-color: #FFD54F;
-
-
-    .btn-close {
-      color: #FFD54F;
-    }
-  }
-
-  &.info{
-    color: #42A5F5;
-    border-bottom-color: #42A5F5;
-
-
-    .btn-close {
-      color: #42A5F5;
-    }
-  }
 }
 
-label.item-form {
-
-  .alert {
-    margin: 0;
-    padding: 0;
-  }
+.item-form {
 
   &.error {
-    color: #fc6c6c;
+    color: #df2a00;
 
-    .item-input,
-    .select-dropdown,
-    .item-label,
-    textarea {
-      border-color: #fc6c6c;
+    .item-input {
+      border-color: #df2a00;
     }
 
-    .form-msg {
-      color: #fc6c6c;
-      border-bottom: transparent;
-    }
-  }
-
-  &.success {
-    color: #009788;
-
-    .item-input,
-    .select-dropdown,
-    .item-label,
-    textarea {
-      border-color: #009788;
-    }
-
-    .form-msg {
-      color: #009788;
-      border-bottom: transparent;
-    }
-  }
-
-  &.info {
-    color: #42A5F5;
-
-    .item-input,
-    .select-dropdown,
-    .item-label,
-    textarea {
-      border-color: #42A5F5;
-    }
-
-    .form-msg {
-      color: #42A5F5;
-      border-bottom: transparent;
-    }
-  }
-
-  &.warning {
-    color: #FFD54F;
-
-    .item-input,
-    .select-dropdown,
-    .item-label,
-    textarea {
-      border-color: #FFD54F;
-    }
-
-    .form-msg {
-      color: #FFD54F;
-      border-bottom: transparent;
+    .msg {
+      color: #df2a00;
     }
   }
 
@@ -676,3 +592,17 @@ label.item-form {
     }
   }
 }
+
+/*paginator*/
+.pagination li {
+  float: none;
+  border: 0;
+  border-radius: 0;
+
+  &.active {
+    a {
+      background: none;
+    }
+  }
+}
+
