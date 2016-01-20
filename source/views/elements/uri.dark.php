@@ -13,5 +13,7 @@ $uri = vault()->uri(
 <a href="<?= (string)$uri ?>" node:attributes>
     <?php #compile
     ob_start(); ?>${icon}<?php #compile
-    if (!empty(ob_get_clean())) { ?><i class="material-icons ${icon-size|tiny}">${icon}</i><?php } #compile ?>${context}
+    if (!empty(ob_get_clean())) { ?><i class="material-icons ${icon-size|tiny}">${icon}</i><?php } #compile ?>${context}<?php #compile
+    ob_start(); ?>${post-icon}<?php #compile
+    if (!empty(ob_get_clean())) { ?><i class="material-icons ${post-icon-size|tiny}">${post-icon}</i><?php } #compile ?>
 </a>
