@@ -62,4 +62,4 @@ Do not forget to mount `VaultBootloader` (bootloader has to be initated after `S
 
 If you wish to play with Vault without configuring security rules, simply mount `InsecureVaultBootloader` bootloader, attention this bootloader will open Vault access to guest accounts and has to be used for debugging purposes only.
 
-Once installed Vault module will be accessible by a route pattern specified in a realted config, by default **/vault**.
+Once installed Vault module will be accessible by a route pattern specified in a realted config, by default **website.local/vault**.
