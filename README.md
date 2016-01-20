@@ -4,7 +4,9 @@ Vault administration panel provides ability to create custom "administration" co
 Elements included
 -----------------
 * In-Vault uri tag
-* Cards and blocks
+* Cards and Blocks
+* Materialize Paginator
+* Grids
 * Tabs
 
 ```html
@@ -49,6 +51,8 @@ Elements included
 Following code will be compiled into Materialize based HTML:
 
 ![Animation](https://raw.githubusercontent.com/spiral/guide/master/resources/albus.gif)
+
+> TODO: Grid example
 
 # Installation
 
