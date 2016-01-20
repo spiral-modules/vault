@@ -48,7 +48,7 @@ Elements included
 
 Following code will be compiled into Materialize based HTML:
 
-![Animation](https://raw.githubusercontent.com/spiral/guide/master/resources/vault.gif)
+![Animation](https://raw.githubusercontent.com/spiral/guide/master/resources/albus.gif)
 
 # Installation
 
