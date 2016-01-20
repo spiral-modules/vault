@@ -36,7 +36,7 @@ Elements included
 
         <!--Additional information about user account-->
         <tab:item id="extra" title="Extra Information">
-            extra user information <vault:uri taget="controller:action">link</vault:uri>
+            extra user information <vault:uri target="controller:action">link</vault:uri>
         </tab:item>
 
     </tab:wrapper>
