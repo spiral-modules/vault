@@ -5,7 +5,7 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
-namespace Spiral\Albus\Navigation;
+namespace Spiral\Vault\Navigation;
 
 use Spiral\Security\GuardInterface;
 

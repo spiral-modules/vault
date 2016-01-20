@@ -5,7 +5,7 @@ $this->runtimeVariable('__uri__parameters__', '${parameters}${data}${options}');
 /**
  * @var mixed $__uri__parameters__
  */
-$uri = albus()->uri(
+$uri = vault()->uri(
     '${href}${target}',
     $__uri__parameters__
 )->withFragment('${fragment}${section}${segment}');

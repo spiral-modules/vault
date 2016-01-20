@@ -5,28 +5,28 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
-namespace Spiral\Albus\Bootloaders;
+namespace Spiral\Vault\Bootloaders;
 
-use Spiral\Albus\Configs\AlbusConfig;
-use Spiral\Albus\Security\Rules\InsecureRule;
+use Spiral\Vault\Configs\VaultConfig;
+use Spiral\Vault\Security\Rules\InsecureRule;
 use Spiral\Core\Bootloaders\Bootloader;
 use Spiral\Security\Entities\Actors\Guest;
 use Spiral\Security\PermissionsInterface;
 
 /**
- * Development helper, DO NOT USE in production. Allows full access to Albus for any guest (no
+ * Development helper, DO NOT USE in production. Allows full access to Vault for any guest (no
  * authorization is required).
  */
-class InsecureAlbusBootloader extends Bootloader
+class InsecureVaultBootloader extends Bootloader
 {
     const BOOT = true;
     const ROLE = Guest::ROLE;
 
     /**
      * @param PermissionsInterface $permissions
-     * @param AlbusConfig          $config
+     * @param VaultConfig          $config
      */
-    public function boot(PermissionsInterface $permissions, AlbusConfig $config)
+    public function boot(PermissionsInterface $permissions, VaultConfig $config)
     {
         if (!$permissions->hasRole(static::ROLE)) {
             $permissions->addRole(static::ROLE);

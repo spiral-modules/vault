@@ -1,39 +1,39 @@
-<dark:extends path="albus:layouts.html5"/>
+<dark:extends path="vault:layouts.html5"/>
 
-<!--Albus elements such as panels, grids and tabs-->
+<!--Vault elements such as panels, grids and tabs-->
 <dark:use bundle="spiral:bundle"/>
-<dark:use bundle="albus:bundle"/>
+<dark:use bundle="vault:bundle"/>
 
-<!--Albus layout partials-->
-<dark:use path="albus:partials/*" namespace="albus.partials"/>
+<!--Vault layout partials-->
+<dark:use path="vault:partials/*" namespace="vault.partials"/>
 
-<!--Albus specific view functions-->
+<!--Vault specific view functions-->
 <block:functions>
     <?php
-    if (!function_exists('albus')) {
+    if (!function_exists('vault')) {
         /**
-         * @return \Spiral\Albus\Albus
+         * @return \Spiral\Vault\Vault
          */
-        function albus()
+        function vault()
         {
-            return spiral(\Spiral\Albus\Albus::class);
+            return spiral(\Spiral\Vault\Vault::class);
         }
     }
     ?>
 </block:functions>
 
-<!--You can change following resources by redefining albus:albus layout-->
+<!--You can change following resources by redefining vault:vault layout-->
 <block:resources>
     <asset:css href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 
     <asset:css href="resources/styles/spiral/spiral.css"/>
-    <asset:css href="resources/styles/spiral/albus/albus.css"/>
+    <asset:css href="resources/styles/spiral/vault/vault.css"/>
 
     <asset:javascript href="resources/vendor/jquery-2.2.0.min.js"/>
     <asset:javascript href="resources/vendor/materialize.min.js"/>
 
     <asset:javascript href="resources/scripts/spiral/sf.js"/>
-    <asset:javascript href="resources/scripts/spiral/albus.js"/>
+    <asset:javascript href="resources/scripts/spiral/vault.js"/>
 </block:resources>
 
 <!--Primary page content-->
@@ -66,7 +66,7 @@
     </div>
 
     <block:navigation>
-        <albus.partials:navigation navigation-head="${navigation-head}"/>
+        <vault.partials:navigation navigation-head="${navigation-head}"/>
     </block:navigation>
 
     <block:main>

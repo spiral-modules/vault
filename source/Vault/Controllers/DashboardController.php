@@ -5,7 +5,7 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
-namespace Spiral\Albus\Controllers;
+namespace Spiral\Vault\Controllers;
 
 use Spiral\Core\Controller;
 
@@ -19,6 +19,6 @@ class DashboardController extends Controller
      */
     public function indexAction()
     {
-        return $this->views->render('albus:dashboard');
+        return $this->views->render('vault:dashboard');
     }
 }

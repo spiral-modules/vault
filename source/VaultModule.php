@@ -12,25 +12,25 @@ use Spiral\Modules\ModuleInterface;
 use Spiral\Modules\PublisherInterface;
 use Spiral\Modules\RegistratorInterface;
 
-class AlbusModule implements ModuleInterface
+class VaultModule implements ModuleInterface
 {
     /**
      * @param RegistratorInterface $registrator
      */
     public function register(RegistratorInterface $registrator)
     {
-        $registrator->configure('views', 'namespaces', 'spiral/albus', [
-            "'albus' => [",
-            "   directory('libraries') . 'spiral/albus/source/views/',",
-            "   /*{{namespaces.albus}}*/",
+        $registrator->configure('views', 'namespaces', 'spiral/vault', [
+            "'vault' => [",
+            "   directory('libraries') . 'spiral/vault/source/views/',",
+            "   /*{{namespaces.vault}}*/",
             "]"
         ]);
 
-        $registrator->configure('translator', 'domains', 'spiral/albus', [
-            "'albus' => [",
-            "   'spiral-albus-*',",
-            "   'view-albus-*',",
-            "   /*{{domain.albus}}*/",
+        $registrator->configure('translator', 'domains', 'spiral/vault', [
+            "'vault' => [",
+            "   'spiral-vault-*',",
+            "   'view-vault-*',",
+            "   /*{{domain.vault}}*/",
             "]"
         ]);
     }
@@ -42,8 +42,8 @@ class AlbusModule implements ModuleInterface
     public function publish(PublisherInterface $publisher, DirectoriesInterface $directories)
     {
         $publisher->publish(
-            __DIR__ . '/config/albus.php',
-            $directories->directory('config') . 'modules/albus.php',
+            __DIR__ . '/config/vault.php',
+            $directories->directory('config') . 'modules/vault.php',
             PublisherInterface::FOLLOW
         );
 

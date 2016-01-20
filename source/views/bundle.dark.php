@@ -1,8 +1,8 @@
-<dark:use path="albus:elements/*" namespace="albus"/>
+<dark:use path="vault:elements/*" namespace="vault"/>
 
 <!--Tabs-->
-<dark:use path="albus:elements/tabs/*" namespace="tab"/>
+<dark:use path="vault:elements/tabs/*" namespace="tab"/>
 
 <!--Couple aliases-->
-<dark:use path="albus:elements/uri" as="albus:href"/>
-<dark:use path="albus:elements/uri" as="albus:url"/>
+<dark:use path="vault:elements/uri" as="vault:href"/>
+<dark:use path="vault:elements/uri" as="vault:url"/>

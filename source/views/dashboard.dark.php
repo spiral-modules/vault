@@ -1,33 +1,33 @@
-<dark:extends path="albus:layout" title="Dashboard"/>
+<dark:extends path="vault:layout" title="Dashboard"/>
 
 <block:content>
     <div class="row">
         <div class="col s6">
-            <albus:card color="blue darken-2" text="white" title="Welcome to Albus">
-                This view file located in 'albus/views/dashboard.dark.php' and rendered by default
-                'DashboardController', simply alter albus config to connect your own controller and
+            <vault:card color="blue darken-2" text="white" title="Welcome to Vault">
+                This view file located in 'vault/views/dashboard.dark.php' and rendered by default
+                'DashboardController', simply alter vault config to connect your own controller and
                 template.
-            </albus:card>
+            </vault:card>
 
-            <albus:card color="green darken-2" text="white" title="Configuring">
-                You can register additional albus controllers by altering configuration file located
-                in 'app/config/modules/albus.php'.
-            </albus:card>
+            <vault:card color="green darken-2" text="white" title="Configuring">
+                You can register additional vault controllers by altering configuration file located
+                in 'app/config/modules/vault.php'.
+            </vault:card>
 
-            <albus:card title="Links and Routing:">
+            <vault:card title="Links and Routing:">
                 Following technique can be used to create
-                <albus:uri href="dashboard">in-Albus</albus:uri>
+                <vault:uri href="dashboard">in-Vault</vault:uri>
                 links:
                 <br/>
                 <code>
-                    &lt;albus:uri href="dashboard:index"&gt;in-Albus&lt;/albus:uri&gt;
+                    &lt;vault:uri href="dashboard:index"&gt;in-Vault&lt;/vault:uri&gt;
                 </code>
-            </albus:card>
+            </vault:card>
         </div>
 
         <div class="col s6">
-            <albus:card title="Views and layouts">
-                You can make your controller work in albus layout by simply extending "albus:layout"
+            <vault:card title="Views and layouts">
+                You can make your controller work in vault layout by simply extending "vault:layout"
                 parent in your view file. Following blocks and definitions available for you:
 
                 <dl>
@@ -51,13 +51,13 @@
                 </dl>
                 <br/>
                 <i>
-                    You can also overwrite default albus layout by registering namespace directory
-                    (under "albus") and redefining "albus:layout" file with custom colors, logotypes
+                    You can also overwrite default vault layout by registering namespace directory
+                    (under "vault") and redefining "vault:layout" file with custom colors, logotypes
                     and resources.
                 </i>
                 <br/>
                 Add class="wide-content" to parent layout to remove page width constrain.
-            </albus:card>
+            </vault:card>
         </div>
     </div>
 </block:content>

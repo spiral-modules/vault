@@ -5,17 +5,17 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
-namespace Spiral\Albus;
+namespace Spiral\Vault;
 
 use Spiral\Core\ContainerInterface;
 use Spiral\Http\Routing\AbstractRoute;
 
-class AlbusRoute extends AbstractRoute
+class VaultRoute extends AbstractRoute
 {
     /**
-     * @var Albus
+     * @var Vault
      */
-    protected $albus = null;
+    protected $vault = null;
 
     /**
      * @param string $name
@@ -31,13 +31,13 @@ class AlbusRoute extends AbstractRoute
     }
 
     /**
-     * @param Albus $albus
+     * @param Vault $vault
      * @return $this
      */
-    public function setAlbus(Albus $albus)
+    public function setVault(Vault $vault)
     {
-        $this->core = $albus;
-        $this->albus = $albus;
+        $this->core = $vault;
+        $this->vault = $vault;
 
         return $this;
     }

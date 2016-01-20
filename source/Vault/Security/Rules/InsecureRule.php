@@ -5,7 +5,7 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
-namespace Spiral\Albus\Security\Rules;
+namespace Spiral\Vault\Security\Rules;
 
 use Psr\Log\LogLevel;
 use Spiral\Core\Component;

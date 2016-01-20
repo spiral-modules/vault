@@ -5,9 +5,9 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
-namespace Spiral\Albus;
+namespace Spiral\Vault;
 
-use Spiral\Albus\Navigation\Section;
+use Spiral\Vault\Navigation\Section;
 use Spiral\Security\GuardInterface;
 
 class Navigation

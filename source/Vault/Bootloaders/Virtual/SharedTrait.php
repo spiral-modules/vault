@@ -17,10 +17,10 @@ use Spiral\Core\Exceptions\SugarException;
  *
  * Here you list your own virtual bindings to help your IDE:
  *
- * @see AlbusBootloader
+ * @see VaultBootloader
  * @see SpiralBindings
  *
- * @property-read \Spiral\Albus\Albus       $albus See AlbusBindings
+ * @property-read \Spiral\Vault\Vault       $vault See VaultBindings
  * @property-read \Spiral\Views\ViewManager $views See SpiralBindings
  */
 trait SharedTrait

@@ -1,6 +1,6 @@
 <?php
 /**
- * Albus component configuration file. Attention, configs might include runtime code which
+ * Vault component configuration file. Attention, configs might include runtime code which
  * depended on environment values only.
  *
  * @see SecurityConfig
@@ -9,29 +9,29 @@
 return [
     /*
      * Every controller access will be checked under following permissions namespace. For example
-     * access to TestController mounted under name "test" will be checked as "albus.test".
+     * access to TestController mounted under name "test" will be checked as "vault.test".
      */
-    'guardNamespace' => 'albus',
+    'guardNamespace' => 'vault',
 
     /*
-     * List of controller classes associated with their alias to be available for albus. No other
+     * List of controller classes associated with their alias to be available for vault. No other
      * controllers can be called.
      *
-     * Albus checks access to controllers using high level permission "albus", make sure this
+     * Vault checks access to controllers using high level permission "vault", make sure this
      * permissions is available for a needed user role.
      *
-     * @see AlbusCore
+     * @see VaultCore
      */
     'controllers' => [
-        'dashboard' => \Spiral\Albus\Controllers\DashboardController::class,
+        'dashboard' => \Spiral\Vault\Controllers\DashboardController::class,
 
         /*{{controllers}}*/
     ],
 
     /*
-     * Structure of albus navigation including sections, section icons, links, link badges
+     * Structure of vault navigation including sections, section icons, links, link badges
      * and permissions needed to view link. Link labels will be translated using i18n domain
-     * "albus".
+     * "vault".
      */
     'navigation'  => [
         /*
@@ -46,7 +46,7 @@ return [
                     'title'    => 'Dashboard',
 
                     //Permission needed to show this navigation section
-                    'requires' => 'albus.dashboard'
+                    'requires' => 'vault.dashboard'
                 ],
                 /*{{navigation.activity}}*/
             ]
@@ -56,11 +56,11 @@ return [
     ],
 
     /*
-     * Configuration for AlbusRoute.
+     * Configuration for VaultRoute.
      */
     'route'       => [
         /*
-        * Set of middleware classes to be applied for AlbusRoute. Make sure to include AuthMiddleware
+        * Set of middleware classes to be applied for VaultRoute. Make sure to include AuthMiddleware
         * here!
         */
         'middlewares' => [
@@ -68,10 +68,10 @@ return [
         ],
 
         /*
-         * Simple replace albus with desired keyword (for example "admin") to specify albus url
+         * Simple replace vault with desired keyword (for example "admin") to specify vault url
          * namespace.
          */
-        'pattern'     => 'albus[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
+        'pattern'     => 'vault[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
 
         /*
          * Default route values.
@@ -82,7 +82,7 @@ return [
 
         /*
          * Set this value to true in cases when route based on sub domain patten, for example:
-         * albus.website.com[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]
+         * vault.website.com[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]
          */
         'matchHost'   => false
     ]

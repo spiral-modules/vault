@@ -2,26 +2,26 @@
     <block:navigation-head/>
     <ul class="collapsible panel-group" data-collapsible="accordion">
         <?php
-        $albus = albus();
-        foreach ($albus->navigation()->getSections() as $section) {
+        $vault = vault();
+        foreach ($vault->navigation()->getSections() as $section) {
             if (!$section->isAvailable()) {
                 //Section does not contain any available link
                 continue;
             }
 
-            $active = $section->hasController($albus->activeController());
+            $active = $section->hasController($vault->activeController());
             ?>
             <li class="panel">
                 <div class="panel-heading collapsible-header <?= $active ? 'active' : '' ?> waves-effect waves-spiral">
-                    <i class="material-icons"><?= $section->getIcon() ?></i><?= $albus->translate($section->getTitle()) ?>
+                    <i class="material-icons"><?= $section->getIcon() ?></i><?= $vault->translate($section->getTitle()) ?>
                 </div>
                 <div class="panel-collapse collapsible-body">
                     <div class="panel-body">
                         <div class="menu-list">
                             <?php
                             foreach ($section->getItems() as $item) {
-                                $uri = $albus->uri($item->getTarget());
-                                $title = $albus->translate($item->getTitle());
+                                $uri = $vault->uri($item->getTarget());
+                                $title = $vault->translate($item->getTitle());
                                 echo "<a href=\"{$uri}\">{$title}</a>";
                             }
                             ?>

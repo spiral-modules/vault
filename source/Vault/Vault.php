@@ -5,11 +5,11 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
-namespace Spiral\Albus;
+namespace Spiral\Vault;
 
 use Psr\Http\Message\UriInterface;
-use Spiral\Albus\Configs\AlbusConfig;
-use Spiral\Albus\Exceptions\AlbusException;
+use Spiral\Vault\Configs\VaultConfig;
+use Spiral\Vault\Exceptions\VaultException;
 use Spiral\Core\Component;
 use Spiral\Core\Container\SingletonInterface;
 use Spiral\Core\ContainerInterface;
@@ -23,14 +23,14 @@ use Spiral\Security\Traits\GuardedTrait;
 use Spiral\Translator\Traits\TranslatorTrait;
 
 /**
- * Albus core aggregates
+ * Vault core aggregates
  */
-class Albus extends Component implements CoreInterface, SingletonInterface
+class Vault extends Component implements CoreInterface, SingletonInterface
 {
     use BenchmarkTrait, GuardedTrait, TranslatorTrait;
 
     /**
-     * Declaring to IoC to treat Albus as singleton.
+     * Declaring to IoC to treat Vault as singleton.
      */
     const SINGLETON = self::class;
 
@@ -40,7 +40,7 @@ class Albus extends Component implements CoreInterface, SingletonInterface
     private $httpConfig = null;
 
     /**
-     * @var AlbusConfig
+     * @var VaultConfig
      */
     private $config = null;
 
@@ -62,15 +62,15 @@ class Albus extends Component implements CoreInterface, SingletonInterface
     protected $container = null;
 
     /**
-     * AlbusCore constructor.
+     * VaultCore constructor.
      *
      * @param HttpConfig         $httpConfig
-     * @param AlbusConfig        $config
+     * @param VaultConfig        $config
      * @param ContainerInterface $container
      */
     public function __construct(
         HttpConfig $httpConfig,
-        AlbusConfig $config,
+        VaultConfig $config,
         ContainerInterface $container
     ) {
         $this->httpConfig = $httpConfig;
@@ -89,7 +89,7 @@ class Albus extends Component implements CoreInterface, SingletonInterface
     }
 
     /**
-     * Albus navigation instance.
+     * Vault navigation instance.
      */
     public function navigation()
     {
@@ -113,7 +113,7 @@ class Albus extends Component implements CoreInterface, SingletonInterface
     {
         if (!isset($this->config->controllers()[$controller])) {
             throw new ControllerException(
-                "Undefined albus controller '{$controller}'",
+                "Undefined vault controller '{$controller}'",
                 ControllerException::NOT_FOUND
             );
         }
@@ -122,7 +122,7 @@ class Albus extends Component implements CoreInterface, SingletonInterface
 
         if (!$this->guard()->allows($permission, compact('action'))) {
             throw new ControllerException(
-                "Unreachable albus controller '{$controller}'",
+                "Unreachable vault controller '{$controller}'",
                 ControllerException::FORBIDDEN
             );
         }
@@ -131,7 +131,7 @@ class Albus extends Component implements CoreInterface, SingletonInterface
     }
 
     /**
-     * Perform albus specific string translation.
+     * Perform vault specific string translation.
      *
      * @param string $string
      * @param array  $options
@@ -143,13 +143,13 @@ class Albus extends Component implements CoreInterface, SingletonInterface
     }
 
     /**
-     * Get albus specific uri.
+     * Get vault specific uri.
      *
      * @param string      $target Target controller and action in a form of "controller::action" or
      *                            "controller:action" or "controller".
      * @param array|mixed $parameters
      * @return UriInterface
-     * @throws AlbusException
+     * @throws VaultException
      */
     public function uri($target, $parameters = [])
     {
@@ -162,14 +162,14 @@ class Albus extends Component implements CoreInterface, SingletonInterface
             $controller = $target;
 
             if (!empty($parameters)) {
-                throw new AlbusException(
+                throw new VaultException(
                     "Unable to generate uri with empty controller action and not empty parameters."
                 );
             }
         }
 
         if (!isset($this->config->controllers()[$controller])) {
-            throw new AlbusException(
+            throw new VaultException(
                 "Unable to generate uri, undefined controller '{$controller}'."
             );
         }
@@ -181,11 +181,11 @@ class Albus extends Component implements CoreInterface, SingletonInterface
     }
 
     /**
-     * @return AlbusRoute
+     * @return VaultRoute
      */
     protected function createRoute()
     {
-        return $this->config->createRoute('albus')->setAlbus($this);
+        return $this->config->createRoute('vault')->setVault($this);
     }
 
     /**

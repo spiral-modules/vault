@@ -1,8 +1,6 @@
 # Vault 
 Vault administration panel provides ability to create custom "administration" controllers with pre-created view layout and navigation manager based on set of Materialize styles.
 
-> To be renamed from Albus to Vault.
-
 Elements included
 -----------------
 * In-Vault uri tag
@@ -10,7 +8,7 @@ Elements included
 * Tabs
 
 ```html
-<extends:albus:layout title="[[Vault]]"/>
+<extends:vault:layout title="[[Vault]]"/>
 
 <block:content>
     <tab:wrapper>
@@ -19,24 +17,24 @@ Elements included
         <tab:item title="User Information" icon="user" id="info">
             <div class="row">
                 <div class="col s6">
-                    <albus:block>
+                    <vault:block>
                         <spiral:form>
                             <form:input label="abc"/>
                         </spiral:form>
-                    </albus:block>
+                    </vault:block>
                 </div>
 
                 <div class="col s6">
-                    <albus:card color="blue-grey darken-2" text="white">
+                    <vault:card color="blue-grey darken-2" text="white">
                         <p>There is an issue with something.</p>
-                    </albus:card>
+                    </vault:card>
                 </div>
             </div>
         </tab:item>
 
         <!--Additional information about user account-->
         <tab:item title="Extra Information" id="extra">
-            extra user information <albus:uri taget="controller:action">link</albus:uri>
+            extra user information <vault:uri taget="controller:action">link</vault:uri>
         </tab:item>
 
         <!--Test user content-->
@@ -50,17 +48,17 @@ Elements included
 
 Following code will be compiled into Materialize based HTML:
 
-![Animation](https://raw.githubusercontent.com/spiral/guide/master/resources/albus.gif)
+![Animation](https://raw.githubusercontent.com/spiral/guide/master/resources/vault.gif)
 
 # Installation
 
 ```
-composer require spiral/albus
-spiral register spiral/albus
+composer require spiral/vault
+spiral register spiral/vault
 ```
 
-Do not forget to mount `AlbusBootloader` (bootloader has to be initated after `SecutiryBootloader`).
+Do not forget to mount `VaultBootloader` (bootloader has to be initated after `SecutiryBootloader`).
 
-> You can tweak Albus behaviour (route, middlewares), create new navigation sections or register your own controllers via `app/config/modules/albus.php` configuration file.
+> You can tweak Vault behaviour (route, middlewares), create new navigation sections or register your own controllers via `app/config/modules/vault.php` configuration file.
 
-If you wish to play with Albus without configuring security, simply mount `Spiral\Albus\Bootloaders\InsecureAlbusBootloader` bootloader, attention this bootloader will open Albus access to guest accounts and has to be used for debugging purposes only.
+If you wish to play with Vault without configuring security, simply mount `Spiral\Vault\Bootloaders\InsecureVaultBootloader` bootloader, attention this bootloader will open Vault access to guest accounts and has to be used for debugging purposes only.

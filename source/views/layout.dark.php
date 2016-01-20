@@ -1,4 +1,4 @@
-<dark:extends path="albus:layouts/root"/>
+<dark:extends path="vault:layouts/root"/>
 
 <define:brand>
     <a href="/" class="brand-logo">

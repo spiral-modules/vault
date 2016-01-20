@@ -5,40 +5,40 @@
  * @license MIT
  * @author  Anton Titov (Wolfy-J)
  */
-namespace Spiral\Albus\Configs;
+namespace Spiral\Vault\Configs;
 
-use Spiral\Albus\AlbusRoute;
+use Spiral\Vault\VaultRoute;
 use Spiral\Core\InjectableConfig;
 
 /**
- * Configuration for Albus administration panel.
+ * Configuration for Vault administration panel.
  */
-class AlbusConfig extends InjectableConfig
+class VaultConfig extends InjectableConfig
 {
     /**
      * Configuration section.
      */
-    const CONFIG = 'modules/albus';
+    const CONFIG = 'modules/vault';
 
     /**
      * Default permissions namespace.
      */
-    const GUARD_NAMESPACE = 'albus';
+    const GUARD_NAMESPACE = 'vault';
 
     /**
      * @var array
      */
     protected $config = [
-        'guardNamespace' => 'albus',
+        'guardNamespace' => 'vault',
 
-        //Default albus controller
+        //Default vault controller
         'controllers'    => [],
         'navigation'     => [],
 
-        //Example: albus/users/addresses/1/remove/123
+        //Example: vault/users/addresses/1/remove/123
         'route'          => [
             'middlewares' => [],
-            'pattern'     => 'albus[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
+            'pattern'     => 'vault[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
             'defaults'    => [],
             'matchHost'   => false,
         ]
@@ -54,11 +54,11 @@ class AlbusConfig extends InjectableConfig
     }
 
     /**
-     * List of allowed albus controllers in a form alias => class.
+     * List of allowed vault controllers in a form alias => class.
      *
      * Example:
      * cms    => Vendor\CMSController::class,
-     * system => Albus\SystemController::class
+     * system => Vault\SystemController::class
      *
      * @return array
      */
@@ -68,7 +68,7 @@ class AlbusConfig extends InjectableConfig
     }
 
     /**
-     * Albus navigation structure including sections, permissions, titles and etc.
+     * Vault navigation structure including sections, permissions, titles and etc.
      *
      * @return array
      */
@@ -79,11 +79,11 @@ class AlbusConfig extends InjectableConfig
 
     /**
      * @param string $name
-     * @return AlbusRoute
+     * @return VaultRoute
      */
     public function createRoute($name)
     {
-        $route = new AlbusRoute(
+        $route = new VaultRoute(
             $name,
             $this->config['route']['pattern'],
             $this->config['route']['defaults']
