@@ -97,7 +97,6 @@ protected function indexAction(PostsSource $source)
 
 ```html
 <extends:vault:layout title="Posts"/>
-<dark:use bundle="spiral:cropper-bundle"/>
 
 <define:content>
     <vault:grid source="<?= $posts ?>" as="post">
