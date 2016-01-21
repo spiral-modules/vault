@@ -89,7 +89,7 @@ Grids:
  */
 protected function indexAction(PostsSource $source)
 {
-    return $this->views->render('admin:posts/list', [
+    return $this->views->render('admin/posts/list', [
         'posts' => $source->findActive()->paginate(5)
     ]);
 }
