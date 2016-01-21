@@ -26,14 +26,14 @@
 <block:resources>
     <asset:css href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 
-    <asset:css href="resources/styles/spiral/spiral.css"/>
-    <asset:css href="resources/styles/spiral/vault/vault.css"/>
+    <asset:css href="@{basePath}resources/styles/spiral/spiral.css"/>
+    <asset:css href="@{basePath}resources/styles/spiral/vault/vault.css"/>
 
-    <asset:javascript href="resources/vendor/jquery-2.2.0.min.js"/>
-    <asset:javascript href="resources/vendor/materialize.min.js"/>
+    <asset:javascript href="@{basePath}resources/vendor/jquery-2.2.0.min.js"/>
+    <asset:javascript href="@{basePath}resources/vendor/materialize.min.js"/>
 
-    <asset:javascript href="resources/scripts/spiral/sf.js"/>
-    <asset:javascript href="resources/scripts/spiral/vault.js"/>
+    <asset:javascript href="@{basePath}resources/scripts/spiral/sf.js"/>
+    <asset:javascript href="@{basePath}resources/scripts/spiral/vault.js"/>
 </block:resources>
 
 <!--Primary page content-->
