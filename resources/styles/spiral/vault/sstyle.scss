@@ -204,6 +204,7 @@ h1 {
 
 dl {
   margin: 0;
+
   dt {
     font-size: 15px;
     display: block;
@@ -231,6 +232,37 @@ dl {
       left: -140px;
       bottom: -1px;
       display: block;
+    }
+  }
+
+  &.half-col {
+    dt {
+      width: 50%;
+      padding-right: 10px;
+    }
+
+    dd {
+      margin-left: 50%;
+
+      &:before {
+        width: 100%;
+        left: -100%;
+      }
+    }
+  }
+
+  &.wide-col {
+    dt {
+      width: 60%;
+      padding-right: 10px;
+    }
+    dd {
+      margin-left: 60%;
+
+      &:before {
+        width: 150%;
+        left: -150%;
+      }
     }
   }
 }

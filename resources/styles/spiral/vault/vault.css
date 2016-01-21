@@ -10549,6 +10549,22 @@ dl {
       left: -140px;
       bottom: -1px;
       display: block; }
+  dl.half-col dt {
+    width: 50%;
+    padding-right: 10px; }
+  dl.half-col dd {
+    margin-left: 50%; }
+    dl.half-col dd:before {
+      width: 100%;
+      left: -100%; }
+  dl.wide-col dt {
+    width: 60%;
+    padding-right: 10px; }
+  dl.wide-col dd {
+    margin-left: 60%; }
+    dl.wide-col dd:before {
+      width: 150%;
+      left: -150%; }
 
 table tbody td {
   border: none; }
