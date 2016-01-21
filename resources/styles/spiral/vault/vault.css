@@ -10570,7 +10570,7 @@ table tbody td {
   border: none; }
 
 .material-icons {
-  vertical-align: sub; }
+  vertical-align: middle; }
 
 /*form*/
 .input-field label {
@@ -10816,6 +10816,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
   @media only screen and (max-width: 600px) {
     .tabs {
       overflow-x: auto; } }
+  .tabs .tab a:hover {
+    text-decoration: none; }
 
 /*fix input button*/
 .waves-effect input[type="button"],

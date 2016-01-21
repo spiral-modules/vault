@@ -272,7 +272,7 @@ table tbody td {
 }
 
 .material-icons {
-  vertical-align: sub;
+  vertical-align: middle;
 }
 
 
@@ -644,6 +644,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
   @media #{$small-and-down} {
   overflow-x: auto;
+  }
+
+  .tab a:hover {
+    text-decoration: none;
   }
 }
 
