@@ -2,7 +2,8 @@
 <dark:use bundle="vault:bundle"/>
 
 <vault:block title="${title}" node:attributes="prefix:block">
-    <spiral:grid source="${source}" as="${as}" class="${class|striped}" paginator="" empty="${empty}">
+    <spiral:grid source="${source}" as="${as}" class="${class|striped}" paginator=""
+                 empty="${empty|No results to be displayed}" empty-class="${empty-class|center}">
         ${context}
     </spiral:grid>
 </vault:block>
