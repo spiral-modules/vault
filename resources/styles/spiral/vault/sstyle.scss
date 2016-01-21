@@ -566,12 +566,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 
 /*alert styles*/
-/*009788*/
-
-.alert {
-
-}
-
 
 .alert.form-msg {
   background: transparent;
@@ -623,6 +617,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
       background: transparent;
     }
   }
+}
+
+input.item-input,
+.item-select,
+textarea {
+  margin-bottom: 0;
+  color: #666;
 }
 
 /*paginator*/
