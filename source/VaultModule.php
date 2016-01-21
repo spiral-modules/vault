@@ -47,9 +47,6 @@ class VaultModule implements ModuleInterface
             PublisherInterface::FOLLOW
         );
 
-        /**
-         * Publishing all module visual resources. We are going to overwrite existed files.
-         */
         $publisher->publishDirectory(
             __DIR__ . '/../resources',                        //Profiler js, css and modules
             $directories->directory('public') . 'resources',  //Expected directory in webroot
