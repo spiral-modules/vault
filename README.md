@@ -3,11 +3,45 @@ Vault administration panel provides ability to create custom "administration" co
 
 Elements included
 -----------------
-* In-Vault uri tag
-* Cards and Blocks
-* Materialize Paginator
-* Grids
-* Tabs
+
+In-Vault Uri tag:
+
+```html
+<vault:uri target="controller:action" options="<?= ['id' => 123] ?>" icon="icon" class="...">link</vault:uri>
+```
+
+Cards and blocks:
+
+```html
+<vault:card color="blue-grey darken-2" text="white">
+    <p>There is an issue with something.</p>
+</vault:card>
+
+<vault:block title="Title">
+</vault:block>
+```
+
+Forms (ajax):
+
+```html
+<vault:form action="<?= vault()->uri('countries:edit', ['id' => $entity->id] ?>">
+    <div class="row">
+        <div class="col s7">
+            <form:input label="[[Country:]]" name="name" value="<?= e($entity->name) ?>"/>
+        </div>
+        <div class="col s5">
+            <form:input label="[[Country Code:]]" name="code" value="<?= e($entity->code) ?>"/>
+        </div>
+    </div>
+    <div class="right-align">
+        <input type="submit" value="[[UPDATE]]" class="btn teal waves-effect waves-light"/>
+    </div>
+</vault:form>
+```
+
+![Form](https://raw.githubusercontent.com/spiral/guide/master/resources/vault-form.png)
+
+Tabs:
 
 ```html
 <extends:vault:layout title="[[Vault]]"/>
@@ -43,11 +77,9 @@ Elements included
 </block:content>
 ```
 
-Following code will be compiled into Materialize based HTML:
-
 ![Animation](https://raw.githubusercontent.com/spiral/guide/master/resources/albus.gif)
 
-Grids
+Grids:
 
 ```php
 /**
