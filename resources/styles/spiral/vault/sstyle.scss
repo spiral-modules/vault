@@ -638,3 +638,12 @@ textarea.materialize-textarea:focus:not([readonly]) {
   }
 }
 
+/*fix tabs bug*/
+.tabs {
+  overflow-x: hidden;
+
+  @media #{$small-and-down} {
+  overflow-x: auto;
+  }
+}
+

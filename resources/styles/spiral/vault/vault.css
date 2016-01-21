@@ -10809,3 +10809,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
   border-radius: 0; }
   .pagination li.active a {
     background: none; }
+
+/*fix tabs bug*/
+.tabs {
+  overflow-x: hidden; }
+  @media only screen and (max-width: 600px) {
+    .tabs {
+      overflow-x: auto; } }
