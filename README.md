@@ -47,7 +47,41 @@ Following code will be compiled into Materialize based HTML:
 
 ![Animation](https://raw.githubusercontent.com/spiral/guide/master/resources/albus.gif)
 
-> TODO: Grid example
+Grids
+
+```php
+/**
+ * @return string
+ */
+protected function indexAction(PostsSource $source)
+{
+    return $this->views->render('admin:posts/list', [
+        'posts' => $source->findActive()->paginate(5)
+    ]);
+}
+```
+
+```html
+<extends:vault:layout title="Posts"/>
+<dark:use bundle="spiral:cropper-bundle"/>
+
+<define:content>
+    <vault:grid source="<?= $posts ?>" as="post">
+        <grid:cell label="ID:" value="<?= $post->id ?>"/>
+        <grid:cell label="Time Created:" value="<?= $post->time_created ?>"/>
+        <grid:cell label="Title:" value="<?= $post->title ?>"/>
+
+        <grid:cell.bool label="Published:" value="<?= $post->isPublished() ?>"/>
+
+        <grid:cell style="text-align: right">
+            <vault:uri target="posts:edit" options="<?= ['id' => $post->id] ?>"
+                       class="waves-effect btn-flat" icon="edit"/>
+        </grid:cell>
+    </vault:grid>
+</define:content>
+```
+
+![Grid](https://raw.githubusercontent.com/spiral/guide/master/resources/grid.png)
 
 # Installation
 
