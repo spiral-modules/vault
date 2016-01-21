@@ -1,5 +1,7 @@
 # Vault 
-Vault administration panel provides ability use regular application controllers inside security eviroment with set of pre-created visual elements like grids, tabs, forms and other. Vault module is based on a set of [Materialize CSS](http://materializecss.com/) styles.
+Vault administration panel provides ability use regular application controllers inside security eviroment with set of pre-created visual elements like grids, tabs, forms and other. 
+
+Vault module is based on a set of [Materialize CSS](http://materializecss.com/) styles.
 
 Elements included
 -----------------
