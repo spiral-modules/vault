@@ -647,3 +647,15 @@ textarea.materialize-textarea:focus:not([readonly]) {
   }
 }
 
+/*fix input button*/
+.waves-effect input[type="button"],
+.waves-effect input[type="reset"],
+.waves-effect input[type="submit"] {
+  padding: 0 2rem;
+  height: 36px;
+}
+
+.waves-input-wrapper {
+  padding: 0;
+}
+

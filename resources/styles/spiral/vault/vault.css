@@ -10816,3 +10816,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
   @media only screen and (max-width: 600px) {
     .tabs {
       overflow-x: auto; } }
+
+/*fix input button*/
+.waves-effect input[type="button"],
+.waves-effect input[type="reset"],
+.waves-effect input[type="submit"] {
+  padding: 0 2rem;
+  height: 36px; }
+
+.waves-input-wrapper {
+  padding: 0; }
