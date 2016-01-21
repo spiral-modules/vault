@@ -10549,6 +10549,22 @@ dl {
       left: -140px;
       bottom: -1px;
       display: block; }
+  dl.half-col dt {
+    width: 50%;
+    padding-right: 10px; }
+  dl.half-col dd {
+    margin-left: 50%; }
+    dl.half-col dd:before {
+      width: 100%;
+      left: -100%; }
+  dl.wide-col dt {
+    width: 60%;
+    padding-right: 10px; }
+  dl.wide-col dd {
+    margin-left: 60%; }
+    dl.wide-col dd:before {
+      width: 150%;
+      left: -150%; }
 
 table tbody td {
   border: none; }
@@ -10793,3 +10809,20 @@ textarea.materialize-textarea:focus:not([readonly]) {
   border-radius: 0; }
   .pagination li.active a {
     background: none; }
+
+/*fix tabs bug*/
+.tabs {
+  overflow-x: hidden; }
+  @media only screen and (max-width: 600px) {
+    .tabs {
+      overflow-x: auto; } }
+
+/*fix input button*/
+.waves-effect input[type="button"],
+.waves-effect input[type="reset"],
+.waves-effect input[type="submit"] {
+  padding: 0 2rem;
+  height: 36px; }
+
+.waves-input-wrapper {
+  padding: 0; }
