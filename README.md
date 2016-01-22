@@ -10,7 +10,7 @@ In-Vault Uri tag:
 
 ```html
 <vault:uri target="controller:action" options="<?= ['id' => 123] ?>" icon="icon" class="...">
-    link
+    label
 </vault:uri>
 ```
 
