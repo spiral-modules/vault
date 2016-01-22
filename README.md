@@ -9,7 +9,9 @@ Elements included
 In-Vault Uri tag:
 
 ```html
-<vault:uri target="controller:action" options="<?= ['id' => 123] ?>" icon="icon" class="...">link</vault:uri>
+<vault:uri target="controller:action" options="<?= ['id' => 123] ?>" icon="icon" class="...">
+    link
+</vault:uri>
 ```
 
 Cards and blocks:
