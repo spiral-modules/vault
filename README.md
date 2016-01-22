@@ -6,7 +6,7 @@ Vault module is based on a set of [Materialize CSS](http://materializecss.com/) 
 Elements included
 -----------------
 
-In-Vault Uri tag:
+In-Vault Uri tag (URL automatically resolve via Vault route):
 
 ```html
 <vault:uri target="controller:action" options="<?= ['id' => 123] ?>" icon="icon" class="...">
