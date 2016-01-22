@@ -28,7 +28,7 @@ Cards and blocks:
 Forms (ajax):
 
 ```html
-<vault:form action="<?= vault()->uri('countries:edit', ['id' => $entity->id] ?>">
+<vault:form action="<?= vault()->uri('countries:edit', ['id' => $entity->id]) ?>">
     <div class="row">
         <div class="col s7">
             <form:input label="[[Country:]]" name="name" value="<?= e($entity->name) ?>"/>
