@@ -141,10 +141,11 @@ main {
 
   @media #{$large-and-up} {
     &.wide-content {
+    padding: 55px 45px 100px 345px;
+
       .container {
         width: auto;
         max-width: 100%;
-        padding-right: 15px;
         margin: 0;
       }
     }
@@ -585,30 +586,113 @@ textarea.materialize-textarea:focus:not([readonly]) {
     color: #009788;
     border-bottom-color: #009788;
 
-
     .btn-close {
       color: #009788;
     }
   }
-}
-
-.item-form {
 
   &.error {
-    color: #df2a00;
+    color: #fc6c6c;
+    border-bottom-color: #fc6c6c;
 
-    .item-input {
-      border-color: #df2a00;
-    }
-
-    .msg {
-      color: #df2a00;
+   .btn-close {
+      color: #fc6c6c;
     }
   }
 
+  &.warning {
+    color: #FFD54F;
+    border-bottom-color: #FFD54F;
+
+     .btn-close {
+      color: #FFD54F;
+    }
+  }
+
+   &.info{
+    color: #42A5F5;
+    border-bottom-color: #42A5F5;
+
+    .btn-close {
+      color: #42A5F5;
+    }
+  }
+}
+
+label.item-form {
+
+  .alert {
+    margin: 0;
+    padding: 0;
+  }
+
+  &.error {
+    color: #fc6c6c;
+
+    .item-input,
+    .select-dropdown,
+    .item-label,
+    textarea {
+      border-color: #fc6c6c;
+    }
+
+    .form-msg {
+      color: #fc6c6c;
+      border-bottom: transparent;
+    }
+  }
+  &.success {
+    color: #009788;
+
+    .item-input,
+    .select-dropdown,
+    .item-label,
+    textarea {
+      border-color: #009788;
+    }
+
+    .form-msg {
+      color: #009788;
+      border-bottom: transparent;
+    }
+  }
+
+  &.info {
+    color: #42A5F5;
+
+    .item-input,
+    .select-dropdown,
+    .item-label,
+    textarea {
+      border-color: #42A5F5;
+    }
+
+    .form-msg {
+      color: #42A5F5;
+      border-bottom: transparent;
+    }
+  }
+
+  &.warning {
+    color: #FFD54F;
+
+    .item-input,
+    .select-dropdown,
+    .item-label,
+    textarea {
+      border-color: #FFD54F;
+    }
+
+    .form-msg {
+      color: #FFD54F;
+      border-bottom: transparent;
+    }
+  }
 }
 
 .alert {
+  margin: 0;
+
   &.form-msg {
     &.success,
     &.error,
