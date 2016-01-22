@@ -10920,6 +10920,28 @@ textarea {
   padding: 0; }
 
 /*cropper*/
+.item-file {
+  position: relative; }
+  .item-file .item-input {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+  .item-file .sf-crop-filename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%; }
+
+.sf-crop-modal button.btn, .sf-crop-modal button.btn-large {
+  box-shadow: none;
+  font-weight: bold;
+  padding: 0;
+  margin-left: 20px; }
+  .sf-crop-modal button.btn:hover, .sf-crop-modal button.btn-large:hover {
+    background: transparent;
+    opacity: .7; }
+
 .file-field.input-field .btn, .file-field.input-field .btn-large {
   margin-right: 10px;
   text-align: center; }
