@@ -22,6 +22,7 @@ Cards and blocks:
 </vault:card>
 
 <vault:block title="Title">
+    content
 </vault:block>
 ```
 
