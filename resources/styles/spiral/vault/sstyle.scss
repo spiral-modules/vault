@@ -794,7 +794,8 @@ textarea {
   }
 }
 
-.sf-crop-modal button.btn {
+.sf-crop-modal button.btn,
+.sf-crop-modal button.btn.sf-crop-save {
   box-shadow: none;
   font-weight: bold;
   padding: 0;

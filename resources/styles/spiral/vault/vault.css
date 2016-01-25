@@ -10933,12 +10933,16 @@ textarea {
     display: inline-block;
     max-width: 100%; }
 
-.sf-crop-modal button.btn, .sf-crop-modal button.btn-large {
+.sf-crop-modal button.btn, .sf-crop-modal button.btn-large,
+.sf-crop-modal button.btn.sf-crop-save,
+.sf-crop-modal button.sf-crop-save.btn-large {
   box-shadow: none;
   font-weight: bold;
   padding: 0;
   margin-left: 20px; }
-  .sf-crop-modal button.btn:hover, .sf-crop-modal button.btn-large:hover {
+  .sf-crop-modal button.btn:hover, .sf-crop-modal button.btn-large:hover,
+  .sf-crop-modal button.btn.sf-crop-save:hover,
+  .sf-crop-modal button.sf-crop-save.btn-large:hover {
     background: transparent;
     opacity: .7; }
 
