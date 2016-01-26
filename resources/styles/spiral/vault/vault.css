@@ -10862,6 +10862,10 @@ textarea {
   margin-bottom: 0;
   color: #666; }
 
+.dropdown-content li > a,
+.dropdown-content li > span {
+  padding: 10px 16px; }
+
 /*paginator*/
 .pagination li {
   float: none;
@@ -10926,3 +10930,10 @@ textarea {
     text-transform: none; }
     .file-field.input-field .btn span:before, .file-field.input-field .btn-large span:before {
       display: none; }
+
+/*listing*/
+.user-name {
+  display: inline-block;
+  margin-left: 15px; }
+  .user-name label {
+    vertical-align: top; }
