@@ -737,6 +737,11 @@ textarea {
   color: #666;
 }
 
+.dropdown-content li > a,
+.dropdown-content li > span {
+  padding: 10px 16px;
+}
+
 /*paginator*/
 .pagination li {
   float: none;
@@ -820,6 +825,16 @@ textarea {
     &:before {
       display: none;
     }
+  }
+}
+
+/*listing*/
+.user-name {
+  display: inline-block;
+  margin-left: 15px;
+
+  label {
+    vertical-align: top;
   }
 }
 
