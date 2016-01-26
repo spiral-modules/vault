@@ -740,10 +740,13 @@ textarea {
   margin-bottom: 0;
   color: #666;
 }
+.dropdown-content li {
+  padding-bottom: 0;
 
-.dropdown-content li > a,
-.dropdown-content li > span {
-  padding: 10px 16px;
+  > a,
+  > span  {
+    padding: 10px 16px;
+  }
 }
 
 /*paginator*/
