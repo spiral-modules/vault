@@ -607,6 +607,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
   .btn-close {
     opacity: 1;
     right: 0;
+    height: 10px;
+    padding: 0;
+    line-height: 10px;
+    top: 10px;
   }
 
   &.success {
@@ -628,11 +632,11 @@ textarea.materialize-textarea:focus:not([readonly]) {
   }
 
   &.warning {
-    color: #FFD54F;
-    border-bottom-color: #FFD54F;
+    color: #FF9800;
+    border-bottom-color:#FF9800;
 
      .btn-close {
-      color: #FFD54F;
+      color: #FF9800;
     }
   }
 
@@ -701,17 +705,17 @@ label.item-form {
   }
 
   &.warning {
-    color: #FFD54F;
+    color: #FF9800;
 
     .item-input,
     .select-dropdown,
     .item-label,
     textarea {
-      border-color: #FFD54F;
+      border-color: #FF9800;
     }
 
     .form-msg {
-      color: #FFD54F;
+      color: #FF9800;
       border-bottom: transparent;
     }
   }
