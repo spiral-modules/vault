@@ -10537,11 +10537,14 @@ dl {
       width: 150%;
       left: -150%; }
 
+.btn:hover, .btn-large:hover {
+  text-decoration: none; }
+
 table tbody td {
   border: none; }
 
 .material-icons {
-  vertical-align: middle; }
+  vertical-align: sub; }
 
 /*form*/
 .input-field label {
@@ -10669,13 +10672,8 @@ a.button-collapse.top-nav {
         top: 37px; }
       .nav-header .top-panel .menu-link .line-3 {
         top: 44px; }
-  main .head-part .link-block {
-    float: none;
-    width: 100%;
-    clear: both;
-    margin-bottom: 30px; }
-    main .head-part .link-block .btn, main .head-part .link-block .btn-large {
-      margin: 0 20px 0 0; }
+  main .head-part .link-block .btn, main .head-part .link-block .btn-large {
+    margin: 0 0 0 20px; }
   .navigation {
     z-index: 999; }
   .logo-menu {
@@ -10888,6 +10886,8 @@ textarea {
       overflow-x: auto; } }
   .tabs .tab a:hover {
     text-decoration: none; }
+  .tabs .material-icons {
+    vertical-align: middle; }
 
 /*fix input button*/
 .waves-effect input[type="button"],
