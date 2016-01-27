@@ -268,14 +268,17 @@ dl {
   }
 }
 
+.btn:hover {
+  text-decoration: none;
+}
+
 table tbody td {
   border: none;
 }
 
 .material-icons {
-  vertical-align: middle;
+  vertical-align: sub;
 }
-
 
 /*form*/
 .input-field label {
@@ -470,13 +473,8 @@ a.button-collapse.top-nav {
   }
 
   main .head-part .link-block {
-    float: none;
-    width: 100%;
-    clear: both;
-    margin-bottom: 30px;
-
     .btn {
-      margin: 0 20px 0 0;
+      margin: 0 0 0 20px;
     }
   }
 
@@ -772,6 +770,10 @@ textarea {
 
   .tab a:hover {
     text-decoration: none;
+  }
+
+  .material-icons {
+    vertical-align: middle;
   }
 }
 
