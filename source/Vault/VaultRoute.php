@@ -31,6 +31,8 @@ class VaultRoute extends AbstractRoute
     }
 
     /**
+     * @deprecated
+     * @todo drop this method
      * @param Vault $vault
      * @return $this
      */
