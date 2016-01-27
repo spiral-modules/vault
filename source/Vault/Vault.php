@@ -198,7 +198,7 @@ class Vault extends Component implements CoreInterface, SingletonInterface
     protected function executeController($controller, $action, array $parameters)
     {
         $benchmark = $this->benchmark('callAction', $controller . '::' . ($action ?: '~default~'));
-        $scope = $this->container->replace(CoreInterface::class, $this);
+        $scope = $this->container->replace(Vault::class, $this);
 
         //To let navigation know current controller
         $this->controller = $controller;
