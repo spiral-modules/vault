@@ -23,12 +23,8 @@ $(document).ready(function () {
     //add tabs to url hash
     (function ($tabs) {
         if (!$tabs.length) return;
-        //if (window.location.href.indexOf('#') === -1) {
-        //    var newUrl = window.location.href + $tabs[0].getAttribute('href');
-        //    history.replaceState(null, null, newUrl);
-        //    window.location.href = newUrl;
-        //}
         $tabs.on('click', function (e) {
+            if (window.location.hash === e.currentTarget.getAttribute('href')) return;
             var path = window.location.href,
                 newPath;
             if (path.indexOf('#')) {
