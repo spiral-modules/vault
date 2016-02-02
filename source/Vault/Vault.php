@@ -127,7 +127,7 @@ class Vault extends Component implements CoreInterface, SingletonInterface
             );
         }
 
-        return $this->executeController($controller, $action, $parameters);
+        return $this->execute($controller, $action, $parameters);
     }
 
     /**
@@ -153,8 +153,6 @@ class Vault extends Component implements CoreInterface, SingletonInterface
      */
     public function uri($target, $parameters = [])
     {
-        $target = str_replace('::', ':', $target);
-
         $controller = $action = '';
         if (strpos($target, ':') !== false) {
             list($controller, $action) = explode(':', $target);
@@ -182,7 +180,7 @@ class Vault extends Component implements CoreInterface, SingletonInterface
      */
     protected function createRoute()
     {
-        return $this->config->createRoute('vault')->setVault($this);
+        return $this->config->createRoute('vault')->withCore($this);
     }
 
     /**
@@ -192,12 +190,11 @@ class Vault extends Component implements CoreInterface, SingletonInterface
      * @return mixed
      * @throws ControllerException
      */
-    protected function executeController($controller, $action, array $parameters)
+    protected function execute($controller, $action, array $parameters)
     {
         $benchmark = $this->benchmark('callAction', $controller . '::' . ($action ?: '~default~'));
-        $scope = $this->container->replace(Vault::class, $this);
 
-        //To let navigation know current controller
+        $scope = $this->container->replace(Vault::class, $this);
         $this->controller = $controller;
 
         try {
@@ -216,8 +213,8 @@ class Vault extends Component implements CoreInterface, SingletonInterface
             return $object->callAction($action, $parameters);
         } finally {
             $this->benchmark($benchmark);
-            $this->container->restore($scope);
 
+            $this->container->restore($scope);
             $this->controller = '';
         }
     }

@@ -7,8 +7,8 @@
  */
 namespace Spiral\Vault\Configs;
 
-use Spiral\Vault\VaultRoute;
 use Spiral\Core\InjectableConfig;
+use Spiral\Vault\VaultRoute;
 
 /**
  * Configuration for Vault administration panel.
@@ -83,16 +83,10 @@ class VaultConfig extends InjectableConfig
      */
     public function createRoute($name)
     {
-        $route = new VaultRoute(
-            $name,
-            $this->config['route']['pattern'],
-            $this->config['route']['defaults']
-        );
+        $config = $this->config['route'];
 
-        if ($this->config['route']['matchHost']) {
-            $route->matchHost(true);
-        }
+        $route = new VaultRoute($name, $config['pattern'], $config['defaults']);
 
-        return $route->middleware($this->config['route']['middlewares']);
+        return $route->withHost($config['matchHost'])->withMiddleware($config['middlewares']);
     }
 }

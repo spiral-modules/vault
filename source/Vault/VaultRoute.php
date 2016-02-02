@@ -26,28 +26,13 @@ class VaultRoute extends AbstractRoute
     {
         $this->name = $name;
         $this->pattern = $pattern;
-
         $this->defaults = $defaults;
-    }
-
-    /**
-     * @deprecated
-     * @todo drop this method
-     * @param Vault $vault
-     * @return $this
-     */
-    public function setVault(Vault $vault)
-    {
-        $this->core = $vault;
-        $this->vault = $vault;
-
-        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function createEndpoint(ContainerInterface $container)
+    protected function createEndpoint(ContainerInterface $container)
     {
         $route = $this;
 
