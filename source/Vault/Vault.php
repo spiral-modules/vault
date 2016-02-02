@@ -8,8 +8,6 @@
 namespace Spiral\Vault;
 
 use Psr\Http\Message\UriInterface;
-use Spiral\Vault\Configs\VaultConfig;
-use Spiral\Vault\Exceptions\VaultException;
 use Spiral\Core\Component;
 use Spiral\Core\Container\SingletonInterface;
 use Spiral\Core\ContainerInterface;
@@ -21,6 +19,8 @@ use Spiral\Http\Configs\HttpConfig;
 use Spiral\Http\Routing\RouteInterface;
 use Spiral\Security\Traits\GuardedTrait;
 use Spiral\Translator\Traits\TranslatorTrait;
+use Spiral\Vault\Configs\VaultConfig;
+use Spiral\Vault\Exceptions\VaultException;
 
 /**
  * Vault core aggregates
@@ -174,10 +174,7 @@ class Vault extends Component implements CoreInterface, SingletonInterface
             );
         }
 
-        $parameters['controller'] = $controller;
-        $parameters['action'] = $action;
-
-        return $this->route->uri($parameters, $this->httpConfig->basePath());
+        return $this->route->withDefaults(compact('controller', 'action'))->uri($parameters);
     }
 
     /**
