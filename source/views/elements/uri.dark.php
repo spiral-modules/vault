@@ -7,7 +7,7 @@ $this->runtimeVariable('__uri__parameters__', '${parameters}${data}${options}');
  */
 $uri = vault()->uri(
     '${href}${target}',
-    $__uri__parameters__
+    !empty($__uri__parameters__) ? $__uri__parameters__ : []
 )->withFragment('${fragment}${section}${segment}');
 ?>
 <a href="<?= (string)$uri ?>" node:attributes>

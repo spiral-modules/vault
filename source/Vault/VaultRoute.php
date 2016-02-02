@@ -7,11 +7,13 @@
  */
 namespace Spiral\Vault;
 
-use Spiral\Core\ContainerInterface;
 use Spiral\Http\Routing\AbstractRoute;
+use Spiral\Http\Routing\Traits\CoreTrait;
 
 class VaultRoute extends AbstractRoute
 {
+    use CoreTrait;
+
     /**
      * @var Vault
      */
@@ -24,25 +26,21 @@ class VaultRoute extends AbstractRoute
      */
     public function __construct($name, $pattern, array $defaults)
     {
-        $this->name = $name;
+        parent::__construct($name, $defaults);
         $this->pattern = $pattern;
-        $this->defaults = $defaults;
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function createEndpoint(ContainerInterface $container)
+    protected function createEndpoint()
     {
         $route = $this;
 
-        return function () use ($container, $route) {
-            return $route->callAction(
-                $container,
-                $route->matches['controller'],
-                $route->matches['action'],
-                $route->matches
-            );
+        return function () use ($route) {
+            $matches = $route->getMatches();
+
+            return $route->callAction($matches['controller'], $matches['action'], $matches);
         };
     }
 }
