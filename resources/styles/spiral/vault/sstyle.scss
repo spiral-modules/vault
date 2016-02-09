@@ -898,3 +898,39 @@ textarea {
   }
 }
 
+.flash-wrapper {
+  position: fixed;
+  bottom: 40px;
+  width: 288px;
+  right: 10px;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+  z-index: 10000;
+  bottom: -120%;
+
+  &.show {
+    bottom: 40px;
+  }
+
+  &.flash {
+    color: #fff;
+    position: relative;
+    border-radius: 2px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+
+    &.info {
+      background: #212121;
+    }
+    &.debug {
+      background: #FF9800;
+    }
+    &.danger {
+      background: #DD2C00;
+    }
+  }
+}
+
