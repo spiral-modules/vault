@@ -10943,3 +10943,32 @@ textarea {
   margin-left: 15px; }
   .user-name label {
     vertical-align: top; }
+
+/* login page */
+.login-page {
+  padding: 100px 0;
+  position: relative; }
+  .login-page:before {
+    background: #3a3a3a;
+    height: 247px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: ""; }
+  .login-page .logo-block a {
+    margin: 0 auto 20px;
+    width: 200px;
+    display: block; }
+  .login-page .logo-block img {
+    width: 200px;
+    display: block; }
+  .login-page .container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; }
+  .login-page .item-input {
+    background: #fff;
+    border-color: #a4a4a4; }
+  .login-page .btn, .login-page .btn-large {
+    width: 100%; }
