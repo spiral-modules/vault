@@ -20,6 +20,10 @@
                         <div class="menu-list">
                             <?php
                             foreach ($section->getItems() as $item) {
+                                if (!$item->isAllowed($vault->guard())) {
+                                    continue;
+                                }
+
                                 $uri = $vault->uri($item->getTarget());
                                 $title = $vault->translate($item->getTitle());
                                 echo "<a href=\"{$uri}\">{$title}</a>";
