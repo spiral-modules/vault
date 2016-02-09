@@ -847,3 +847,54 @@ textarea {
   }
 }
 
+/* login page */
+.login-page {
+
+
+  padding: 100px 0;
+
+  position: relative;
+
+
+
+
+  &:before {
+    background: #3a3a3a;
+    height: 247px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+  }
+
+  .logo-block{
+
+    a{
+      margin: 0 auto 20px;
+      width: 200px;
+      display: block;
+    }
+
+    img {
+      width: 200px;
+      display: block;
+    }
+  }
+
+  .container{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .item-input {
+    background: #fff;
+    border-color: #a4a4a4;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
