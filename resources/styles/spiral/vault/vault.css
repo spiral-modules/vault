@@ -10948,6 +10948,9 @@ textarea {
 .login-page {
   padding: 100px 0;
   position: relative; }
+  .login-page .card-panel {
+    positon: relative;
+    z-index: 10; }
   .login-page:before {
     background: #3a3a3a;
     height: 247px;
@@ -10956,6 +10959,9 @@ textarea {
     top: 0;
     left: 0;
     content: ""; }
+  .login-page .waves-button-input {
+    width: 100%;
+    display: block; }
   .login-page .logo-block a {
     margin: 0 auto 20px;
     width: 200px;
@@ -10999,3 +11005,12 @@ textarea {
       background: #FF9800; }
     .flash-wrapper.flash.danger {
       background: #DD2C00; }
+
+table.responsive-table td[colspan] {
+  padding: 50px 0; }
+
+@media only screen and (max-width: 992px) {
+  table.responsive-table {
+    overflow: hidden; }
+    table.responsive-table thead {
+      border-right: 0; } }

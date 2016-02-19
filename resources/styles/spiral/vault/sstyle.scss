@@ -849,14 +849,13 @@ textarea {
 
 /* login page */
 .login-page {
-
-
   padding: 100px 0;
-
   position: relative;
 
-
-
+  .card-panel {
+    position: relative;
+    z-index: 10;
+  }
 
   &:before {
     background: #3a3a3a;
@@ -866,6 +865,11 @@ textarea {
     top: 0;
     left: 0;
     content: "";
+  }
+
+  .waves-button-input {
+    width: 100%;
+    display: block;
   }
 
   .logo-block{
@@ -930,6 +934,20 @@ textarea {
     }
     &.danger {
       background: #DD2C00;
+    }
+  }
+}
+
+table.responsive-table td[colspan] {
+  padding: 50px 0;
+}
+
+@media only screen and (max-width: 992px) {
+  table.responsive-table {
+    overflow: hidden;
+
+    thead {
+      border-right: 0;
     }
   }
 }
