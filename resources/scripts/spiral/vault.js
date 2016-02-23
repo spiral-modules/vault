@@ -43,7 +43,8 @@ $(document).ready(function () {
     }($('.tabs a')))
 
     $(document).on('click touchstart', function (e) {
-        if ($(e.target).closest('#sidenav-overlay').length) {
+        console.log($(e.target));
+        if ($(e.target).closest('.drag-target').length) {
             $('.button-collapse').toggleClass('active');
         }
     });
