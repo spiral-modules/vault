@@ -11018,3 +11018,8 @@ table.responsive-table td[colspan] {
     overflow: hidden; }
     table.responsive-table thead {
       border-right: 0; } }
+
+.remove-item {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 12px; }
