@@ -286,6 +286,11 @@ table tbody td {
   color: $color-text;
 }
 
+.input-field.file-field label {
+  top: 0;
+  left: 0;
+}
+
 
 a.button-collapse.top-nav {
   position: absolute;

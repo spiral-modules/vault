@@ -10551,6 +10551,10 @@ table tbody td {
   font-size: 1.2rem;
   color: #3a3a3a; }
 
+.input-field.file-field label {
+  top: 0;
+  left: 0; }
+
 a.button-collapse.top-nav {
   position: absolute;
   text-align: center;
