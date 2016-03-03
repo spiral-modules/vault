@@ -978,6 +978,10 @@ table.responsive-table td[colspan] {
 
 .collapsible-body {
   border-bottom: 0;
+
+  p.msg {
+    padding: 0;
+  }
 }
 
 .side-nav.fixed {

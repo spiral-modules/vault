@@ -11035,6 +11035,8 @@ table.responsive-table td[colspan] {
 
 .collapsible-body {
   border-bottom: 0; }
+  .collapsible-body p.msg {
+    padding: 0; }
 
 .side-nav.fixed {
   padding-bottom: 70px; }
