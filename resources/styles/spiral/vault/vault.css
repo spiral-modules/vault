@@ -10540,8 +10540,10 @@ dl {
 .btn:hover, .btn-large:hover {
   text-decoration: none; }
 
-table tbody td {
-  border: none; }
+table tbody td,
+table thead th {
+  border: none;
+  min-height: 51px; }
 
 .material-icons {
   vertical-align: sub; }
@@ -11033,3 +11035,6 @@ table.responsive-table td[colspan] {
 
 .collapsible-body {
   border-bottom: 0; }
+
+.side-nav.fixed {
+  padding-bottom: 70px; }

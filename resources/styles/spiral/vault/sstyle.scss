@@ -272,8 +272,10 @@ dl {
   text-decoration: none;
 }
 
-table tbody td {
+table tbody td,
+table thead th {
   border: none;
+  min-height: 51px;
 }
 
 .material-icons {
