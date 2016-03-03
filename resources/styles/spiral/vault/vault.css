@@ -11023,3 +11023,13 @@ table.responsive-table td[colspan] {
   margin-left: 10px;
   font-weight: bold;
   font-size: 12px; }
+
+.collapsible.popout > li {
+  box-shadow: none;
+  margin: 0;
+  padding: 0; }
+  .collapsible.popout > li.active {
+    box-shadow: none; }
+
+.collapsible-body {
+  border-bottom: 0; }

@@ -963,3 +963,22 @@ table.responsive-table td[colspan] {
   font-size: 12px;
 }
 
+.collapsible.popout > li {
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+
+  &.active {
+    box-shadow: none;
+  }
+
+}
+
+.collapsible-body {
+  border-bottom: 0;
+}
+
+.side-nav.fixed {
+  padding-bottom: 70px;
+}
+
