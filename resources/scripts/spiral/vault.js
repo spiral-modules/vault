@@ -43,7 +43,6 @@ $(document).ready(function () {
     }($('.tabs a')))
 
     $(document).on('click touchstart', function (e) {
-        console.log($(e.target));
         if ($(e.target).closest('.drag-target').length) {
             $('.button-collapse').toggleClass('active');
         }
