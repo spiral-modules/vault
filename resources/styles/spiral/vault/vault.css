@@ -10984,6 +10984,12 @@ textarea {
     border-color: #a4a4a4; }
   .login-page .btn, .login-page .btn-large {
     width: 100%; }
+  .login-page.message-page .container {
+    max-width: 1024px; }
+  .login-page.message-page .logo-block {
+    border-bottom: 4px solid #009688; }
+  .login-page.message-page .card-body {
+    padding: 10px 20px; }
 
 .flash-wrapper {
   position: fixed;

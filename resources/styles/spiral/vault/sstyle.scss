@@ -907,6 +907,20 @@ textarea {
   .btn {
     width: 100%;
   }
+
+  &.message-page {
+    .container {
+      max-width: 1024px;
+    }
+
+    .logo-block {
+      border-bottom: 4px solid #009688;
+    }
+
+    .card-body {
+      padding: 10px 20px;
+    }
+  }
 }
 
 .flash-wrapper {
