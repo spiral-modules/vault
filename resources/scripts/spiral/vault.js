@@ -47,4 +47,15 @@ $(document).ready(function () {
             $('.button-collapse').toggleClass('active');
         }
     });
+
+    $(document).on('click', '.js-vault-confirm', function (e) {
+        var text = $(e.target).hasClass('js-vault-confirm')
+            ? $(e.target).data('confirm')
+            : $(e.target).parent('.js-vault-confirm').data('confirm');
+        if (!window.confirm(text)) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    });
+
 })
