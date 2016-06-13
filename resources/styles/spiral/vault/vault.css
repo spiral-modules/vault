@@ -11046,3 +11046,18 @@ table.responsive-table td[colspan] {
 
 .side-nav.fixed {
   padding-bottom: 70px; }
+
+input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea,
+.select-wrapper input.select-dropdown {
+  line-height: 18px; }
