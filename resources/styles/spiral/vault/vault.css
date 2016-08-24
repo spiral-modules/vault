@@ -10540,8 +10540,10 @@ dl {
 .btn:hover, .btn-large:hover {
   text-decoration: none; }
 
-table tbody td {
-  border: none; }
+table tbody td,
+table thead th {
+  border: none;
+  min-height: 51px; }
 
 .material-icons {
   vertical-align: sub; }
@@ -10550,6 +10552,10 @@ table tbody td {
 .input-field label {
   font-size: 1.2rem;
   color: #3a3a3a; }
+
+.input-field.file-field label {
+  top: 0;
+  left: 0; }
 
 a.button-collapse.top-nav {
   position: absolute;
@@ -10978,6 +10984,12 @@ textarea {
     border-color: #a4a4a4; }
   .login-page .btn, .login-page .btn-large {
     width: 100%; }
+  .login-page.message-page .container {
+    max-width: 1024px; }
+  .login-page.message-page .logo-block {
+    border-bottom: 4px solid #009688; }
+  .login-page.message-page .card-body {
+    padding: 10px 20px; }
 
 .flash-wrapper {
   position: fixed;
@@ -11014,3 +11026,43 @@ table.responsive-table td[colspan] {
     overflow: hidden; }
     table.responsive-table thead {
       border-right: 0; } }
+
+.remove-item {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 12px; }
+
+.collapsible.popout > li {
+  box-shadow: none;
+  margin: 0;
+  padding: 0; }
+  .collapsible.popout > li.active {
+    box-shadow: none; }
+
+.collapsible-body {
+  border-bottom: 0; }
+  .collapsible-body p.msg {
+    padding: 0; }
+
+.side-nav.fixed {
+  padding-bottom: 70px; }
+
+input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea,
+.select-wrapper input.select-dropdown {
+  line-height: 18px; }
+
+.file-field .btn, .file-field .btn-large {
+  float: none;
+  height: 36px;
+  line-height: 36px; }

@@ -272,8 +272,10 @@ dl {
   text-decoration: none;
 }
 
-table tbody td {
+table tbody td,
+table thead th {
   border: none;
+  min-height: 51px;
 }
 
 .material-icons {
@@ -284,6 +286,11 @@ table tbody td {
 .input-field label {
   font-size: 1.2rem;
   color: $color-text;
+}
+
+.input-field.file-field label {
+  top: 0;
+  left: 0;
 }
 
 
@@ -900,6 +907,20 @@ textarea {
   .btn {
     width: 100%;
   }
+
+  &.message-page {
+    .container {
+      max-width: 1024px;
+    }
+
+    .logo-block {
+      border-bottom: 4px solid #009688;
+    }
+
+    .card-body {
+      padding: 10px 20px;
+    }
+  }
 }
 
 .flash-wrapper {
@@ -952,3 +973,54 @@ table.responsive-table td[colspan] {
   }
 }
 
+.remove-item {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.collapsible.popout > li {
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+
+  &.active {
+    box-shadow: none;
+  }
+
+}
+
+.collapsible-body {
+  border-bottom: 0;
+
+  p.msg {
+    padding: 0;
+  }
+}
+
+.side-nav.fixed {
+  padding-bottom: 70px;
+}
+
+
+input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea,
+.select-wrapper input.select-dropdown {
+  line-height: 18px;
+}
+
+.file-field .btn {
+  float: none;
+  height: 36px;
+  line-height: 36px;
+}
