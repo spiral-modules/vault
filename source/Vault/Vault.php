@@ -38,6 +38,11 @@ class Vault extends Component implements CoreInterface, SingletonInterface
      * @var HttpConfig
      */
     private $httpConfig = null;
+    
+    /**
+     * @var string
+     */
+    private $routeName = 'vault';
 
     /**
      * @var VaultConfig
@@ -67,11 +72,13 @@ class Vault extends Component implements CoreInterface, SingletonInterface
      * @param HttpConfig         $httpConfig
      * @param VaultConfig        $config
      * @param ContainerInterface $container
+     * @param string $routeName
      */
     public function __construct(
         HttpConfig $httpConfig,
         VaultConfig $config,
-        ContainerInterface $container
+        ContainerInterface $container,
+        $routeName = 'vault'
     ) {
         $this->httpConfig = $httpConfig;
         $this->config = $config;
@@ -180,7 +187,7 @@ class Vault extends Component implements CoreInterface, SingletonInterface
      */
     protected function createRoute()
     {
-        return $this->config->createRoute('vault')->withCore($this);
+        return $this->config->createRoute($this->routeName)->withCore($this);
     }
 
     /**
