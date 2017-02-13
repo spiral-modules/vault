@@ -44,11 +44,8 @@ class Vault extends Component implements CoreInterface, SingletonInterface
      * @param VaultRoute    $route
      * @param CoreInterface $app User application.
      */
-    public function __construct(
-        VaultConfig $config,
-        VaultRoute $route,
-        CoreInterface $app
-    ) {
+    public function __construct(VaultConfig $config, VaultRoute $route, CoreInterface $app)
+    {
         $this->config = $config;
         $this->route = $route;
         $this->app = $app;
