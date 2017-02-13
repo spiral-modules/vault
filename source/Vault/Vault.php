@@ -14,7 +14,6 @@ use Spiral\Core\Container\SingletonInterface;
 use Spiral\Core\Exceptions\ControllerException;
 use Spiral\Core\HMVC\CoreInterface;
 use Spiral\Security\Traits\GuardedTrait;
-use Spiral\Translator\Traits\TranslatorTrait;
 use Spiral\Vault\Configs\VaultConfig;
 use Spiral\Vault\Exceptions\VaultException;
 
@@ -24,7 +23,7 @@ use Spiral\Vault\Exceptions\VaultException;
  */
 class Vault extends Component implements CoreInterface, SingletonInterface
 {
-    use GuardedTrait, TranslatorTrait;
+    use GuardedTrait;
 
     /**
      * @var VaultConfig
