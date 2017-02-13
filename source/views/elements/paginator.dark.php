@@ -24,7 +24,7 @@ if (
     && $__paginator__->isRequired()
 ) { ?>
     <div class="paginator">
-        <ul class="pagination ${class}" node:attributes>
+        <ul class="pagination" node:attributes>
             <?php
             if (!empty($pageNumber = $__paginator__->previousPage())) {
                 $__uri__ = $__paginator__->uri($pageNumber);

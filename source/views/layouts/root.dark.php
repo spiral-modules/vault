@@ -10,14 +10,16 @@
 <!--You can change following resources by redefining vault:vault layout-->
 <block:styles>
     <asset:style href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <asset:style href="/resources/styles/spiral/spiral.css"/>
+
+    <toolkit:styles/>
     <asset:style href="/resources/styles/spiral/vault/vault.css"/>
 </block:styles>
 
 <block:scripts>
     <asset:script href="/resources/vendor/jquery-2.2.0.min.js"/>
     <asset:script href="/resources/vendor/materialize.min.js"/>
-    <asset:script href="/resources/scripts/spiral/sf.js"/>
+
+    <toolkit:scripts/>
     <asset:script href="/resources/scripts/spiral/vault.js"/>
 </block:scripts>
 

@@ -6,4 +6,7 @@
 <!--Couple aliases-->
 <dark:use path="vault:elements/uri" as="vault:href"/>
 <dark:use path="vault:elements/uri" as="vault:url"/>
+<dark:use path="vault:elements/uri" as="vault:link"/>
+<dark:use path="vault:elements/uri" as="vault:a"/>
+
 <dark:use path="vault:line" as="info:line"/>

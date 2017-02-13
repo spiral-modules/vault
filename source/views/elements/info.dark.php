@@ -1,3 +1,3 @@
-<dl class="${class}" node:attributes>
-   ${context}
+<dl class="${class}" node:attribute="*">
+    ${context}
 </dl>
