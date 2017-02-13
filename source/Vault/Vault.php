@@ -77,8 +77,7 @@ class Vault extends Component implements CoreInterface, SingletonInterface
     public function __construct(
         HttpConfig $httpConfig,
         VaultConfig $config,
-        ContainerInterface $container,
-        $routeName = 'vault'
+        ContainerInterface $container
     ) {
         $this->httpConfig = $httpConfig;
         $this->config = $config;

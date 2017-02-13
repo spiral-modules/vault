@@ -20,7 +20,7 @@
                         <div class="menu-list">
                             <?php
                             foreach ($section->getItems() as $item) {
-                                if (!$item->isAllowed($vault->guard())) {
+                                if (!$item->isAllowed($vault->getGuard())) {
                                     continue;
                                 }
 

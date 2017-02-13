@@ -8,9 +8,8 @@
     }
   ],
   "require": {
-    "spiral/framework": "*",
-    "spiral/toolkit": "*",
-    "spiral/security": "*"
+    "spiral/framework": "^0.9",
+    "spiral/toolkit": "^0.9"
   },
   "autoload": {
     "psr-4": {

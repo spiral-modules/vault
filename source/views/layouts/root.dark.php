@@ -7,34 +7,19 @@
 <!--Vault layout partials-->
 <dark:use path="vault:partials/*" namespace="vault.partials"/>
 
-<!--Vault specific view functions-->
-<block:functions>
-    <?php
-    if (!function_exists('vault')) {
-        /**
-         * @return \Spiral\Vault\Vault
-         */
-        function vault()
-        {
-            return spiral(\Spiral\Vault\Vault::class);
-        }
-    }
-    ?>
-</block:functions>
-
 <!--You can change following resources by redefining vault:vault layout-->
-<block:resources>
-    <asset:css href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<block:styles>
+    <asset:style href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <asset:style href="/resources/styles/spiral/spiral.css"/>
+    <asset:style href="/resources/styles/spiral/vault/vault.css"/>
+</block:styles>
 
-    <asset:css href="resources/styles/spiral/spiral.css"/>
-    <asset:css href="resources/styles/spiral/vault/vault.css"/>
-
-    <asset:javascript href="resources/vendor/jquery-2.2.0.min.js"/>
-    <asset:javascript href="resources/vendor/materialize.min.js"/>
-
-    <asset:javascript href="resources/scripts/spiral/sf.js"/>
-    <asset:javascript href="resources/scripts/spiral/vault.js"/>
-</block:resources>
+<block:scripts>
+    <asset:script href="/resources/vendor/jquery-2.2.0.min.js"/>
+    <asset:script href="/resources/vendor/materialize.min.js"/>
+    <asset:script href="/resources/scripts/spiral/sf.js"/>
+    <asset:script href="/resources/scripts/spiral/vault.js"/>
+</block:scripts>
 
 <!--Primary page content-->
 <block:body>
@@ -72,21 +57,22 @@
     <block:main>
         <main class="main-part ${class}">
             <div class="container">
-                <div class="head-part">
-                    <div class="row">
-                        <div class="col s12">
-                            <block:content-header>
-                                <h1 align="left">
-                                    <block:content-title>${title}</block:content-title>
-                                </h1>
-                                <div class="link-block right">
-                                    <yield:actions/>
-                                </div>
-                            </block:content-header>
+                <define:content-header>
+                    <div class="head-part">
+                        <div class="row">
+                            <div class="col s12">
+                                <block:content-header>
+                                    <h1 align="left">
+                                        <block:content-title>${title}</block:content-title>
+                                    </h1>
+                                    <div class="link-block right">
+                                        <yield:actions/>
+                                    </div>
+                                </block:content-header>
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                </define:content-header>
                 <yield:content/>
             </div>
         </main>

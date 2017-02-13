@@ -6,11 +6,6 @@
     </a>
 </define:brand>
 
-<!--Following resources block can be redefined on a project basis-->
-<define:resources>
-    <block:resources/>
-</define:resources>
-
 <!--You can replace this block to render project specific actor-->
 <define:user-block>
     <a href="#" class="user-link">
