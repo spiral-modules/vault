@@ -5,6 +5,7 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
+
 namespace Spiral;
 
 use Spiral\Core\DirectoriesInterface;
@@ -42,15 +43,15 @@ class VaultModule implements ModuleInterface
     public function publish(PublisherInterface $publisher, DirectoriesInterface $directories)
     {
         $publisher->publish(
-            __DIR__ . '/config/vault.php',
+            __DIR__ . '/resources/config.php',
             $directories->directory('config') . 'modules/vault.php',
             PublisherInterface::FOLLOW
         );
 
         $publisher->publishDirectory(
-            __DIR__ . '/../resources',                        //Profiler js, css and modules
-            $directories->directory('public') . 'resources',  //Expected directory in webroot
-            PublisherInterface::OVERWRITE                     //We can safely overwrite resources
+            __DIR__ . '/../resources',
+            $directories->directory('public') . 'resources',
+            PublisherInterface::OVERWRITE
         );
     }
 }

@@ -5,6 +5,7 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
+
 namespace Spiral\Vault\Controllers;
 
 use Spiral\Core\Controller;
@@ -12,13 +13,13 @@ use Spiral\Core\Controller;
 /**
  * No guard check in this sample controller.
  */
-class DashboardController extends Controller
+class WelcomeController extends Controller
 {
     /**
      * @return string
      */
     public function indexAction()
     {
-        return $this->views->render('vault:dashboard');
+        return $this->views->render('vault:welcome');
     }
 }

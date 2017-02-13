@@ -23,7 +23,7 @@ return [
      * @see VaultCore
      */
     'controllers' => [
-        'dashboard' => \Spiral\Vault\Controllers\DashboardController::class,
+        'dashboard' => \Spiral\Vault\Controllers\WelcomeController::class,
 
         /*{{controllers}}*/
     ],

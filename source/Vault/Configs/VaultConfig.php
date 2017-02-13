@@ -5,6 +5,7 @@
  * @license MIT
  * @author  Anton Titov (Wolfy-J)
  */
+
 namespace Spiral\Vault\Configs;
 
 use Spiral\Core\InjectableConfig;
@@ -29,64 +30,85 @@ class VaultConfig extends InjectableConfig
      * @var array
      */
     protected $config = [
-        'guardNamespace' => 'vault',
+        'guard'       => [
+            'namespace' => 'vault'
+        ],
 
-        //Default vault controller
-        'controllers'    => [],
-        'navigation'     => [],
+        //Allowed vault controllers
+        'controllers' => [],
 
         //Example: vault/users/addresses/1/remove/123
-        'route'          => [
-            'middlewares' => [],
+        'route'       => [
+            'name'        => 'vault',
             'pattern'     => 'vault[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]',
             'defaults'    => [],
+            'middlewares' => [],
             'matchHost'   => false,
-        ]
+        ],
+
+        //Navigation widget configuration
+        'navigation'  => [],
     ];
 
-    public function securityNamespace()
+    /**
+     * Guard namespace (prefix for all permissions) associated with given Vault instance.
+     *
+     * @return string
+     */
+    public function guardNamespace(): string
     {
-        if (empty($this->config['guardNamespace'])) {
-            return self::GUARD_NAMESPACE;
-        }
-
-        return $this->config['guardNamespace'];
+        return $this->config['guard']['namespace'];
     }
 
     /**
-     * List of allowed vault controllers in a form alias => class.
+     * @param string $controller
      *
-     * Example:
-     * cms    => Vendor\CMSController::class,
-     * system => Vault\SystemController::class
-     *
-     * @return array
+     * @return bool
      */
-    public function controllers()
+    public function hasController(string $controller): bool
     {
-        return $this->config['controllers'];
+        return isset($this->config['controllers'][$controller]);
     }
 
     /**
-     * Vault navigation structure including sections, permissions, titles and etc.
+     * Controller class.
      *
-     * @return array
+     * @param string $controller
+     *
+     * @return string
      */
-    public function navigationSections()
+    public function controllerClass(string $controller): string
     {
-        return $this->config['navigation'];
+        return $this->config['controllers'][$controller];
     }
+
+//    /**
+//     * Vault navigation structure including sections, permissions, titles and etc.
+//     *
+//     * @return array
+//     */
+//    public function navigationSections()
+//    {
+//        return $this->config['navigation'];
+//    }
 
     /**
      * @param string $name
+     *
      * @return VaultRoute
      */
-    public function createRoute($name)
+    public function makeRoute(string $name): VaultRoute
     {
-        $config = $this->config['route'];
+        $route = new VaultRoute(
+            $name,
+            $this->config['route']['pattern'],
+            $this->config['route']['defaults']
+        );
 
-        $route = new VaultRoute($name, $config['pattern'], $config['defaults']);
-
-        return $route->withHost($config['matchHost'])->withMiddleware($config['middlewares']);
+        return $route->withHost(
+            $this->config['route']['matchHost']
+        )->withMiddleware(
+            $this->config['route']['middlewares']
+        );
     }
 }

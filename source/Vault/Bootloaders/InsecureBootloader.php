@@ -5,22 +5,27 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
+
 namespace Spiral\Vault\Bootloaders;
 
-use Spiral\Vault\Configs\VaultConfig;
-use Spiral\Vault\Security\Rules\InsecureRule;
 use Spiral\Core\Bootloaders\Bootloader;
-use Spiral\Security\Entities\Actors\Guest;
+use Spiral\Security\ActorInterface;
+use Spiral\Security\Actors\Guest;
 use Spiral\Security\PermissionsInterface;
+use Spiral\Vault\Configs\VaultConfig;
+use Spiral\Vault\Security\InsecureRule;
 
 /**
- * Development helper, DO NOT USE in production. Allows full access to Vault for any guest (no
- * authorization is required).
+ * Development helper, DO NOT USE in production. Allows full access to Vault for Guest actor.
  */
-class InsecureVaultBootloader extends Bootloader
+class InsecureBootloader extends Bootloader
 {
     const BOOT = true;
     const ROLE = Guest::ROLE;
+
+    const BINDINGS = [
+        ActorInterface::class => Guest::class
+    ];
 
     /**
      * @param PermissionsInterface $permissions
@@ -32,7 +37,7 @@ class InsecureVaultBootloader extends Bootloader
             $permissions->addRole(static::ROLE);
         }
 
-        $namespace = $config->securityNamespace();
+        $namespace = $config->guardNamespace();
 
         //Following rule will raise log message to notify that insecure setting were used
         $permissions->associate(static::ROLE, "{$namespace}.*", InsecureRule::class);
