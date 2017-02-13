@@ -97,7 +97,7 @@ class Vault extends Component implements CoreInterface, SingletonInterface
             $this->config->controllerClass($controller),
             $action,
             $parameters,
-            $scope
+            $scope + [Vault::class => $this]
         );
     }
 
