@@ -4,9 +4,6 @@
 <dark:use bundle="spiral:bundle"/>
 <dark:use bundle="vault:bundle"/>
 
-<!--Vault layout partials-->
-<dark:use path="vault:partials/*" namespace="vault.partials"/>
-
 <!--You can change following resources by redefining vault:vault layout-->
 <block:styles>
     <asset:style href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
@@ -53,7 +50,47 @@
     </div>
 
     <block:navigation>
-        <vault.partials:navigation navigation-head="${navigation-head}"/>
+        <div id="nav-mobile" class="side-nav fixed navigation">
+            <block:navigation-head/>
+            <ul class="collapsible panel-group" data-collapsible="accordion">
+                <?php
+
+                $vault = vault();
+                foreach ($vault->navigation()->getSections() as $section) {
+                    if (!$section->isAvailable()) {
+                        //Section does not contain any available link
+                        continue;
+                    }
+
+                    $active = $section->hasController($vault->activeController());
+                    ?>
+                    <li class="panel">
+                        <div class="panel-heading collapsible-header <?= $active ? 'active' : '' ?> waves-effect waves-spiral">
+                            <i class="material-icons"><?= $section->getIcon() ?></i><?= $vault->translate($section->getTitle()) ?>
+                        </div>
+                        <div class="panel-collapse collapsible-body">
+                            <div class="panel-body">
+                                <div class="menu-list">
+                                    <?php
+                                    foreach ($section->getItems() as $item) {
+                                        if (!$item->isAllowed($vault->getGuard())) {
+                                            continue;
+                                        }
+
+                                        $uri = $vault->uri($item->getTarget());
+                                        $title = $vault->translate($item->getTitle());
+                                        echo "<a href=\"{$uri}\">{$title}</a>";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+                ?>
+            </ul>
+        </div>
     </block:navigation>
 
     <block:main>
