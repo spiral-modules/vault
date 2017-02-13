@@ -5,9 +5,9 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
-namespace Spiral\Vault;
 
-use Spiral\Vault\Navigation\Section;
+namespace Spiral\Vault\Models;
+
 use Spiral\Security\GuardInterface;
 
 class Navigation
@@ -42,9 +42,9 @@ class Navigation
      * Get all navigation sections. This is generator.
      *
      * @generator
-     * @return Section[]
+     * @return \Generator
      */
-    public function getSections()
+    public function getSections(): \Generator
     {
         foreach ($this->sections as $section) {
             yield new Section($this->guard, $section);

@@ -8,6 +8,7 @@
 
 namespace Spiral\Vault;
 
+use Psr\Http\Message\UriInterface;
 use Spiral\Core\Component;
 use Spiral\Core\Container\SingletonInterface;
 use Spiral\Core\Exceptions\ControllerException;
@@ -15,6 +16,7 @@ use Spiral\Core\HMVC\CoreInterface;
 use Spiral\Security\Traits\GuardedTrait;
 use Spiral\Translator\Traits\TranslatorTrait;
 use Spiral\Vault\Configs\VaultConfig;
+use Spiral\Vault\Exceptions\VaultException;
 
 /**
  * Vault Core provides ability to whitelist controllers, map their short names and aliases into
@@ -101,37 +103,36 @@ class Vault extends Component implements CoreInterface, SingletonInterface
         );
     }
 
-//    /**
-//     * Get vault specific uri.
-//     *
-//     * @param string      $target Target controller and action in a form of "controller::action" or
-//     *                            "controller:action" or "controller".
-//     * @param array|mixed $parameters
-//     *
-//     * @return UriInterface
-//     * @throws VaultException
-//     */
-//    public function uri($target, $parameters = [])
-//    {
-//        $controller = $action = '';
-//        if (strpos($target, ':') !== false) {
-//            list($controller, $action) = explode(':', $target);
-//        } else {
-//            $controller = $target;
-//
-//            if (!empty($parameters)) {
-//                throw new VaultException(
-//                    "Unable to generate uri with empty controller action and not empty parameters."
-//                );
-//            }
-//        }
-//
-//        if (!isset($this->config->controllers()[$controller])) {
-//            throw new VaultException(
-//                "Unable to generate uri, undefined controller '{$controller}'."
-//            );
-//        }
-//
-//        return $this->route->withDefaults(compact('controller', 'action'))->uri($parameters);
-//    }
+    /**
+     * Get vault specific uri.
+     *
+     * @param string      $target Target controller and action in a form of "controller::action" or
+     *                            "controller:action" or "controller".
+     * @param array|mixed $parameters
+     *
+     * @return UriInterface
+     *
+     * @throws VaultException
+     */
+    public function uri(string $target, $parameters = []): UriInterface
+    {
+        $controller = $action = '';
+        if (strpos($target, ':') !== false) {
+            list($controller, $action) = explode(':', $target);
+        } else {
+            $controller = $target;
+
+            if (!empty($parameters)) {
+                throw new VaultException(
+                    "Unable to generate uri with empty controller action and not empty parameters."
+                );
+            }
+        }
+
+        if ($this->config->hasController($controller)) {
+            throw new VaultException("Unable to generate uri, undefined controller '{$controller}'");
+        }
+
+        return $this->route->withDefaults(compact('controller', 'action'))->uri($parameters);
+    }
 }

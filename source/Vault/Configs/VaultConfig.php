@@ -22,11 +22,6 @@ class VaultConfig extends InjectableConfig
     const CONFIG = 'modules/vault';
 
     /**
-     * Default permissions namespace.
-     */
-    const GUARD_NAMESPACE = 'vault';
-
-    /**
      * @var array
      */
     protected $config = [

@@ -5,7 +5,8 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
-namespace Spiral\Vault\Navigation;
+
+namespace Spiral\Vault\Models;
 
 use Spiral\Security\GuardInterface;
 
@@ -87,6 +88,7 @@ class Section
      * target).
      *
      * @param string $controller
+     *
      * @return bool
      */
     public function hasController($controller)
