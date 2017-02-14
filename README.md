@@ -1,4 +1,4 @@
-Vault, Secure HMVC Core 
+Vault, Secure HMVC Core and Visual Layout
 =======
 [![Latest Stable Version](https://poser.pugx.org/spiral/vault/v/stable)](https://packagist.org/packages/spiral/vault) 
 [![License](https://poser.pugx.org/spiral/vault/license)](https://packagist.org/packages/spiral/vault)
