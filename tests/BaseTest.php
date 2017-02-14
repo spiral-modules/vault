@@ -39,6 +39,7 @@ use Spiral\Core\Traits\SharedTrait;
  * @property \Spiral\Security\RulesInterface          $rules
  * @property \Spiral\Security\ActorInterface          $actor
  * @property \Spiral\Session\SessionInterface         $session
+ * @property \Spiral\Vault\Vault                      $vault
  */
 abstract class BaseTest extends TestCase
 {

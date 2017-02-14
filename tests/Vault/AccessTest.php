@@ -33,4 +33,18 @@ class AccessTest extends HttpTest
         $this->assertContains('Welcome to Vault', (string)$response->getBody());
         $this->assertContains('Links and Routing', (string)$response->getBody());
     }
+
+    /**
+     * @expectedException \Spiral\Core\Exceptions\ControllerException
+     * @expectedExceptionMessage Undefined vault controller 'undefined'
+     */
+    public function testDirect()
+    {
+        $this->app->container->bind(ActorInterface::class, new Guest());
+        $this->app->getBootloader()->bootload([
+            InsecureBootloader::class
+        ]);
+
+        $this->vault->callAction('undefined');
+    }
 }
