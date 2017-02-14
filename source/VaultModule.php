@@ -23,6 +23,7 @@ class VaultModule implements ModuleInterface
         $registrator->configure('views', 'namespaces', 'spiral/vault', [
             "'vault' => [",
             "   directory('libraries') . 'spiral/vault/source/views/',",
+            "   directory('application') . 'views/vault/',",
             "   /*{{namespaces.vault}}*/",
             "]"
         ]);
@@ -45,6 +46,12 @@ class VaultModule implements ModuleInterface
         $publisher->publish(
             __DIR__ . '/../resources/config.php',
             $directories->directory('config') . 'modules/vault.php',
+            PublisherInterface::FOLLOW
+        );
+
+        $publisher->publish(
+            __DIR__ . '/views/layout.dark.php',
+            $directories->directory('application') . '/views/vault/layout.dark.php',
             PublisherInterface::FOLLOW
         );
 
