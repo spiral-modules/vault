@@ -41,8 +41,8 @@ return [
             /*{{namespaces.spiral}}*/
         ],
         'vault'   => [
-            directory("root") . '../../source/views/',
             directory("application") . 'views/vault/',
+            directory("root") . '../../source/views/',
             /*{{namespaces.vault}}*/
         ],
         /*{{namespaces}}*/

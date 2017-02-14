@@ -1,5 +1,6 @@
 {
   "name": "spiral/vault",
+  "license": "MIT",
   "description": "Extendable, materialize design based, administration panel ",
   "authors": [
     {

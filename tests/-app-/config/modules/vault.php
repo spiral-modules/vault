@@ -26,7 +26,7 @@ return [
      */
     'controllers' => [
         'welcome' => \Spiral\Vault\Controllers\WelcomeController::class,
-        'test'    => \TestApplication\Controllers\VaultController::class,
+        'sample'  => \TestApplication\Controllers\VaultController::class,
 
         /*{{controllers}}*/
     ],
@@ -84,6 +84,17 @@ return [
             ]
         ],
 
+        'sample' => [
+            'title' => 'Sample Controllers',
+            'icon'  => 'tab',
+            'items' => [
+                'sample' => [
+                    //Navigation label
+                    'title' => 'Sample Controllers'
+                ],
+                /*{{navigation.activity}}*/
+            ]
+        ],
         /*{{navigation}}*/
     ],
 ];

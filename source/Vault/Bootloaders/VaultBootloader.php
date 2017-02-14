@@ -31,8 +31,15 @@ class VaultBootloader extends Bootloader implements SingletonInterface
     /**
      * @var array
      */
+    const BINDINGS = [
+        'vault' => Vault::class,
+    ];
+
+    /**
+     * @var array
+     */
     const SINGLETONS = [
-        'vault' => [self::class, 'makeVault']
+        Vault::class => [self::class, 'makeVault']
     ];
 
     /**

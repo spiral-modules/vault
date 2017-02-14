@@ -52,14 +52,6 @@ class Vault extends Component implements CoreInterface
     }
 
     /**
-     * @return VaultRoute
-     */
-    public function getRoute()
-    {
-        return $this->route;
-    }
-
-    /**
      * @return VaultConfig
      */
     public function getConfig(): VaultConfig
@@ -114,17 +106,11 @@ class Vault extends Component implements CoreInterface
      */
     public function uri(string $target, $parameters = []): UriInterface
     {
-        $controller = $action = '';
         if (strpos($target, ':') !== false) {
             list($controller, $action) = explode(':', $target);
         } else {
             $controller = $target;
-
-            if (!empty($parameters)) {
-                throw new VaultException(
-                    "Unable to generate uri with empty controller action and not empty parameters."
-                );
-            }
+            $action = $parameters['action'] ?? null;
         }
 
         if (!$this->config->hasController($controller)) {

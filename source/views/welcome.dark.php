@@ -1,4 +1,4 @@
-<dark:extends path="vault:layout" title="Dashboard" class="wide-content"/>
+<dark:extends path="vault:layout" title="Welcome to Vault" class="wide-content"/>
 
 <block:content>
     <div class="row">

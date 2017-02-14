@@ -11,18 +11,9 @@ use Spiral\Security\ActorInterface;
 use Spiral\Security\Actors\Guest;
 use Spiral\Security\Rules\AllowRule;
 use Spiral\Security\Rules\ForbidRule;
-use Spiral\Vault\Bootloaders\InsecureBootloader;
 
-class WelcomeTest extends HttpTest
+class PermissionsTest extends HttpTest
 {
-    public function testVaultWelcomeForbidden()
-    {
-        $this->app->container->bind(ActorInterface::class, new Guest());
-
-        $response = $this->get('/vault/welcome');
-        $this->assertSame(403, $response->getStatusCode());
-    }
-
     public function testVaultDirectRules()
     {
         $this->app->container->bind(ActorInterface::class, new Guest());
@@ -36,6 +27,12 @@ class WelcomeTest extends HttpTest
 
         $this->app->permissions->associate(
             'guest',
+            'vault.sample',
+            AllowRule::class
+        );
+
+        $this->app->permissions->associate(
+            'guest',
             'vault.welcome.routing',
             AllowRule::class
         );
@@ -43,10 +40,39 @@ class WelcomeTest extends HttpTest
         $response = $this->get('/vault/welcome');
         $this->assertSame(200, $response->getStatusCode());
         $this->assertContains('Welcome to Vault', (string)$response->getBody());
+        $this->assertContains('Sample Controllers', (string)$response->getBody());
         $this->assertContains('Links and Routing', (string)$response->getBody());
     }
 
-    public function testVaultDirectRulesNoRouting()
+    public function testVaultDirectRulesSample()
+    {
+        $this->app->container->bind(ActorInterface::class, new Guest());
+        $this->app->permissions->addRole('guest');
+
+        $this->app->permissions->associate(
+            'guest',
+            'vault.welcome',
+            AllowRule::class
+        );
+
+        $this->app->permissions->associate(
+            'guest',
+            'vault.sample',
+            AllowRule::class
+        );
+
+        $this->app->permissions->associate(
+            'guest',
+            'vault.welcome.routing',
+            AllowRule::class
+        );
+
+        $response = $this->get('/vault/sample');
+        $this->assertSame(200, $response->getStatusCode());
+        $this->assertContains('Hello, Dave.', (string)$response->getBody());
+    }
+
+    public function testVaultPartialAccess()
     {
         $this->app->container->bind(ActorInterface::class, new Guest());
         $this->app->permissions->addRole('guest');
@@ -59,6 +85,12 @@ class WelcomeTest extends HttpTest
 
         $this->app->permissions->associate(
             Guest::ROLE,
+            'vault.sample',
+            ForbidRule::class
+        );
+
+        $this->app->permissions->associate(
+            Guest::ROLE,
             'vault.welcome.routing',
             ForbidRule::class
         );
@@ -66,20 +98,7 @@ class WelcomeTest extends HttpTest
         $response = $this->get('/vault/welcome');
         $this->assertSame(200, $response->getStatusCode());
         $this->assertContains('Welcome to Vault', (string)$response->getBody());
+        $this->assertNotContains('Sample Controllers', (string)$response->getBody());
         $this->assertNotContains('Links and Routing', (string)$response->getBody());
-    }
-
-    public function testVaultWelcomeInsecure()
-    {
-        $this->app->container->bind(ActorInterface::class, new Guest());
-        $this->app->getBootloader()->bootload([
-            InsecureBootloader::class
-        ]);
-
-        $response = $this->get('/vault/welcome');
-        $this->assertSame(200, $response->getStatusCode());
-        $this->assertContains('Welcome to Vault', (string)$response->getBody());
-        $this->assertContains('Links and Routing', (string)$response->getBody());
-
     }
 }

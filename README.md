@@ -1,4 +1,4 @@
-Vault, Secure HMVC Core 
+Vault, Secure HMVC Core and Visual Layout
 =======
 [![Latest Stable Version](https://poser.pugx.org/spiral/vault/v/stable)](https://packagist.org/packages/spiral/vault) 
 [![License](https://poser.pugx.org/spiral/vault/license)](https://packagist.org/packages/spiral/vault)
@@ -8,7 +8,7 @@ Vault, Secure HMVC Core
 
 <b>[Documentation](http://spiral-framework.com/guide)</b> | [CHANGELOG](/CHANGELOG.md) | [Framework Bundle](https://github.com/spiral/spiral)
 
-Vault administration panel provides ability use regular application controllers inside [Security enviroment](https://github.com/spiral-modules/security) with set of pre-created visual elements like grids, tabs, forms and other. 
+Vault administration panel provides ability use regular application controllers inside [Security enviroment](https://github.com/spiral/security) with set of pre-created visual elements like grids, tabs, forms and other. 
 
 Vault module is based on a set of [Materialize CSS](http://materializecss.com/) styles.
 
@@ -135,10 +135,19 @@ composer require spiral/vault
 spiral register spiral/vault
 ```
 
-Do not forget to mount `VaultBootloader` (bootloader has to be initated after `SecutiryBootloader`).
+Add following bootloader to your application:
+```php
+[
+    \Spiral\Vault\Bootloaders\VaultBootloader::class
+]
+```
 
 > You can tweak Vault behaviour (route, middlewares), create new navigation sections or register your own controllers via `app/config/modules/vault.php` configuration file.
 
-If you wish to play with Vault without configuring security rules, simply mount `InsecureVaultBootloader` bootloader, attention this bootloader will open Vault access to guest accounts and has to be used for debugging purposes only.
+If you wish to play with Vault without configuring security rules (development only):
 
-Once installed Vault module will be accessible by a route pattern specified in a related config (default **localhost:8080/vault**).
+```php
+[
+    \Spiral\Vault\Bootloaders\InsecureBootloader::class
+]
+```
