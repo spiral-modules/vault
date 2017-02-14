@@ -1,4 +1,13 @@
-# Vault 
+Vault, Secure HMVC Core 
+=======
+[![Latest Stable Version](https://poser.pugx.org/spiral/vault/v/stable)](https://packagist.org/packages/spiral/vault) 
+[![License](https://poser.pugx.org/spiral/vault/license)](https://packagist.org/packages/spiral/vault)
+[![Build Status](https://travis-ci.org/spiral-modules/vault.svg?branch=master)](https://travis-ci.org/spiral-modules/vault)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spiral-modules/vault/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/spiral-modules/vault/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/spiral-modules/vault/badge.svg?branch=master)](https://coveralls.io/github/spiral-modules/vault?branch=master)
+
+<b>[Documentation](http://spiral-framework.com/guide)</b> | [CHANGELOG](/CHANGELOG.md) | [Framework Bundle](https://github.com/spiral/spiral)
+
 Vault administration panel provides ability use regular application controllers inside [Security enviroment](https://github.com/spiral-modules/security) with set of pre-created visual elements like grids, tabs, forms and other. 
 
 Vault module is based on a set of [Materialize CSS](http://materializecss.com/) styles.

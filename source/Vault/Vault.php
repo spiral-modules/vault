@@ -5,44 +5,24 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
+
 namespace Spiral\Vault;
 
 use Psr\Http\Message\UriInterface;
 use Spiral\Core\Component;
-use Spiral\Core\Container\SingletonInterface;
-use Spiral\Core\ContainerInterface;
 use Spiral\Core\Exceptions\ControllerException;
-use Spiral\Core\HMVC\ControllerInterface;
 use Spiral\Core\HMVC\CoreInterface;
-use Spiral\Debug\Traits\BenchmarkTrait;
-use Spiral\Http\Configs\HttpConfig;
-use Spiral\Http\Routing\RouteInterface;
 use Spiral\Security\Traits\GuardedTrait;
-use Spiral\Translator\Traits\TranslatorTrait;
 use Spiral\Vault\Configs\VaultConfig;
 use Spiral\Vault\Exceptions\VaultException;
 
 /**
- * Vault core aggregates
+ * Vault Core provides ability to whitelist controllers, map their short names and aliases into
+ * specific class and automatically check Actor permission to execute any of controller actions.
  */
-class Vault extends Component implements CoreInterface, SingletonInterface
+class Vault extends Component implements CoreInterface
 {
-    use BenchmarkTrait, GuardedTrait, TranslatorTrait;
-
-    /**
-     * Declaring to IoC to treat Vault as singleton.
-     */
-    const SINGLETON = self::class;
-
-    /**
-     * @var HttpConfig
-     */
-    private $httpConfig = null;
-    
-    /**
-     * @var string
-     */
-    private $routeName = 'vault';
+    use GuardedTrait;
 
     /**
      * @var VaultConfig
@@ -50,103 +30,75 @@ class Vault extends Component implements CoreInterface, SingletonInterface
     private $config = null;
 
     /**
-     * @var RouteInterface
+     * @var VaultRoute
      */
-    private $route = null;
+    private $route;
 
     /**
-     * Currently active controller (needed to highlight navigation).
-     *
-     * @var string
+     * @var CoreInterface
      */
-    private $controller = '';
+    protected $app = null;
 
     /**
-     * @var ContainerInterface
+     * @param VaultConfig   $config
+     * @param VaultRoute    $route
+     * @param CoreInterface $app User application.
      */
-    protected $container = null;
-
-    /**
-     * VaultCore constructor.
-     *
-     * @param HttpConfig         $httpConfig
-     * @param VaultConfig        $config
-     * @param ContainerInterface $container
-     * @param string $routeName
-     */
-    public function __construct(
-        HttpConfig $httpConfig,
-        VaultConfig $config,
-        ContainerInterface $container,
-        $routeName = 'vault'
-    ) {
-        $this->httpConfig = $httpConfig;
+    public function __construct(VaultConfig $config, VaultRoute $route, CoreInterface $app)
+    {
         $this->config = $config;
-        $this->container = $container;
-
-        $this->route = $this->createRoute();
+        $this->route = $route;
+        $this->app = $app;
     }
 
     /**
-     * @return RouteInterface
+     * @return VaultRoute
      */
-    public function route()
+    public function getRoute()
     {
         return $this->route;
     }
 
     /**
-     * Vault navigation instance.
+     * @return VaultConfig
      */
-    public function navigation()
+    public function getConfig(): VaultConfig
     {
-        return new Navigation($this->guard(), $this->config->navigationSections());
-    }
-
-    /**
-     * Currently active controller id.
-     *
-     * @return string
-     */
-    public function activeController()
-    {
-        return $this->controller;
+        return $this->config;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function callAction($controller, $action = '', array $parameters = [])
-    {
-        if (!isset($this->config->controllers()[$controller])) {
+    public function callAction(
+        string $controller,
+        string $action = null,
+        array $parameters = [],
+        array $scope = []
+    ) {
+        if (!$this->config->hasController($controller)) {
             throw new ControllerException(
                 "Undefined vault controller '{$controller}'",
                 ControllerException::NOT_FOUND
             );
         }
 
-        $permission = "{$this->config->securityNamespace()}.{$controller}";
+        $actionPermission = "{$this->config->guardNamespace()}.{$controller}";
 
-        if (!$this->guard()->allows($permission, compact('action'))) {
+        if (!$this->getGuard()->allows($actionPermission, compact('action'))) {
             throw new ControllerException(
                 "Unreachable vault controller '{$controller}'",
                 ControllerException::FORBIDDEN
             );
         }
 
-        return $this->execute($controller, $action, $parameters);
-    }
-
-    /**
-     * Perform vault specific string translation.
-     *
-     * @param string $string
-     * @param array  $options
-     * @return string
-     */
-    public function translate($string, array $options = [])
-    {
-        return $this->say($string, $options);
+        //Delegate controller call to real application
+        return $this->app->callAction(
+            $this->config->controllerClass($controller),
+            $action,
+            $parameters,
+            $scope + [Vault::class => $this]
+        );
     }
 
     /**
@@ -155,10 +107,12 @@ class Vault extends Component implements CoreInterface, SingletonInterface
      * @param string      $target Target controller and action in a form of "controller::action" or
      *                            "controller:action" or "controller".
      * @param array|mixed $parameters
+     *
      * @return UriInterface
+     *
      * @throws VaultException
      */
-    public function uri($target, $parameters = [])
+    public function uri(string $target, $parameters = []): UriInterface
     {
         $controller = $action = '';
         if (strpos($target, ':') !== false) {
@@ -173,56 +127,10 @@ class Vault extends Component implements CoreInterface, SingletonInterface
             }
         }
 
-        if (!isset($this->config->controllers()[$controller])) {
-            throw new VaultException(
-                "Unable to generate uri, undefined controller '{$controller}'."
-            );
+        if (!$this->config->hasController($controller)) {
+            throw new VaultException("Unable to generate uri, undefined controller '{$controller}'");
         }
 
         return $this->route->withDefaults(compact('controller', 'action'))->uri($parameters);
-    }
-
-    /**
-     * @return VaultRoute
-     */
-    protected function createRoute()
-    {
-        return $this->config->createRoute($this->routeName)->withCore($this);
-    }
-
-    /**
-     * @param string $controller
-     * @param string $action
-     * @param array  $parameters
-     * @return mixed
-     * @throws ControllerException
-     */
-    protected function execute($controller, $action, array $parameters)
-    {
-        $benchmark = $this->benchmark('callAction', $controller . '::' . ($action ?: '~default~'));
-
-        $scope = $this->container->replace(Vault::class, $this);
-        $this->controller = $controller;
-
-        try {
-            //Initiating controller with all required dependencies
-            $object = $this->container->make(
-                $this->config->controllers()[$controller]
-            );
-
-            if (!$object instanceof ControllerInterface) {
-                throw new ControllerException(
-                    "Invalid '{$controller}', ControllerInterface not implemented.",
-                    ControllerException::NOT_FOUND
-                );
-            }
-
-            return $object->callAction($action, $parameters);
-        } finally {
-            $this->benchmark($benchmark);
-
-            $this->container->restore($scope);
-            $this->controller = '';
-        }
     }
 }
