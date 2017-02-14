@@ -77,15 +77,15 @@ class VaultConfig extends InjectableConfig
         return $this->config['controllers'][$controller];
     }
 
-//    /**
-//     * Vault navigation structure including sections, permissions, titles and etc.
-//     *
-//     * @return array
-//     */
-//    public function navigationSections()
-//    {
-//        return $this->config['navigation'];
-//    }
+    /**
+     * Vault navigation structure including sections, permissions, titles and etc.
+     *
+     * @return array
+     */
+    public function navigationSections(): array
+    {
+        return $this->config['navigation'];
+    }
 
     /**
      * @param string $name

@@ -5,15 +5,22 @@
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
-namespace Spiral\Vault\Navigation;
 
-use Spiral\Security\GuardInterface;
+namespace Spiral\Vault\Models;
 
-/**
- * @todo get badge class (dynamic value)
- */
-class Item
+use Spiral\Core\Component;
+use Spiral\Translator\Traits\TranslatorTrait;
+use Spiral\Vault\Vault;
+
+class Item extends Component
 {
+    use TranslatorTrait;
+
+    /**
+     * @var Vault
+     */
+    private $vault;
+
     /**
      * @var string
      */
@@ -32,8 +39,9 @@ class Item
      * @param string $target
      * @param array  $options
      */
-    public function __construct($target, array $options)
+    public function __construct(Vault $vault, string $target, array $options)
     {
+        $this->vault = $vault;
         $this->target = $target;
         $this->item = $options;
     }
@@ -41,7 +49,7 @@ class Item
     /**
      * @return string
      */
-    public function getTarget()
+    public function getTarget(): string
     {
         return $this->target;
     }
@@ -49,24 +57,20 @@ class Item
     /**
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
-        return $this->item['title'];
+        return $this->say($this->item['title']);
     }
 
     /**
-     * Check if item is allowed to be displayed.
+     * Check if item is visible.
      *
-     * @param GuardInterface $guard
      * @return bool
      */
-    public function isAllowed(GuardInterface $guard)
+    public function isVisible(): bool
     {
-        if (!isset($this->item['requires'])) {
-            //No display protection
-            return true;
-        }
-
-        return $guard->allows($this->item['requires']);
+        return $this->vault->getGuard()->allows(
+            "{$this->vault->getConfig()->guardNamespace()}.{$this->getTarget()}"
+        );
     }
 }

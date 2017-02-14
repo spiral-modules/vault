@@ -8,17 +8,18 @@
 
 namespace Spiral\Vault\Models;
 
-use Spiral\Security\GuardInterface;
+use Spiral\Core\Component;
+use Spiral\Translator\Traits\TranslatorTrait;
+use Spiral\Vault\Vault;
 
-/**
- * @todo get badge class (dynamic value)
- */
-class Section
+class Section extends Component
 {
+    use TranslatorTrait;
+
     /**
-     * @var GuardInterface
+     * @var Vault
      */
-    private $guard = null;
+    private $vault = null;
 
     /**
      * @var array
@@ -36,16 +37,16 @@ class Section
     private $items = [];
 
     /**
-     * @param GuardInterface $guard
-     * @param array          $section
+     * @param Vault $vault
+     * @param array $section
      */
-    public function __construct(GuardInterface $guard, array $section)
+    public function __construct(Vault $vault, array $section)
     {
-        $this->guard = $guard;
+        $this->vault = $vault;
         $this->section = $section;
 
         foreach ($this->section['items'] as $target => $item) {
-            $this->items[] = new Item($target, $item);
+            $this->items[] = new Item($vault, $target, $item);
         }
     }
 
@@ -54,15 +55,15 @@ class Section
      *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
-        return $this->section['title'];
+        return $this->say($this->section['title']);
     }
 
     /**
      * @return string
      */
-    public function getIcon()
+    public function getIcon(): string
     {
         return $this->section['icon'];
     }
@@ -72,10 +73,10 @@ class Section
      *
      * @return bool
      */
-    public function isAvailable()
+    public function isAvailable(): bool
     {
         foreach ($this->items as $item) {
-            if ($item->isAllowed($this->guard)) {
+            if ($item->isVisible()) {
                 return true;
             }
         }
@@ -91,7 +92,7 @@ class Section
      *
      * @return bool
      */
-    public function hasController($controller)
+    public function hasController(string $controller): bool
     {
         foreach ($this->items as $item) {
             if (
@@ -108,7 +109,7 @@ class Section
     /**
      * @return Item[]
      */
-    public function getItems()
+    public function getItems(): array
     {
         return $this->items;
     }

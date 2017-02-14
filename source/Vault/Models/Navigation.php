@@ -8,46 +8,56 @@
 
 namespace Spiral\Vault\Models;
 
-use Spiral\Security\GuardInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Spiral\Core\Component;
+use Spiral\Vault\Vault;
 
-class Navigation
+class Navigation extends Component
 {
     /**
-     * Guard is needed to show only allowed navigation sections and items.
+     * Associated vault instance.
      *
-     * @var GuardInterface
+     * @var Vault
      */
-    private $guard = null;
+    private $vault;
 
     /**
-     * Navigation sections list.
+     * Currently active request (for uri resolution).
      *
-     * @var array
+     * @var ServerRequestInterface
      */
-    private $sections = [];
+    private $request;
 
     /**
-     * Navigation constructor.
-     *
-     * @param GuardInterface $guard
-     * @param array          $sections
+     * @param \Spiral\Vault\Vault                      $vault
+     * @param \Psr\Http\Message\ServerRequestInterface $request
      */
-    public function __construct(GuardInterface $guard, array $sections)
+    public function __construct(Vault $vault, ServerRequestInterface $request)
     {
-        $this->guard = $guard;
-        $this->sections = $sections;
+        $this->vault = $vault;
+        $this->request = $request;
+    }
+
+    /**
+     * Currently active controller.
+     *
+     * @return string
+     */
+    public function getController(): string
+    {
+        return $this->request->getAttribute('route')->getMatches()['controller'];
     }
 
     /**
      * Get all navigation sections. This is generator.
      *
      * @generator
-     * @return \Generator
+     * @return \Generator|Section[]
      */
     public function getSections(): \Generator
     {
-        foreach ($this->sections as $section) {
-            yield new Section($this->guard, $section);
+        foreach ($this->vault->getConfig()->navigationSections() as $section) {
+            yield new Section($this->vault, $section);
         }
     }
 }

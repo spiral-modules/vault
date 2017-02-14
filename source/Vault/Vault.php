@@ -10,7 +10,6 @@ namespace Spiral\Vault;
 
 use Psr\Http\Message\UriInterface;
 use Spiral\Core\Component;
-use Spiral\Core\Container\SingletonInterface;
 use Spiral\Core\Exceptions\ControllerException;
 use Spiral\Core\HMVC\CoreInterface;
 use Spiral\Security\Traits\GuardedTrait;
@@ -21,7 +20,7 @@ use Spiral\Vault\Exceptions\VaultException;
  * Vault Core provides ability to whitelist controllers, map their short names and aliases into
  * specific class and automatically check Actor permission to execute any of controller actions.
  */
-class Vault extends Component implements CoreInterface, SingletonInterface
+class Vault extends Component implements CoreInterface
 {
     use GuardedTrait;
 
@@ -128,7 +127,7 @@ class Vault extends Component implements CoreInterface, SingletonInterface
             }
         }
 
-        if ($this->config->hasController($controller)) {
+        if (!$this->config->hasController($controller)) {
             throw new VaultException("Unable to generate uri, undefined controller '{$controller}'");
         }
 

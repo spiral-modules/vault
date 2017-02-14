@@ -12,6 +12,9 @@
     "spiral/toolkit": "^0.9"
   },
   "autoload": {
+    "files": [
+      "source/functions.php"
+    ],
     "psr-4": {
       "Spiral\\": "source/"
     }

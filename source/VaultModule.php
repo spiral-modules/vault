@@ -43,7 +43,7 @@ class VaultModule implements ModuleInterface
     public function publish(PublisherInterface $publisher, DirectoriesInterface $directories)
     {
         $publisher->publish(
-            __DIR__ . '/resources/config.php',
+            __DIR__ . '/../resources/config.php',
             $directories->directory('config') . 'modules/vault.php',
             PublisherInterface::FOLLOW
         );

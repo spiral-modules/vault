@@ -11,7 +11,9 @@ return [
      * Every controller access will be checked under following permissions namespace. For example
      * access to TestController mounted under name "test" will be checked as "vault.test".
      */
-    'guardNamespace' => 'vault',
+    'guard'       => [
+        'namespace' => 'vault'
+    ],
 
     /*
      * List of controller classes associated with their alias to be available for vault. No other
@@ -23,36 +25,9 @@ return [
      * @see VaultCore
      */
     'controllers' => [
-        'dashboard' => \Spiral\Vault\Controllers\WelcomeController::class,
+        'welcome' => \Spiral\Vault\Controllers\WelcomeController::class,
 
         /*{{controllers}}*/
-    ],
-
-    /*
-     * Structure of vault navigation including sections, section icons, links, link badges
-     * and permissions needed to view link. Link labels will be translated using i18n domain
-     * "vault".
-     */
-    'navigation'  => [
-        /*
-         * Project overview and activity.
-         */
-        'activity' => [
-            'title' => 'Overview and Activity',
-            'icon'  => 'tab',
-            'items' => [
-                'dashboard' => [
-                    //Navigation label
-                    'title'    => 'Dashboard',
-
-                    //Permission needed to show this navigation section
-                    'requires' => 'vault.dashboard'
-                ],
-                /*{{navigation.activity}}*/
-            ]
-        ],
-
-        /*{{navigation}}*/
     ],
 
     /*
@@ -77,7 +52,7 @@ return [
          * Default route values.
          */
         'defaults'    => [
-            'controller' => 'dashboard'
+            'controller' => 'welcome'
         ],
 
         /*
@@ -85,5 +60,29 @@ return [
          * vault.website.com[/<controller>[/<action>[/<id>[/<operation>[/<childID>]]]]]
          */
         'matchHost'   => false
-    ]
+    ],
+
+    /*
+     * Structure of vault navigation including sections, section icons, links, link badges
+     * and permissions needed to view link. Link labels will be translated using i18n domain
+     * "vault".
+     */
+    'navigation'  => [
+        /*
+         * Project overview and activity.
+         */
+        'activity' => [
+            'title' => 'Overview and Activity',
+            'icon'  => 'tab',
+            'items' => [
+                'welcome' => [
+                    //Navigation label
+                    'title' => 'Welcome to Vault'
+                ],
+                /*{{navigation.activity}}*/
+            ]
+        ],
+
+        /*{{navigation}}*/
+    ],
 ];

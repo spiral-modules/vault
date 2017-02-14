@@ -9,7 +9,8 @@
 namespace Spiral\Vault\Bootloaders;
 
 use Spiral\Core\Bootloaders\Bootloader;
-use Spiral\Core\ContainerInterface;
+use Spiral\Core\Container\SingletonInterface;
+use Spiral\Core\HMVC\CoreInterface;
 use Spiral\Http\HttpDispatcher;
 use Spiral\Vault\Configs\VaultConfig;
 use Spiral\Vault\Vault;
@@ -18,7 +19,7 @@ use Spiral\Vault\Vault;
  * Boots vault administration panel bindings and routes. You can always extend this bootloader and
  * disable booting to register route manually.
  */
-class VaultBootloader extends Bootloader
+class VaultBootloader extends Bootloader implements SingletonInterface
 {
     const BOOT = true;
 
@@ -46,13 +47,13 @@ class VaultBootloader extends Bootloader
     }
 
     /**
-     * @param VaultConfig        $config
-     * @param ContainerInterface $container
+     * @param VaultConfig   $config
+     * @param CoreInterface $core
      *
      * @return Vault
      */
-    protected function makeVault(VaultConfig $config, ContainerInterface $container): Vault
+    protected function makeVault(VaultConfig $config, CoreInterface $core): Vault
     {
-        return new Vault($config, $this->route, $container);
+        return new Vault($config, $this->route, $core);
     }
 }
