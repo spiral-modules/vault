@@ -52,14 +52,6 @@ class Vault extends Component implements CoreInterface
     }
 
     /**
-     * @return VaultRoute
-     */
-    public function getRoute()
-    {
-        return $this->route;
-    }
-
-    /**
      * @return VaultConfig
      */
     public function getConfig(): VaultConfig
