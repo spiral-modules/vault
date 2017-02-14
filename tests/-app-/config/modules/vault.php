@@ -86,7 +86,10 @@ return [
             'title' => 'Sample Controllers',
             'icon'  => 'tab',
             'items' => [
-                'sample' => ['title' => 'Sample Controllers'],
+                'sample' => [
+                    'title'      => 'Sample Controllers',
+                    'permission' => 'vault.sample'
+                ],
 
                 /*{{navigation.activity}}*/
             ]

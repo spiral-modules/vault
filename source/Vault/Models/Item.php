@@ -31,9 +31,9 @@ class Item extends Component
      * @var array
      */
     private $item = [
-        'title'    => '',
-        'badge'    => '',
-        'requires' => '',
+        'title'      => '',
+        'badge'      => '',
+        'permission' => '',
     ];
 
     /**
@@ -78,6 +78,10 @@ class Item extends Component
      */
     public function isVisible(): bool
     {
+        if (!empty($this->item['permission'])) {
+            return $this->vault->getGuard()->allows($this->item['permission']);
+        }
+
         //Remove :action
         $target = current(explode(':', $this->getTarget()));
 
