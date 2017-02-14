@@ -1,5 +1,10 @@
 <dark:extends path="vault:layout" title="Vault, Visual Elements"/>
-
+<?php
+/**
+ * @var \Spiral\Vault\Controllers\Grids\SampleSource $grid
+ * @var array                                        $item
+ */
+?>
 <block:content>
     <tab:wrapper>
         <tab:item id="form" title="Sample Form" icon="input">
@@ -70,7 +75,12 @@
         </tab:item>
 
         <tab:item id="grid" title="Grids and Paginators" icon="list">
-
+            <vault:grid source="<?= $grid ?>" as="item">
+                <grid:cell label="ID:" value="<?= $item['id'] ?>"/>
+                <grid:cell.bool label="Active:" value="<?= $item['active'] ?>"/>
+                <grid:cell label="Name:" value="<?= $item['name'] ?>"/>
+                <grid:cell.number label="Balance:" value="<?= $item['balance'] ?>"/>
+            </vault:grid>
         </tab:item>
     </tab:wrapper>
 </block:content>

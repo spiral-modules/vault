@@ -9,6 +9,7 @@
 namespace Spiral\Vault\Controllers;
 
 use Spiral\Core\Controller;
+use Spiral\Vault\Controllers\Grids\SampleSource;
 use Spiral\Vault\Controllers\Requests\WelcomeRequest;
 
 /**
@@ -29,7 +30,9 @@ class WelcomeController extends Controller
      */
     public function visualsAction()
     {
-        return $this->views->render('vault:welcome/visuals');
+        return $this->views->render('vault:welcome/visuals', [
+            'grid' => (new SampleSource())->paginate(2)
+        ]);
     }
 
     /**

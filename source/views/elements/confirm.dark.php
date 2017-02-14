@@ -2,15 +2,18 @@
 $this->runtimeVariable('_uri_parameters_', '${parameters}${data}${options}');
 ?>
 <?php
+//Link with configuration popup
+
 /**
- * @var mixed $_uri__parameters_
+ * @var mixed $_uri_parameters_
  */
 $uri = vault()->uri(
     '${href}${target}',
     !empty($_uri_parameters_) ? $_uri_parameters_ : []
 )->withFragment('${fragment}${section}${segment}');
 ?>
-<a href="<?= (string)$uri ?>" node:attributes><?php #compile
+<a href="<?= (string)$uri ?>" class="js-vault-confirm ${class}"
+   data-confirm="${confirm|Are you sure?}" node:attributes><?php #compile
     //Render link icon, but only if specified
     ob_start(); ?>${icon}<?php #compile
     if (!empty(ob_get_clean())) {
