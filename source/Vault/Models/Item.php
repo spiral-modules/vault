@@ -78,8 +78,11 @@ class Item extends Component
      */
     public function isVisible(): bool
     {
+        //Remove :action
+        $target = current(explode(':', $this->getTarget()));
+
         return $this->vault->getGuard()->allows(
-            "{$this->vault->getConfig()->guardNamespace()}.{$this->getTarget()}"
+            "{$this->vault->getConfig()->guardNamespace()}.{$target}"
         );
     }
 }

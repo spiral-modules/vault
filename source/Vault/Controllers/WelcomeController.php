@@ -20,6 +20,14 @@ class WelcomeController extends Controller
      */
     public function indexAction()
     {
-        return $this->views->render('vault:welcome');
+        return $this->views->render('vault:welcome/index');
+    }
+
+    /**
+     * @return string
+     */
+    public function visualsAction()
+    {
+        return $this->views->render('vault:welcome/visuals');
     }
 }

@@ -66,19 +66,19 @@ return [
      * Structure of vault navigation including sections, section icons, links, link badges
      * and permissions needed to view link. Link labels will be translated using i18n domain
      * "vault".
+     *
+     * Note that all links are automatically checked with Guard based on associated controller name.
      */
     'navigation'  => [
         /*
          * Project overview and activity.
          */
-        'activity' => [
-            'title' => 'Overview and Activity',
+        'vault' => [
+            'title' => 'Vault',
             'icon'  => 'tab',
             'items' => [
-                'welcome' => [
-                    //Navigation label
-                    'title' => 'Welcome to Vault'
-                ],
+                'welcome' => ['title' => 'Welcome to Vault'],
+
                 /*{{navigation.activity}}*/
             ]
         ],
