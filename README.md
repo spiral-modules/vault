@@ -135,10 +135,19 @@ composer require spiral/vault
 spiral register spiral/vault
 ```
 
-Do not forget to mount `VaultBootloader` (bootloader has to be initated after `SecutiryBootloader`).
+Add following bootloader to your application
+```php
+[
+    \Spiral\Vault\Bootloaders\VaultBootloader::class
+]
+```
 
 > You can tweak Vault behaviour (route, middlewares), create new navigation sections or register your own controllers via `app/config/modules/vault.php` configuration file.
 
-If you wish to play with Vault without configuring security rules, simply mount `InsecureVaultBootloader` bootloader, attention this bootloader will open Vault access to guest accounts and has to be used for debugging purposes only.
+If you wish to play with Vault without configuring security rules (development only):
 
-Once installed Vault module will be accessible by a route pattern specified in a related config (default **localhost:8080/vault**).
+```php
+[
+    \Spiral\Vault\Bootloaders\InsecureBootloader::class
+]
+```
