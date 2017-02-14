@@ -8,6 +8,7 @@
 
 namespace Spiral\Vault\Models;
 
+use Psr\Http\Message\UriInterface;
 use Spiral\Core\Component;
 use Spiral\Translator\Traits\TranslatorTrait;
 use Spiral\Vault\Vault;
@@ -60,6 +61,14 @@ class Item extends Component
     public function getTitle(): string
     {
         return $this->say($this->item['title']);
+    }
+
+    /**
+     * @return UriInterface
+     */
+    public function getUri(): UriInterface
+    {
+        return $this->vault->uri($this->getTarget());
     }
 
     /**

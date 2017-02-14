@@ -22,8 +22,8 @@ class VaultModule implements ModuleInterface
     {
         $registrator->configure('views', 'namespaces', 'spiral/vault', [
             "'vault' => [",
-            "   directory('libraries') . 'spiral/vault/source/views/',",
             "   directory('application') . 'views/vault/',",
+            "   directory('libraries') . 'spiral/vault/source/views/',",
             "   /*{{namespaces.vault}}*/",
             "]"
         ]);

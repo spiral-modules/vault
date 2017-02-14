@@ -27,7 +27,7 @@
                                 continue;
                             }
 
-                            echo "<a href=\"{$vault->uri($item->getTarget())}\">{$item->getTitle()}</a>";
+                            echo "<a href=\"{$item->getUri()}\">{$item->getTitle()}</a>";
                         }
                         ?>
                     </div>
