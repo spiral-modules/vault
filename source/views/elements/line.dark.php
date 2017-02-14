@@ -1,2 +1,2 @@
 <dt>${name}</dt>
-<dd>${value}${context}</dd>
+<dd node:attributes>${value}${context}</dd>
