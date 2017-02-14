@@ -9,11 +9,9 @@ namespace Spiral\Tests;
 
 use Spiral\Security\ActorInterface;
 use Spiral\Security\Actors\Guest;
-use Spiral\Security\Rules\AllowRule;
-use Spiral\Security\Rules\ForbidRule;
 use Spiral\Vault\Bootloaders\InsecureBootloader;
 
-class BasicAccessTest extends HttpTest
+class AccessTest extends HttpTest
 {
     public function testVaultWelcomeForbidden()
     {

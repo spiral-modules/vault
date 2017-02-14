@@ -8,7 +8,7 @@ Vault, Secure HMVC Core and Visual Layout
 
 <b>[Documentation](http://spiral-framework.com/guide)</b> | [CHANGELOG](/CHANGELOG.md) | [Framework Bundle](https://github.com/spiral/spiral)
 
-Vault administration panel provides ability use regular application controllers inside [Security enviroment](https://github.com/spiral-modules/security) with set of pre-created visual elements like grids, tabs, forms and other. 
+Vault administration panel provides ability use regular application controllers inside [Security enviroment](https://github.com/spiral/security) with set of pre-created visual elements like grids, tabs, forms and other. 
 
 Vault module is based on a set of [Materialize CSS](http://materializecss.com/) styles.
 
@@ -135,7 +135,7 @@ composer require spiral/vault
 spiral register spiral/vault
 ```
 
-Add following bootloader to your application
+Add following bootloader to your application:
 ```php
 [
     \Spiral\Vault\Bootloaders\VaultBootloader::class

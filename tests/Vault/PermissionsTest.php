@@ -40,7 +40,7 @@ class PermissionsTest extends HttpTest
         $response = $this->get('/vault/welcome');
         $this->assertSame(200, $response->getStatusCode());
         $this->assertContains('Welcome to Vault', (string)$response->getBody());
-        $this->assertContains('Sample Controller', (string)$response->getBody());
+        $this->assertContains('Sample Controllers', (string)$response->getBody());
         $this->assertContains('Links and Routing', (string)$response->getBody());
     }
 
@@ -98,7 +98,7 @@ class PermissionsTest extends HttpTest
         $response = $this->get('/vault/welcome');
         $this->assertSame(200, $response->getStatusCode());
         $this->assertContains('Welcome to Vault', (string)$response->getBody());
-        $this->assertNotContains('Sample Controller', (string)$response->getBody());
+        $this->assertNotContains('Sample Controllers', (string)$response->getBody());
         $this->assertNotContains('Links and Routing', (string)$response->getBody());
     }
 }
