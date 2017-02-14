@@ -76,10 +76,8 @@ return [
             'title' => 'Overview and Activity',
             'icon'  => 'tab',
             'items' => [
-                'welcome' => [
-                    //Navigation label
-                    'title' => 'Welcome to Vault'
-                ],
+                'welcome'         => ['title' => 'Welcome to Vault'],
+                'welcome:visuals' => ['title' => 'Visual Elements'],
                 /*{{navigation.activity}}*/
             ]
         ],
@@ -89,9 +87,10 @@ return [
             'icon'  => 'tab',
             'items' => [
                 'sample' => [
-                    //Navigation label
-                    'title' => 'Sample Controllers'
+                    'title'      => 'Sample Controllers',
+                    'permission' => 'vault.sample'
                 ],
+
                 /*{{navigation.activity}}*/
             ]
         ],

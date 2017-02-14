@@ -17,6 +17,7 @@ $__tabHeaders__[] = ob_get_clean();
 //Tabulation body.
 ob_start();
 ?>
+<?php $_tab_id_ = '${id}'; ?>
 <div class="tab ${class}" id="${id}">
     ${context}
 </div>

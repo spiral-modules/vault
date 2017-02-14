@@ -34,6 +34,42 @@ class AccessTest extends HttpTest
         $this->assertContains('Links and Routing', (string)$response->getBody());
     }
 
+    public function testVaultWelcomeVisuals()
+    {
+        $this->app->container->bind(ActorInterface::class, new Guest());
+        $this->app->getBootloader()->bootload([
+            InsecureBootloader::class
+        ]);
+
+        $response = $this->get('/vault/welcome/visuals');
+        $this->assertSame(200, $response->getStatusCode());
+    }
+
+    public function testVaultWelcomeSubmit()
+    {
+        $this->app->container->bind(ActorInterface::class, new Guest());
+        $this->app->getBootloader()->bootload([
+            InsecureBootloader::class
+        ]);
+
+        $response = $this->post('/vault/welcome/submit');
+        $this->assertSame(400, $response->getStatusCode());
+    }
+
+    public function testVaultWelcomeSubmitSuccess()
+    {
+        $this->app->container->bind(ActorInterface::class, new Guest());
+        $this->app->getBootloader()->bootload([
+            InsecureBootloader::class
+        ]);
+
+        $response = $this->post('/vault/welcome/submit', [
+            'name'   => 'Name',
+            'status' => 'active'
+        ]);
+        $this->assertSame(200, $response->getStatusCode());
+    }
+
     /**
      * @expectedException \Spiral\Core\Exceptions\ControllerException
      * @expectedExceptionMessage Undefined vault controller 'undefined'
