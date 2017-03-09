@@ -8,7 +8,7 @@
 <block:styles>
     <asset:style href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 
-    <toolkit:styles/>
+    <asset:style src="/resources/styles/spiral/spiral.css"/>
     <asset:style href="/resources/styles/spiral/vault/vault.css"/>
 </block:styles>
 
@@ -16,7 +16,14 @@
     <asset:script href="/resources/vendor/jquery-2.2.0.min.js"/>
     <asset:script href="/resources/vendor/materialize.min.js"/>
 
-    <toolkit:scripts/>
+    <asset:script href="/resources/scripts/spiral/sf.js"/>
+    <asset:script href="/resources/scripts/spiral/sf.locker.js"/>
+    <asset:script href="/resources/scripts/spiral/sf.form.js"/>
+    <asset:script href="/resources/scripts/spiral/sf.input.js"/>
+    <asset:script href="/resources/scripts/spiral/sf.date.js"/>
+    <asset:script href="/resources/scripts/spiral/sf.datetime.js"/>
+    <asset:script href="/resources/scripts/spiral/sf.fileinput.js"/>
+
     <asset:script href="/resources/scripts/spiral/vault.js"/>
 </block:scripts>
 

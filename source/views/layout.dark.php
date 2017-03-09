@@ -1,4 +1,4 @@
-<dark:extends path="vault:layouts/root"/>
+<dark:extends path="vault:layouts/vault"/>
 <dark:use path="vault:layouts/navigation" as="vault:navigation"/>
 
 <define:brand>
