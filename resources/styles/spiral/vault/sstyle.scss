@@ -557,6 +557,10 @@ textarea.materialize-textarea:focus.valid {
   box-shadow: none;
 }
 
+.dropdown-content.select-dropdown {
+  padding: 0;
+}
+
 .select-wrapper input.select-dropdown {
   margin-bottom: 0;
 }
@@ -773,6 +777,10 @@ textarea {
 
   @media #{$small-and-down} {
   overflow-x: auto;
+  }
+
+  .tab {
+    position: static;
   }
 
   .tab a:hover {
@@ -1000,6 +1008,9 @@ table.responsive-table td[colspan] {
 
 .side-nav.fixed {
   padding-bottom: 70px;
+  .collapsible-body {
+
+  }
 }
 
 
@@ -1033,4 +1044,3 @@ textarea,
 .select-wrapper input.select-dropdown {
   padding: 10px 30px 10px 10px;
 }
-
