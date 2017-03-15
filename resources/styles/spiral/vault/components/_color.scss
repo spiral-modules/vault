@@ -6,6 +6,18 @@
 
 // Google Color Palette defined: http://www.google.com/design/spec/style/color.html
 
+$spiral: (
+  "lighten-5":  #bfe1fa,
+  "lighten-4":  #99cff7,
+  "lighten-3":  #74bef3,
+  "lighten-2":  #4dabf0,
+  "lighten-1":  #279aed,
+  "base":       #0188ea,
+  "darken-1":   #0174c7,
+  "darken-2":   #015fa3,
+  "darken-3":   #014b80,
+  "darken-4":   #00365e,
+);
 
 $materialize-red: (
   "base":       #e51c23,
@@ -338,6 +350,7 @@ $shades: (
 );
 
 $colors: (
+  "spiral": $spiral,
   "materialize-red": $materialize-red,
   "red": $red,
   "pink": $pink,

@@ -1044,3 +1044,18 @@ textarea,
 .select-wrapper input.select-dropdown {
   padding: 10px 30px 10px 10px;
 }
+
+
+//materialize overwrites
+
+
+@media #{$medium-and-up} {
+  .container {
+    width: 90%;
+  }
+}
+@media #{$large-and-up} {
+  .container {
+    width: 90%;
+  }
+}
