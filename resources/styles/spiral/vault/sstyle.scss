@@ -759,17 +759,31 @@ textarea {
 }
 
 /*paginator*/
-.pagination li {
-  float: none;
-  border: 0;
-  border-radius: 0;
-
-  &.active {
+.pagination {
+  padding: 10px 0;
+  li {
+    float: none;
+    border: 0;
+    border-radius: 2px;
+    text-align: center;
+    vertical-align: top;
+    height: 28px;
+    margin: 0 1px;
+    &:first-child {
+      border-left: 0;
+    }
     a {
-      background: none;
+      font-size: 1.0rem;
+      line-height: 28px;
+    }
+    &.active {
+      a {
+        background: none;
+      }
     }
   }
 }
+
 
 /*fix tabs bug*/
 .tabs {
