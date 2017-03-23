@@ -9,7 +9,7 @@ $__tabContent__ = [];
 //Collecting tab headers and content
 ob_start(); ?>${context}<?php ob_get_clean(); #compile
 ?>
-<ul class="tabs z-depth-1 ${class}">
+<ul class="tabs z-depth-1 tabs-fixed-width ${class}">
     <?php #compile
     foreach ($__tabHeaders__ as $__header__) {
         echo $__header__;
