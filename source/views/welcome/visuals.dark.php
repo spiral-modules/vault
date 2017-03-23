@@ -161,6 +161,15 @@
                 <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/800/400/food/3"></a>
                 <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/800/400/food/4"></a>
             </div>
+
+            <vault:form action="#" title="Form Demo">
+                <form:input label="[[Input:]]" name="input" />
+                <form:textarea label="[[Textarea:]]" name="textarea" value=""/>
+                <form:select label="[[Select:]]" name="select" values="<?= [l('No'), l('Yes')] ?>"/>
+                <div class="right-align">
+                    <input type="submit" value="${submit|[[SAVE]]}" class="btn teal waves-effect waves-light"/>
+                </div>
+            </vault:form>
         </tab:item>
     </tab:wrapper>
 </block:content>
