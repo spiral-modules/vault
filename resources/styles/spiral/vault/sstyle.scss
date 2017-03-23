@@ -295,7 +295,7 @@ table thead th {
   font-size: 1.2rem;
   color: $color-text;
 }
-
+select.browser-default { height: auto;}
 .input-field.file-field label {
   top: 0;
   left: 0;
@@ -527,6 +527,7 @@ input[type=datetime-local],
 input[type=tel],
 input[type=number],
 input[type=search],
+select,
 textarea,
 .select-wrapper input.select-dropdown {
   border: 1px solid #b9b9b9;
