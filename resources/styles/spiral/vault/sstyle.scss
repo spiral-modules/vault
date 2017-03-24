@@ -1,7 +1,7 @@
 $color-text: #3a3a3a;
 
-@import "components/_color.scss";
-@import "components/_variables.scss";
+@import "~materialize-css/sass/components/_color.scss";
+@import "~materialize-css/sass/components/_variables.scss";
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -17,6 +17,7 @@ body {
 
 ul {
   padding: 0;
+
   li {
     padding: 0;
   }
@@ -25,9 +26,10 @@ ul {
 .navbar-fixed {
   z-index: 1000;
 }
+
 .nav-header {
   height: $navbar-height;
-  background: #ffffff;
+  background: #fff;
 
   .logo-block {
     width: 300px;
@@ -55,12 +57,15 @@ ul {
     margin-left: 300px;
 
     a {
+
       text: {
         transform: uppercase;
         decoration: none;
       }
+
       color: $color-text;
       position: relative;
+
       font: {
         size: 13px;
         weight: bold;
@@ -74,7 +79,6 @@ ul {
   }
 }
 
-
 .user-block {
   position: absolute;
   right: 15px;
@@ -82,7 +86,6 @@ ul {
   height: $navbar-height;
 
   a {
-    color: $color-text;
     font-size: 16px;
     text-transform: none;
     font-weight: normal;
@@ -104,21 +107,18 @@ ul {
 
 .navigation {
   width: 300px;
-
   position: fixed;
   background: #3a3a3a;
-  padding: 120px 0 0 0 ;
+  padding: 120px 0 0;
   overflow: auto;
 
   .panel {
     .panel-heading {
-      padding: 0;
       font-size: 16px;
       line-height: 23px;
       position: relative;
-      color: #aaaaaa;
+      color: #aaa;
       padding: 10px 20px;
-      position: relative;
 
       + .panel-collapse {
         border: 0;
@@ -127,6 +127,7 @@ ul {
         border-left: 4px solid $primary-color;
       }
     }
+
     .menu-list a {
       color: #fff;
       padding: 15px 20px 15px 60px;
@@ -149,7 +150,7 @@ main {
 
   @media #{$large-and-up} {
     &.wide-content {
-    padding: 55px 45px 100px 345px;
+      padding: 55px 45px 100px 345px;
 
       .container {
         width: auto;
@@ -157,17 +158,14 @@ main {
         margin: 0;
       }
     }
+
     .container {
       max-width: 1024px;
       margin: 0;
     }
   }
 
-
-
-
   .head-part {
-
     .row {
       margin-bottom: 0;
     }
@@ -205,7 +203,7 @@ main {
   font-size: 18px;
 }
 
-/*typography*/
+/* Typography rules */
 h1 {
   font-size: 2rem;
   margin-top: 0;
@@ -219,7 +217,7 @@ dl {
     display: block;
     float: left;
     width: 135px;
-    padding: 12px 0px 13px 18px;
+    padding: 12px 0 13px 18px;
     color: #3a3a3a;
     font-weight: bold;
   }
@@ -265,6 +263,7 @@ dl {
       width: 60%;
       padding-right: 10px;
     }
+
     dd {
       margin-left: 60%;
 
@@ -290,17 +289,20 @@ table thead th {
   vertical-align: sub;
 }
 
-/*form*/
+/* Form styles */
 .input-field label {
   font-size: 1.2rem;
   color: $color-text;
 }
-select.browser-default { height: auto;}
+
+select.browser-default {
+  height: auto;
+}
+
 .input-field.file-field label {
   top: 0;
   left: 0;
 }
-
 
 a.button-collapse.top-nav {
   position: absolute;
@@ -334,17 +336,19 @@ a.button-collapse.top-nav {
     border-radius: 2px;
 
     &.line-1 {
-      transition: all .2s ease-out;
+      transition: all 0.2s ease-out;
       width: 30px;
       top: 20px;
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
     }
+
     &.line-2 {
       top: 27px;
     }
+
     &.line-3 {
-      transition: all .2s ease-out;
+      transition: all 0.2s ease-out;
       width: 30px;
       top: 34px;
       -webkit-transform: rotate(0deg);
@@ -354,7 +358,7 @@ a.button-collapse.top-nav {
 
   &.active b {
     &.line-1 {
-      transition: all .2s ease-out;
+      transition: all 0.2s ease-out;
       top: 33px;
       width: 17px;
       -webkit-transform: rotate(-30deg);
@@ -362,7 +366,7 @@ a.button-collapse.top-nav {
     }
 
     &.line-3 {
-      transition: all .2s ease-out;
+      transition: all 0.2s ease-out;
       top: 41px;
       width: 17px;
       -webkit-transform: rotate(30deg);
@@ -370,6 +374,7 @@ a.button-collapse.top-nav {
     }
   }
 }
+
 @media #{$medium-and-down} {
   .main-part {
     padding: 80px 0;
@@ -389,6 +394,7 @@ a.button-collapse.top-nav {
       }
     }
   }
+
   table tbody td {
     padding: 15px 5px;
   }
@@ -399,7 +405,6 @@ a.button-collapse.top-nav {
     width: 200px;
     float: none;
     margin: 0 auto;
-
   }
 
   .nav-header .top-panel {
@@ -420,20 +425,20 @@ a.button-collapse.top-nav {
       }
     }
   }
+
   .menu-link {
-
     b {
-
       &.line-1 {
         top: 30px;
       }
+
       &.line-2 {
         top: 37px;
       }
+
       &.line-3 {
         top: 44px;
       }
-
     }
   }
 }
@@ -443,7 +448,6 @@ a.button-collapse.top-nav {
     width: 200px;
     float: none;
     margin: 0 auto;
-
   }
 
   .user-block a i {
@@ -458,7 +462,6 @@ a.button-collapse.top-nav {
     margin: 0;
 
     .menu-link {
-      height: 100%;
       display: block;
       width: 50px;
       height: 80px;
@@ -506,7 +509,7 @@ a.button-collapse.top-nav {
     a {
       display: block;
       height: 100%;
-      width :100%;
+      width: 100%;
     }
   }
 }
@@ -515,7 +518,7 @@ td, th {
   padding: 15px 10px;
 }
 
-// form
+// Form inputs
 input:not([type]),
 input[type=text],
 input[type=password],
@@ -574,7 +577,7 @@ textarea.materialize-textarea:focus.valid {
   margin-bottom: 0;
 }
 
-.select-wrapper span.caret{
+.select-wrapper span.caret {
   right: 15px;
   top: 13px;
   color: #9b9b9b;
@@ -610,16 +613,17 @@ textarea.materialize-textarea:focus:not([readonly]) {
   padding-bottom: 0;
 }
 
-
-/*alert styles*/
+/* Alert Styles */
 
 .alert.form-msg {
   background: transparent;
   font-size: 14px;
+
   border: {
     bottom: 2px solid transparent;
     radius: 0;
   }
+
   padding-left: 0;
 
   .btn-close {
@@ -644,32 +648,31 @@ textarea.materialize-textarea:focus:not([readonly]) {
     color: #fc6c6c;
     border-bottom-color: #fc6c6c;
 
-   .btn-close {
+    .btn-close {
       color: #fc6c6c;
     }
   }
 
   &.warning {
-    color: #FF9800;
-    border-bottom-color:#FF9800;
+    color: #ff9800;
+    border-bottom-color: #ff9800;
 
-     .btn-close {
-      color: #FF9800;
+    .btn-close {
+      color: #ff9800;
     }
   }
 
-   &.info{
-    color: #42A5F5;
-    border-bottom-color: #42A5F5;
+  &.info {
+    color: #42a5f5;
+    border-bottom-color: #42a5f5;
 
     .btn-close {
-      color: #42A5F5;
+      color: #42a5f5;
     }
   }
 }
 
 label.item-form {
-
   .alert {
     margin: 0;
     padding: 0;
@@ -690,6 +693,7 @@ label.item-form {
       border-bottom: transparent;
     }
   }
+
   &.success {
     color: #009788;
 
@@ -707,33 +711,33 @@ label.item-form {
   }
 
   &.info {
-    color: #42A5F5;
+    color: #42a5f5;
 
     .item-input,
     .select-dropdown,
     .item-label,
     textarea {
-      border-color: #42A5F5;
+      border-color: #42a5f5;
     }
 
     .form-msg {
-      color: #42A5F5;
+      color: #42a5f5;
       border-bottom: transparent;
     }
   }
 
   &.warning {
-    color: #FF9800;
+    color: #ff9800;
 
     .item-input,
     .select-dropdown,
     .item-label,
     textarea {
-      border-color: #FF9800;
+      border-color: #ff9800;
     }
 
     .form-msg {
-      color: #FF9800;
+      color: #ff9800;
       border-bottom: transparent;
     }
   }
@@ -758,18 +762,20 @@ textarea {
   margin-bottom: 0;
   color: #666;
 }
+
 .dropdown-content li {
   padding-bottom: 0;
 
   > a,
-  > span  {
+  > span {
     padding: 10px 16px;
   }
 }
 
-/*paginator*/
+/* Paginator Styles */
 .pagination {
   padding: 10px 0;
+
   li {
     float: none;
     border: 0;
@@ -778,13 +784,16 @@ textarea {
     vertical-align: top;
     height: 28px;
     margin: 0 1px;
+
     &:first-child {
       border-left: 0;
     }
+
     a {
-      font-size: 1.0rem;
+      font-size: 1rem;
       line-height: 28px;
     }
+
     &.active {
       a {
         background: none;
@@ -793,13 +802,12 @@ textarea {
   }
 }
 
-
-/*fix tabs bug*/
+/* Fix Tabs Bug TODO: Check if deprecated in this materialize version */
 .tabs {
   overflow-x: hidden;
 
   @media #{$small-and-down} {
-  overflow-x: auto;
+    overflow-x: auto;
   }
 
   .tab {
@@ -815,7 +823,7 @@ textarea {
   }
 }
 
-/*fix input button*/
+/* Fix input button */
 .waves-effect input[type="button"],
 .waves-effect input[type="reset"],
 .waves-effect input[type="submit"] {
@@ -827,7 +835,7 @@ textarea {
   padding: 0;
 }
 
-/*cropper*/
+/* Cropper Styles */
 
 .item-file {
   position: relative;
@@ -838,6 +846,7 @@ textarea {
     bottom: 0;
     left: 0;
   }
+
   .sf-crop-filename {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -855,11 +864,11 @@ textarea {
 
   &:hover {
     background: transparent;
-    opacity: .7;
+    opacity: 0.7;
   }
 }
 
-.file-field.input-field .btn{
+.file-field.input-field .btn {
   margin-right: 10px;
   text-align: center;
 
@@ -875,7 +884,7 @@ textarea {
   }
 }
 
-/*listing*/
+/* Listing Styles */
 .user-name {
   display: inline-block;
   margin-left: 15px;
@@ -885,7 +894,7 @@ textarea {
   }
 }
 
-/* login page */
+/* Login Page */
 .login-page {
   padding: 100px 0;
   position: relative;
@@ -910,9 +919,8 @@ textarea {
     display: block;
   }
 
-  .logo-block{
-
-    a{
+  .logo-block {
+    a {
       margin: 0 auto 20px;
       width: 200px;
       display: block;
@@ -924,7 +932,7 @@ textarea {
     }
   }
 
-  .container{
+  .container {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
@@ -956,7 +964,6 @@ textarea {
 
 .flash-wrapper {
   position: fixed;
-  bottom: 40px;
   width: 288px;
   right: 10px;
   -webkit-transition-duration: 0.7s;
@@ -981,11 +988,13 @@ textarea {
     &.info {
       background: #212121;
     }
+
     &.debug {
-      background: #FF9800;
+      background: #ff9800;
     }
+
     &.danger {
-      background: #DD2C00;
+      background: #dd2c00;
     }
   }
 }
@@ -1018,7 +1027,6 @@ table.responsive-table td[colspan] {
   &.active {
     box-shadow: none;
   }
-
 }
 
 .collapsible-body {
@@ -1031,11 +1039,7 @@ table.responsive-table td[colspan] {
 
 .side-nav.fixed {
   padding-bottom: 70px;
-  .collapsible-body {
-
-  }
 }
-
 
 input:not([type]),
 input[type=text],
@@ -1059,6 +1063,7 @@ textarea,
     height: 36px;
     line-height: 36px;
   }
+
   .alert.form-msg.error {
     border-bottom: 0;
   }
@@ -1068,15 +1073,14 @@ textarea,
   padding: 10px 30px 10px 10px;
 }
 
-
 //materialize overwrites
-
 
 @media #{$medium-and-up} {
   .container {
     width: 90%;
   }
 }
+
 @media #{$large-and-up} {
   .container {
     width: 90%;
