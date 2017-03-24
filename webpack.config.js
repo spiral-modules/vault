@@ -53,5 +53,16 @@ module.exports = {
       loaders.woff2,
       loaders.ttf
     ]
+  },
+  externals: {
+    "materialize-css": {
+      commonjs: "materialize-css",
+      commonjs2: "materialize-css"
+    },
+    "jquery": {
+      commonjs: "jquery",
+      commonjs2: "jquery",
+      root: "jQuery"
+    }
   }
 };
