@@ -7,11 +7,6 @@ exports.eslint = {
   exclude: /node_modules/
 };
 
-exports.stylelint = {
-  test: /\.css|less|scss$/,
-  loader: 'style-loader!css-loader?-url&sourceMap'
-};
-
 exports.css = {
   test: /\.css$/,
   loader: 'style-loader!css-loader?-url&sourceMap'

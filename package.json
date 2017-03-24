@@ -10,13 +10,10 @@
   "main": "resources/index.js",
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "npm run lint && npm run build:prod",
+    "build": "npm run build:prod",
     "build:prod": "cross-env NODE_ENV=production webpack -p",
     "build:dev": "cross-env NODE_ENV=development webpack -p",
     "clean": "rimraf /resources/index.js",
-    "lint": "npm run lint-js && npm run lint-styles",
-    "lint-styles": "stylelint \"./resources/**/*.scss\"",
-    "lint-js": "eslint \"./resources/**/*.js\"",
     "prepublish": "npm run build",
     "clean-after-deploy": "rimraf node_modules/"
   },
