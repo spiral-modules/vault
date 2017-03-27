@@ -1,5 +1,5 @@
 {
-  "name": "spiralscout-vault",
+  "name": "spiral-vault",
   "version": "0.0.1",
   "description": "SpiralScout Vault Scripts Compilation",
   "license": "MIT",
@@ -20,7 +20,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git@github.com:spiral/application.git"
+    "url": "git@github.com:spiral-modules/vault.git"
   },
   "bugs": {
     "url": "https://red.spiralscout.com/projects/spiral-cms/issues"
