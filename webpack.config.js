@@ -16,7 +16,10 @@ module.exports = {
     filename: '[name].js',
     publicPath: '/',
     sourceMapFilename: '[name].js.map',
-    chunkFilename: '[id].chunk.js'
+    chunkFilename: '[id].chunk.js',
+    libraryTarget: "umd",
+    library: "spiral-vault",
+    umdNamedDefine: true
   },
 
   devtool: process.env.NODE_ENV === 'production' ?
