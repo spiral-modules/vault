@@ -42,6 +42,7 @@ module.exports = {
 
   module: {
     rules: [
+      loaders.jsmap,
       loaders.eslint,
 
       loaders.js,
