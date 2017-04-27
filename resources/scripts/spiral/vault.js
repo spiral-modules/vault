@@ -17,6 +17,7 @@ $(document).ready(function() {
     );
 
     $('.button-collapse').on('click', function() {
+        // eslint-disable-next-line
         $(this).toggleClass('active');
     });
 

@@ -8,7 +8,8 @@ const plugins = require('./webpack/plugins');
 module.exports = {
 
   entry: {
-      index: ['./resources/index.source.js']
+      'vault': ['./resources/vault.full.source.js'],
+      'vault-no-styles': ['./resources/vault.no-styles.source.js']
   },
 
   output: {
