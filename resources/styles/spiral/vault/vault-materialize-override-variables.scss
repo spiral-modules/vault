@@ -76,6 +76,7 @@ $primary-color-dark: darken($primary-color, 15%);
 $badge-bg-color: $secondary-color;
 $button-background-focus: lighten($secondary-color, 4%);
 $button-raised-background: $secondary-color;
+$button-raised-background-hover: lighten($button-raised-background, 5%);
 $button-floating-background: $secondary-color;
 $datepicker-weekday-bg: darken($secondary-color, 7%);
 $datepicker-date-bg: $secondary-color;
@@ -97,10 +98,6 @@ $footer-bg-color: $primary-color;
 $tabs-underline-color: $primary-color-light;
 $tabs-text-color: $primary-color;
 // END: Copy from materialize
-
-.side-nav a {
-  display: block;
-}
 
 /**
  END: Materialize overrides
