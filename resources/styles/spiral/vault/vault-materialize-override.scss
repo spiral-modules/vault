@@ -70,6 +70,34 @@ $success-color: color("green", "base");
 $error-color: color("red", "base");
 $link-color: spiral-color("spiral", "darken-2");
 
+// START: Copy from materialize
+$primary-color-light: lighten($primary-color, 15%);
+$primary-color-dark: darken($primary-color, 15%);
+$badge-bg-color: $secondary-color;
+$button-background-focus: lighten($secondary-color, 4%);
+$button-raised-background: $secondary-color;
+$button-floating-background: $secondary-color;
+$datepicker-weekday-bg: darken($secondary-color, 7%);
+$datepicker-date-bg: $secondary-color;
+$datepicker-selected: $secondary-color;
+$datepicker-selected-outfocus: desaturate(lighten($secondary-color, 35%), 15%);
+$dropdown-color: $secondary-color;
+$input-focus-color: $secondary-color;
+$radio-fill-color: $secondary-color;
+$radio-border: 2px solid $radio-fill-color;
+$select-focus: 1px solid lighten($secondary-color, 47%);
+$switch-checked-lever-bg: desaturate(lighten($secondary-color, 25%), 25%);
+$switch-bg-color: $secondary-color;
+$spinner-default-color: $secondary-color;
+$collection-active-bg-color: $secondary-color;
+$collection-active-color: lighten($secondary-color, 55%);
+$collection-link-color: $secondary-color;
+$progress-bar-color: $secondary-color;
+$footer-bg-color: $primary-color;
+$tabs-underline-color: $primary-color-light;
+$tabs-text-color: $primary-color;
+// END: Copy from materialize
+
 .side-nav a {
   display: block;
 }
