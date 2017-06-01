@@ -1,0 +1,79 @@
+@import "~materialize-css/sass/components/_color.scss";
+@import "~materialize-css/sass/components/_variables.scss";
+
+/**
+ START: Materialize overrides
+*/
+$spiral: (
+  "lighten-5": #bfe1fa,
+  "lighten-4": #99cff7,
+  "lighten-3": #74bef3,
+  "lighten-2": #4dabf0,
+  "lighten-1": #279aed,
+  "base": #0188ea,
+  "darken-1": #0174c7,
+  "darken-2": #015fa3,
+  "darken-3": #014b80,
+  "darken-4": #00365e,
+);
+
+$spiral-colors: (
+  "spiral": $spiral
+);
+
+// Color Classes
+
+@each $color_name, $color in $spiral-colors {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .#{$color_name} {
+        background-color: $color_value !important;
+      }
+
+      .#{$color_name}-text {
+        color: $color_value !important;
+      }
+    }
+
+    @else if $color_name != "shades" {
+      .#{$color_name}.#{$color_type} {
+        background-color: $color_value !important;
+      }
+
+      .#{$color_name}-text.text-#{$color_type} {
+        color: $color_value !important;
+      }
+    }
+  }
+}
+
+// usage: spiral-color("name_of_color", "type_of_color")
+// to avoid to repeating map-get($colors, ...)
+
+@function spiral-color($color, $type) {
+  @if map-has-key($spiral-colors, $color) {
+    $curr_color: map-get($spiral-colors, $color);
+
+    @if map-has-key($curr_color, $type) {
+      @return map-get($curr_color, $type);
+    }
+  }
+
+  @warn "Unknown `#{name}` in $spiral-colors.";
+
+  @return null;
+}
+
+$primary-color: spiral-color("spiral", "darken-2");
+$secondary-color: spiral-color("spiral", "base");
+$success-color: color("green", "base");
+$error-color: color("red", "base");
+$link-color: spiral-color("spiral", "darken-2");
+
+.side-nav a {
+  display: block;
+}
+
+/**
+ END: Materialize overrides
+*/
