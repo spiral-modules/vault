@@ -26,10 +26,10 @@
     "url": "https://red.spiralscout.com/projects/spiral-cms/issues"
   },
   "peerDependencies": {
-    "materialize-css": "spiral/materialize"
+    "materialize-css": "^0.98.1"
   },
   "dependencies": {
-    "materialize-css": "spiral/materialize"
+    "materialize-css": "^0.98.1"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
