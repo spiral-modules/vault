@@ -26,7 +26,7 @@
     "url": "https://red.spiralscout.com/projects/spiral-cms/issues"
   },
   "peerDependencies": {
-    "materialize-css": "^0.98.1"
+    "materialize-css": "spiral/materialize"
   },
   "dependencies": {
     "materialize-css": "spiral/materialize"
