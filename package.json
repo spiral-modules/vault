@@ -29,7 +29,7 @@
     "materialize-css": "^0.98.1"
   },
   "dependencies": {
-    "materialize-css": "^0.98.1"
+    "materialize-css": "spiral/materialize"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
