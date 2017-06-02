@@ -60,6 +60,7 @@
     "stylelint-config-standard": "^16.0.0",
     "stylelint-webpack-plugin": "^0.7.0",
     "url-loader": "^0.5.6",
+    "velocity-animate": "^1.5.0",
     "webpack": "^2.3.1"
   }
 }
