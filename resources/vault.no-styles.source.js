@@ -1,4 +1,4 @@
-require('jquery');
+window.jQuery = window.$ = require('jquery');
 require('materialize-css');
 require('./scripts/spiral/vault');
 
