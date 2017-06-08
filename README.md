@@ -138,7 +138,8 @@ spiral register spiral/vault
 Add following bootloader to your application:
 ```php
 [
-    \Spiral\Vault\Bootloaders\VaultBootloader::class
+    \Spiral\Listing\Bootloaders\ListingsBootloader::class,
+    \Spiral\Vault\Bootloaders\VaultBootloader::class,
 ]
 ```
 
@@ -148,6 +149,7 @@ If you wish to play with Vault without configuring security rules (development o
 
 ```php
 [
+    \Spiral\Listing\Bootloaders\ListingsBootloader::class,
     \Spiral\Vault\Bootloaders\VaultBootloader::class,
     \Spiral\Vault\Bootloaders\InsecureBootloader::class
 ]
