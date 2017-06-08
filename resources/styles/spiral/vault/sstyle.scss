@@ -14,6 +14,14 @@ html {
 body {
   color: $color-text;
 }
+
+ul {
+  padding: 0;
+  li {
+    padding: 0;
+  }
+}
+
 .navbar-fixed {
   z-index: 1000;
 }
@@ -287,7 +295,7 @@ table thead th {
   font-size: 1.2rem;
   color: $color-text;
 }
-
+select.browser-default { height: auto;}
 .input-field.file-field label {
   top: 0;
   left: 0;
@@ -519,6 +527,7 @@ input[type=datetime-local],
 input[type=tel],
 input[type=number],
 input[type=search],
+select,
 textarea,
 .select-wrapper input.select-dropdown {
   border: 1px solid #b9b9b9;
@@ -555,6 +564,10 @@ input[type=search]:focus.valid,
 textarea.materialize-textarea.valid,
 textarea.materialize-textarea:focus.valid {
   box-shadow: none;
+}
+
+.dropdown-content.select-dropdown {
+  padding: 0;
 }
 
 .select-wrapper input.select-dropdown {
@@ -755,17 +768,31 @@ textarea {
 }
 
 /*paginator*/
-.pagination li {
-  float: none;
-  border: 0;
-  border-radius: 0;
-
-  &.active {
+.pagination {
+  padding: 10px 0;
+  li {
+    float: none;
+    border: 0;
+    border-radius: 2px;
+    text-align: center;
+    vertical-align: top;
+    height: 28px;
+    margin: 0 1px;
+    &:first-child {
+      border-left: 0;
+    }
     a {
-      background: none;
+      font-size: 1.0rem;
+      line-height: 28px;
+    }
+    &.active {
+      a {
+        background: none;
+      }
     }
   }
 }
+
 
 /*fix tabs bug*/
 .tabs {
@@ -773,6 +800,10 @@ textarea {
 
   @media #{$small-and-down} {
   overflow-x: auto;
+  }
+
+  .tab {
+    position: static;
   }
 
   .tab a:hover {
@@ -1000,6 +1031,9 @@ table.responsive-table td[colspan] {
 
 .side-nav.fixed {
   padding-bottom: 70px;
+  .collapsible-body {
+
+  }
 }
 
 
@@ -1034,3 +1068,17 @@ textarea,
   padding: 10px 30px 10px 10px;
 }
 
+
+//materialize overwrites
+
+
+@media #{$medium-and-up} {
+  .container {
+    width: 90%;
+  }
+}
+@media #{$large-and-up} {
+  .container {
+    width: 90%;
+  }
+}

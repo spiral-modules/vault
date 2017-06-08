@@ -21,7 +21,7 @@ if (
     $_helper_ = spiral(\Spiral\Toolkit\PaginationHelper::class);
     ?>
     <div class="paginator">
-        <ul class="pagination ${class}" node:attributes="exclude:context">
+        <ul class="pagination ${class} ${align | center}-align" node:attributes="exclude:context">
             <?php
             if (!empty($_page_ = $_paginator_->previousPage())) {
                 echo "<li class=\"waves-effect\"><a href=\"{$_helper_->uri($_paginator_, $_page_)}{$_uri_fragment_}\"><i class=\"material-icons\">chevron_left</i></a></li>";

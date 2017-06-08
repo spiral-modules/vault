@@ -148,6 +148,7 @@ If you wish to play with Vault without configuring security rules (development o
 
 ```php
 [
+    \Spiral\Vault\Bootloaders\VaultBootloader::class,
     \Spiral\Vault\Bootloaders\InsecureBootloader::class
 ]
 ```

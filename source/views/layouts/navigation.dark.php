@@ -18,7 +18,7 @@
             <div class="panel-heading collapsible-header <?= $activeSection ? 'active' : '' ?> waves-effect waves-spiral">
                 <i class="material-icons"><?= $section->getIcon() ?></i><?= $section->getTitle() ?>
             </div>
-            <div class="panel-collapse collapsible-body">
+            <div class="panel-collapse collapsible-body no-padding">
                 <div class="panel-body">
                     <div class="menu-list">
                         <?php
