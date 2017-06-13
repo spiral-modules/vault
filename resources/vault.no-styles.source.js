@@ -1,6 +1,6 @@
 window.jQuery = window.$ = require('jquery');
 window.Hammer = require('hammerjs');
-require('velocity-animate');
+window.jQuery.Velocity = require('velocity-animate');
 require('materialize-css');
 require('./scripts/spiral/vault');
 
