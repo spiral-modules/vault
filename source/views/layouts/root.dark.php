@@ -25,6 +25,7 @@
     <asset:script href="/resources/scripts/spiral/sf.fileinput.js"/>
 
     <asset:script href="/resources/scripts/spiral/vault.js"/>
+    <asset:script href="/resources/scripts/sf.listing.js"/>
 </block:scripts>
 
 <!--Primary page content-->
