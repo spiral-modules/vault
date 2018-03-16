@@ -9,4 +9,4 @@
 <dark:use path="vault:elements/uri" as="vault:link"/>
 <dark:use path="vault:elements/uri" as="vault:a"/>
 
-<dark:use path="vault:line" as="info:line"/>
+<dark:use path="vault:elements/line" as="info:line"/>
