@@ -9,6 +9,7 @@
     }
   ],
   "require": {
+    "php": ">=7.1",
     "spiral/framework": "^1.0",
     "spiral/toolkit": "^0.9.11",
     "spiral/listing": "^0.9.1"
