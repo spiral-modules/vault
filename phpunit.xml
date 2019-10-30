@@ -3,25 +3,24 @@
          backupGlobals="false"
          backupStaticAttributes="false"
          colors="true"
-         verbose="true"
+         verbose="false"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
          stopOnError="false"
-         syntaxCheck="true"
-         stderr="true"
 >
+
     <testsuites>
-        <testsuite name="Vault Module Tests">
+        <testsuite name="Control panel Domain Core">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>source/Vault</directory>
+            <directory>src</directory>
         </whitelist>
     </filter>
 </phpunit>
